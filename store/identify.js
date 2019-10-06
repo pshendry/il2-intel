@@ -1,37 +1,152 @@
-const AIRCRAFT = [
-  { country: 'Germany', type: 'Bf 109', variant: 'F4', class: 'light', slideCount: 2 },
-  { country: 'Germany', type: 'Fw 190', variant: 'A3', class: 'light', slideCount: 0 },
-  { country: 'Germany', type: 'MC.202', variant: 'Series VIII', class: 'light', slideCount: 0 },
-  { country: 'Russia', type: 'I-16', variant: 'Type 24', class: 'light', slideCount: 0 },
-  { country: 'Russia', type: 'La-5', variant: 'Series 8', class: 'light', slideCount: 0 },
-  { country: 'Russia', type: 'Yak-1', variant: 'Series 69', class: 'light', slideCount: 0 },
-];
+import { groupBy, sortBy } from 'lodash';
+
+export const AIRCRAFT = [
+  { dlc: 'BoK', faction: 'allies', type: 'A-20', variant: 'A-20B', class: 'heavy', slideCount: 0 },
+  { dlc: 'BoM', faction: 'allies', type: 'I-16', variant: 'I-16 Type 24', class: 'light', slideCount: 0 },
+  { dlc: 'BoS', faction: 'allies', type: 'La-5', variant: 'La-5 Series 8', class: 'light', slideCount: 0 },
+  { dlc: 'BoS', faction: 'allies', type: 'LaGG-3', variant: 'LaGG-3 Series 29', class: 'light', slideCount: 0 },
+  { dlc: 'BoM', faction: 'allies', type: 'IL-2', variant: 'IL-2 (model 1941)', class: 'medium', slideCount: 0 },
+  { dlc: 'BoS', faction: 'allies', type: 'IL-2', variant: 'IL-2 (model 1942)', class: 'medium', slideCount: 0 },
+  { dlc: 'BoK', faction: 'allies', type: 'IL-2', variant: 'IL-2 (model 1943)', class: 'medium', slideCount: 0 },
+  { dlc: 'BoM', faction: 'allies', type: 'MiG-3', variant: 'MiG-3 Series 24', class: 'light', slideCount: 0 },
+  { dlc: 'BoB', faction: 'allies', type: 'P-38', variant: 'P-38J', class: 'medium', slideCount: 0 },
+  { dlc: 'BoK', faction: 'allies', type: 'P-39', variant: 'P-39L-1', class: 'light', slideCount: 0 },
+  { dlc: 'BoM', faction: 'allies', type: 'P-40', variant: 'P-40E-1', class: 'light', slideCount: 0 },
+  { dlc: 'BoB', faction: 'allies', type: 'P-47', variant: 'P-47D', class: 'light', slideCount: 0 },
+  { dlc: 'BoB', faction: 'allies', type: 'P-51', variant: 'P-51D', class: 'light', slideCount: 0 },
+  { dlc: 'BoM', faction: 'allies', type: 'Pe-2', variant: 'Pe-2 Series 35', class: 'heavy', slideCount: 0 },
+  { dlc: 'BoS', faction: 'allies', type: 'Pe-2', variant: 'Pe-2 Series 87', class: 'heavy', slideCount: 0 },
+  { dlc: 'BoK', faction: 'allies', type: 'Spitfire', variant: 'Spitfire Mk.VB', class: 'light', slideCount: 0 },
+  { dlc: 'BoB', faction: 'allies', type: 'Spitfire', variant: 'Spitfire Mk.IX', class: 'light', slideCount: 0 },
+  { dlc: 'BoB', faction: 'allies', type: 'Tempest', variant: 'Tempest Mk.V', class: 'light', slideCount: 0 },
+  { dlc: 'BoS', faction: 'allies', type: 'Yak-1', variant: 'Yak-1 Series 69', class: 'light', slideCount: 30 },
+  { dlc: 'BoK', faction: 'allies', type: 'Yak-7b', variant: 'Yak-7b Series 36', class: 'light', slideCount: 0 },
+  { dlc: 'BoM', faction: 'axis', type: 'Bf 109', variant: 'Bf 109 E-7', class: 'light', slideCount: 0 },
+  { dlc: 'BoM', faction: 'axis', type: 'Bf 109', variant: 'Bf 109 F-2', class: 'light', slideCount: 0 },
+  { dlc: 'BoS', faction: 'axis', type: 'Bf 109', variant: 'Bf 109 F-4', class: 'light', slideCount: 2 },
+  { dlc: 'BoS', faction: 'axis', type: 'Bf 109', variant: 'Bf 109 G-2', class: 'light', slideCount: 29 },
+  { dlc: 'BoK', faction: 'axis', type: 'Bf 109', variant: 'Bf 109 G-4', class: 'light', slideCount: 0 },
+  { dlc: 'BoB', faction: 'axis', type: 'Bf 109', variant: 'Bf 109 G-14', class: 'light', slideCount: 0 },
+  { dlc: 'BoB', faction: 'axis', type: 'Bf 109', variant: 'Bf 109 K-4', class: 'light', slideCount: 0 },
+  { dlc: 'BoM', faction: 'axis', type: 'Bf 110', variant: 'Bf 110 E-2', class: 'medium', slideCount: 0 },
+  { dlc: 'BoK', faction: 'axis', type: 'Bf 110', variant: 'Bf 110 G-2', class: 'medium', slideCount: 0 },
+  { dlc: 'BoS', faction: 'axis', type: 'Fw 190', variant: 'Fw 190 A-3', class: 'light', slideCount: 0 },
+  { dlc: 'BoK', faction: 'axis', type: 'Fw 190', variant: 'Fw 190 A-5', class: 'light', slideCount: 0 },
+  { dlc: 'BoB', faction: 'axis', type: 'Fw 190', variant: 'Fw 190 A-8', class: 'light', slideCount: 0 },
+  { dlc: 'BoB', faction: 'axis', type: 'Fw 190', variant: 'Fw 190 D-9', class: 'light', slideCount: 0 },
+  { dlc: 'BoS', faction: 'axis', type: 'He 111', variant: 'He 111 H-6', class: 'heavy', slideCount: 0 },
+  { dlc: 'BoK', faction: 'axis', type: 'He 111', variant: 'He 111 H-16', class: 'heavy', slideCount: 0 },
+  { dlc: 'BoK', faction: 'axis', type: 'Hs 129', variant: 'Hs 129 B-2', class: 'heavy', slideCount: 0 },
+  { dlc: 'BoS', faction: 'axis', type: 'Ju 87', variant: 'Ju 87 D-3', class: 'light', slideCount: 0 },
+  { dlc: 'BoM', faction: 'axis', type: 'Ju 88', variant: 'Ju 88 A-4', class: 'heavy', slideCount: 0 },
+  { dlc: 'BoM', faction: 'axis', type: 'MC.202', variant: 'MC.202 Series VIII', class: 'light', slideCount: 0 },
+  { dlc: 'BoB', faction: 'axis', type: 'Me 262', variant: 'Me 262', class: 'medium', slideCount: 0 },
+].map((a, i) => ({ ...a, id: i }));
+
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = randomInt(0, i);
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+function randomSample(count, collection) {
+  return shuffleArray(collection).slice(0, count);
+}
 
 export const state = () => ({
-  currentAircraft: null,
-  currentSlide: null,
+  currentAircraftId: null,
+  currentSlideId: null,
+  aircraftOptionIds: [],
   pastSlides: AIRCRAFT.map(_ => []),
+  selectedFaction: null,
+  selectedAircraftId: null,
 });
 
 export const getters = {
   currentAircraft(state) {
-    return AIRCRAFT[state.currentAircraft];
+    return state.currentAircraftId !== null ? AIRCRAFT[state.currentAircraftId] : null;
+  },
+
+  aircraftOptions(state) {
+    return state.aircraftOptionIds.map(i => AIRCRAFT[i]);
+  },
+
+  stage(state, getters) {
+    if (state.selectedFaction === null) {
+      return 'faction';
+    } else if (state.selectedAircraftId === null && getters.selectionIsCorrect) {
+      return 'variant';
+    } else {
+      return 'reveal';
+    }
+  },
+
+  selectionIsCorrect(state) {
+    let result = true;
+
+    if (state.selectedFaction !== null) {
+      result = result && state.selectedFaction === AIRCRAFT[state.currentAircraftId].faction;
+    }
+    if (state.selectedAircraftId !== null) {
+      result = result && state.selectedAircraftId === state.currentAircraftId;
+    }
+
+    return result;
   },
 };
 
 export const mutations = {
   setRandomSlide(state) {
-    if (state.currentAircraft !== null && state.currentSlide !== null) {
-      state.pastSlides[state.currentAircraft].push(state.currentSlide);
+    // Clear selections
+    state.selectedFaction = null;
+    state.selectedAircraftId = null;
+
+    // Add the current slide to `pastSlides`, and reset `pastSlides` if necessary
+    if (state.currentAircraftId !== null && state.currentSlideId !== null) {
+      const totalSlideCount = AIRCRAFT.reduce((sum, a) => sum + a.slideCount, 0);
+      const pastSlideCount = state.pastSlides.reduce((sum, ps) => sum + ps.length, 0);
+      if (totalSlideCount - pastSlideCount <= 1) {
+        state.pastSlides = AIRCRAFT.map(_ => []);
+      }
+      state.pastSlides[state.currentAircraftId].push(state.currentSlideId);
     }
 
-    let aircraft, slide;
+    // Select a new slide
+    let aircraftId, slideId;
     do {
-      aircraft = 0; // TODO: pick randomly
-      slide = AIRCRAFT[aircraft].slideCount > 0 ? Math.floor(Math.random() * AIRCRAFT[aircraft].slideCount) : null;
-      // TODO: Detect when this will loop forever
-    } while (slide === null || state.pastSlides[aircraft].includes(slide));
-    state.currentAircraft = aircraft;
-    state.currentSlide = slide;
+      aircraftId = randomInt(0, AIRCRAFT.length - 1);
+      slideId = AIRCRAFT[aircraftId].slideCount > 0 ? randomInt(0, AIRCRAFT[aircraftId].slideCount - 1) : null;
+    } while (slideId === null || state.pastSlides[aircraftId].includes(slideId));
+    state.currentAircraftId = aircraftId;
+    state.currentSlideId = slideId;
+
+    // Select options to choose from
+    const aircraftByType = groupBy(
+      AIRCRAFT.filter(a => a.faction === AIRCRAFT[aircraftId].faction && a.type !== AIRCRAFT[aircraftId].type),
+      a => a.type
+    );
+    const chosenTypes = randomSample(5, Object.keys(aircraftByType));
+    state.aircraftOptionIds = sortBy(
+      chosenTypes
+        .map(type => {
+          return AIRCRAFT.indexOf(aircraftByType[type][randomInt(0, aircraftByType[type].length - 1)]);
+        })
+        .concat([state.currentAircraftId]),
+      i => AIRCRAFT[i].variant
+    );
+  },
+
+  selectFaction(state, faction) {
+    state.selectedFaction = faction;
+  },
+
+  selectAircraft(state, aircraftId) {
+    state.selectedAircraftId = aircraftId;
   },
 };
