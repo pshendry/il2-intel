@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+set -e
+
+BRANCH=web
+DIR=$(dirname "$0")
+cd $DIR/..
+
+if [[ $(git status -s) ]]
+then
+    echo "The working directory is dirty. Please commit any pending changes."
+    exit 1;
+fi
+
+echo "Deleting old deployment"
+rm -rf dist
+mkdir dist
+git worktree prune
+
+echo "Checking out '$BRANCH' branch into dist"
+git worktree add -B web dist origin/$BRANCH
+
+echo "Removing existing files"
+rm -rf dist/*
+
+echo "Generating site"
+npm run generate
+
+echo "Updating '$BRANCH' branch"
+cd dist
+git add --all
+git commit -m "Publish via script"
+git push
