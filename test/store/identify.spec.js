@@ -49,11 +49,13 @@ describe('identity Vuex module', () => {
         expect(state.pastSlides.every(ps => ps.length == 0)).toBeTruthy();
       });
 
-      test('updates `pastSlides` when a current slide exists', () => {
+      test('updates `pastSlides`', () => {
         const state = {
           ...defaultState(),
-          currentAircraftId: 1,
-          currentSlideId: 2,
+          currentAircraftId: null,
+          currentSlideId: null,
+          nextAircraftId: 1,
+          nextSlideId: 2,
         };
 
         mutations.setRandomSlide(state);
@@ -61,17 +63,36 @@ describe('identity Vuex module', () => {
         expect(state.pastSlides[1]).toEqual([2]);
       });
 
-      test('sets the current aircraft/slide state', () => {
+      test('sets the next aircraft/slide state', () => {
         const state = defaultState();
 
         mutations.setRandomSlide(state);
 
-        expect(state.currentAircraftId).not.toBeNull();
-        expect(state.currentSlideId).not.toBeNull();
+        expect(state.nextAircraftId).not.toBeNull();
+        expect(state.nextSlideId).not.toBeNull();
+      });
+
+      test('moves next aircraft/slide to current', () => {
+        const state = {
+          ...defaultState(),
+          currentAircraftId: null,
+          currentSlideId: null,
+          nextAircraftId: 1,
+          nextSlideId: 2,
+        };
+
+        mutations.setRandomSlide(state);
+
+        expect(state.currentAircraftId).toEqual(1);
+        expect(state.currentSlideId).toEqual(2);
       });
 
       test('sets aircraftOptions to a random list of 6 options containing the current aircraft', () => {
-        const state = defaultState();
+        const state = {
+          ...defaultState(),
+          nextAircraftId: 1,
+          nextSlideId: 2,
+        };
 
         mutations.setRandomSlide(state);
 

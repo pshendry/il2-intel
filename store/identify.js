@@ -62,6 +62,8 @@ function randomSample(count, collection) {
 export const state = () => ({
   currentAircraftId: null,
   currentSlideId: null,
+  nextAircraftId: null,
+  nextSlideId: null,
   aircraftOptionIds: [],
   pastSlides: AIRCRAFT.map(_ => []),
   selectedFaction: null,
@@ -71,6 +73,10 @@ export const state = () => ({
 export const getters = {
   currentAircraft(state) {
     return state.currentAircraftId !== null ? AIRCRAFT[state.currentAircraftId] : null;
+  },
+
+  nextAircraft(state) {
+    return state.nextAircraftId !== null ? AIRCRAFT[state.nextAircraftId] : null;
   },
 
   aircraftOptions(state) {
@@ -108,38 +114,47 @@ export const mutations = {
     state.selectedAircraftId = null;
 
     // Add the current slide to `pastSlides`, and reset `pastSlides` if necessary
-    if (state.currentAircraftId !== null && state.currentSlideId !== null) {
+    if (state.nextAircraftId !== null && state.nextSlideId !== null) {
       const totalSlideCount = AIRCRAFT.reduce((sum, a) => sum + a.slideCount, 0);
       const pastSlideCount = state.pastSlides.reduce((sum, ps) => sum + ps.length, 0);
       if (totalSlideCount - pastSlideCount <= 1) {
         state.pastSlides = AIRCRAFT.map(_ => []);
       }
-      state.pastSlides[state.currentAircraftId].push(state.currentSlideId);
+      state.pastSlides[state.nextAircraftId].push(state.nextSlideId);
     }
 
-    // Select a new slide
+    // Replace current slide with "next" slide
+    state.currentAircraftId = state.nextAircraftId;
+    state.currentSlideId = state.nextSlideId;
+
+    // Select the new "next" aircraft/slide
     let aircraftId, slideId;
     do {
       aircraftId = randomInt(0, AIRCRAFT.length - 1);
       slideId = AIRCRAFT[aircraftId].slideCount > 0 ? randomInt(0, AIRCRAFT[aircraftId].slideCount - 1) : null;
     } while (slideId === null || state.pastSlides[aircraftId].includes(slideId));
-    state.currentAircraftId = aircraftId;
-    state.currentSlideId = slideId;
+    state.nextAircraftId = aircraftId;
+    state.nextSlideId = slideId;
 
     // Select options to choose from
-    const aircraftByType = groupBy(
-      AIRCRAFT.filter(a => a.faction === AIRCRAFT[aircraftId].faction && a.type !== AIRCRAFT[aircraftId].type),
-      a => a.type
-    );
-    const chosenTypes = randomSample(5, Object.keys(aircraftByType));
-    state.aircraftOptionIds = sortBy(
-      chosenTypes
-        .map(type => {
-          return AIRCRAFT.indexOf(aircraftByType[type][randomInt(0, aircraftByType[type].length - 1)]);
-        })
-        .concat([state.currentAircraftId]),
-      i => AIRCRAFT[i].variant
-    );
+    if (state.currentAircraftId !== null && state.currentSlideId !== null) {
+      const aircraftByType = groupBy(
+        AIRCRAFT.filter(
+          a =>
+            a.faction === AIRCRAFT[state.currentAircraftId].faction && a.type !== AIRCRAFT[state.currentAircraftId].type
+        ),
+        a => a.type
+      );
+      const chosenTypes = randomSample(5, Object.keys(aircraftByType));
+      state.aircraftOptionIds = sortBy(
+        chosenTypes
+          .map(type => {
+            return AIRCRAFT.indexOf(aircraftByType[type][randomInt(0, aircraftByType[type].length - 1)]);
+          })
+          .concat([state.currentAircraftId]),
+        i => AIRCRAFT[i].variant
+      );
+    }
   },
 
   selectFaction(state, faction) {

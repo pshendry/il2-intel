@@ -53,6 +53,7 @@ export default {
   data() {
     return {
       currentSlideImage: null,
+      nextSlideImage: null,
     };
   },
   computed: {
@@ -65,20 +66,13 @@ export default {
         return '';
       }
     },
-    ...mapGetters('identify', ['aircraftOptions', 'currentAircraft', 'selectionIsCorrect', 'stage']),
-    ...mapState('identify', ['currentSlideId', 'selectedAircraftId', 'selectedFaction']),
-  },
-  watch: {
-    currentAircraft() {
-      this.loadCurrentSlideImage();
-    },
-    currentSlideId() {
-      this.loadCurrentSlideImage();
-    },
+    ...mapGetters('identify', ['aircraftOptions', 'currentAircraft', 'nextAircraft', 'selectionIsCorrect', 'stage']),
+    ...mapState('identify', ['currentSlideId', 'nextSlideId', 'selectedAircraftId', 'selectedFaction']),
   },
   created() {
-    this.setRandomSlide();
-    this.loadCurrentSlideImage();
+    this.nextSlide().then(() => {
+      this.nextSlide();
+    });
   },
   mounted() {
     document.addEventListener('click', this.onWindowClick);
@@ -89,8 +83,7 @@ export default {
   methods: {
     onWindowClick(event) {
       if (this.stage === 'reveal') {
-        this.setRandomSlide();
-        this.loadCurrentSlideImage();
+        this.nextSlide();
       }
     },
     getFactionButtonVariant(faction) {
@@ -111,14 +104,16 @@ export default {
         return option.id === this.selectedAircraftId ? 'danger' : 'secondary';
       }
     },
+    nextSlide() {
+      this.currentSlideImage = this.nextSlideImage;
+      this.setRandomSlide();
+      return this.loadSlideImage(this.nextAircraft, this.nextSlideId).then(image => {
+        this.nextSlideImage = image;
+      });
+    },
     loadSlideImage(aircraft, slide) {
       const filename = `${aircraft.variant} ${slide.toString().padStart(2, '0')}`;
       return import(`~/assets/images/identify/${filename}.jpg`).then(image => image.default);
-    },
-    loadCurrentSlideImage() {
-      this.loadSlideImage(this.currentAircraft, this.currentSlideId).then(image => {
-        this.currentSlideImage = image;
-      });
     },
     ...mapMutations('identify', ['selectAircraft', 'selectFaction', 'setRandomSlide']),
   },
