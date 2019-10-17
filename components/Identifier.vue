@@ -52,6 +52,7 @@ export default {
   name: 'Identifier',
   data() {
     return {
+      loading: false,
       currentSlideImage: null,
       nextSlideImage: null,
     };
@@ -82,7 +83,7 @@ export default {
   },
   methods: {
     onWindowClick(event) {
-      if (this.stage === 'reveal') {
+      if (this.stage === 'reveal' && !this.loading) {
         this.nextSlide();
       }
     },
@@ -105,15 +106,27 @@ export default {
       }
     },
     nextSlide() {
+      this.loading = true;
       this.currentSlideImage = this.nextSlideImage;
       this.setRandomSlide();
       return this.loadSlideImage(this.nextAircraft, this.nextSlideId).then(image => {
         this.nextSlideImage = image;
+        this.loading = false;
       });
     },
     loadSlideImage(aircraft, slide) {
       const filename = `${aircraft.variant} ${slide.toString().padStart(2, '0')}`;
-      return import(`~/assets/images/identify/${filename}.jpg`).then(image => image.default);
+      return import(`~/assets/images/identify/${filename}.jpg`).then(image => {
+        return new Promise(resolve => {
+          // Load the image in a `new Image()` to force it to be fetched immediately
+          const img = new Image();
+          img.onload = () => {
+            console.log('RMV image loaded', image.default);
+            resolve(image.default);
+          };
+          img.src = image.default;
+        });
+      });
     },
     ...mapMutations('identify', ['selectAircraft', 'selectFaction', 'setRandomSlide']),
   },
