@@ -7,7 +7,9 @@
     </b-row>
     <b-row align-h="center">
       <b-col cols="auto">
-        <img :class="['slide', { 'slide-prompt': stage !== 'reveal' }]" :src="currentSlideImage" />
+        <div class="slide-container">
+          <img :class="['slide', { 'slide-prompt': stage !== 'reveal' }]" :src="currentSlideImage" />
+        </div>
       </b-col>
     </b-row>
     <b-row align-h="center">
@@ -15,32 +17,35 @@
         <div class="feedback">{{ feedbackText }}</div>
       </b-col>
     </b-row>
-    <b-row
-      v-if="stage === 'faction' || (stage === 'reveal' && selectedAircraftId === null)"
-      align-h="center"
-    >
-      <b-col v-for="faction in ['axis', 'allies']" :key="faction" md="6" lg="5">
-        <b-button
-          class="option-button"
-          block
-          size="lg"
-          :variant="getFactionButtonVariant(faction)"
-          :disabled="stage !== 'faction'"
-          @click.stop="selectFaction(faction)"
-        >{{ faction === 'axis' ? 'Axis' : 'Allies' }}</b-button>
-      </b-col>
-    </b-row>
-    <b-row v-else align-h="center">
-      <b-col v-for="option in aircraftOptions" :key="option.variant" md="6" lg="5">
-        <b-button
-          class="option-button"
-          block
-          size="lg"
-          :variant="getOptionButtonVariant(option)"
-          :disabled="stage !== 'variant'"
-          @click.stop="selectAircraft(option.id)"
-        >{{ option.variant }}</b-button>
-      </b-col>
+    <b-row no-gutters align-h="center" align-content="stretch">
+      <template v-if="stage === 'faction' || (stage === 'reveal' && selectedAircraftId === null)">
+        <b-col v-for="faction in ['axis', 'allies']" :key="faction" cols="6" lg="5">
+          <div class="option-container">
+            <b-button
+              class="option-button"
+              block
+              :size="buttonSize"
+              :variant="getFactionButtonVariant(faction)"
+              :disabled="stage !== 'faction'"
+              @click.stop="selectFaction(faction)"
+            >{{ faction === 'axis' ? 'Axis' : 'Allies' }}</b-button>
+          </div>
+        </b-col>
+      </template>
+      <template v-else>
+        <b-col v-for="option in aircraftOptions" :key="option.variant" cols="6" lg="5">
+          <div class="option-container">
+            <b-button
+              class="option-button"
+              block
+              :size="buttonSize"
+              :variant="getOptionButtonVariant(option)"
+              :disabled="stage !== 'variant'"
+              @click.stop="selectAircraft(option.id)"
+            >{{ option.variant }}</b-button>
+          </div>
+        </b-col>
+      </template>
     </b-row>
   </b-container>
 </template>
@@ -61,13 +66,17 @@ export default {
     feedbackText() {
       if (this.stage === 'reveal') {
         return this.selectionIsCorrect
-          ? 'Correct. Click or press any key to continue.'
-          : `Incorrect (${this.currentAircraft.variant}). Click or press any key to continue.`;
+          ? 'Correct. Click or press a key to continue.'
+          : `Incorrect (${this.currentAircraft.variant}). Click or press a key to continue.`;
       } else {
         return '';
       }
     },
+    buttonSize() {
+      return ['lg', 'xl'].includes(this.breakpoint) ? 'lg' : 'md';
+    },
     ...mapGetters('identify', ['aircraftOptions', 'currentAircraft', 'nextAircraft', 'selectionIsCorrect', 'stage']),
+    ...mapState('global', ['breakpoint']),
     ...mapState('identify', ['currentSlideId', 'nextSlideId', 'selectedAircraftId', 'selectedFaction']),
   },
   created() {
@@ -121,7 +130,6 @@ export default {
           // Load the image in a `new Image()` to force it to be fetched immediately
           const img = new Image();
           img.onload = () => {
-            console.log('RMV image loaded', image.default);
             resolve(image.default);
           };
           img.src = image.default;
@@ -144,8 +152,14 @@ export default {
 }
 
 .feedback {
-  height: 1.5rem;
-  margin-top: 1rem;
+  min-height: 32px;
+  margin-top: 16px;
+}
+
+.slide-container {
+  display: inline-block;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .slide {
@@ -162,7 +176,19 @@ export default {
   transition: none;
 }
 
+.option-container {
+  height: 100%;
+  padding: 8px;
+}
+
 .option-button {
-  margin-top: 16px;
+  height: 100%;
+}
+
+@media (max-width: 767px) {
+  .header {
+    font-size: 24px;
+    margin: 16px 0;
+  }
 }
 </style>
