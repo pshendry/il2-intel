@@ -47,14 +47,38 @@
         </b-col>
       </template>
     </b-row>
+    <b-row align-h="center">
+      <b-col cols="auto">
+        <b-button
+          class="btn-options"
+          variant="link"
+          size="sm"
+          v-b-modal.modal-options
+          @click.stop
+        >Options</b-button>
+        <b-modal id="modal-options" hide-header ok-only ok-title="Save">
+          <identifier-options-form
+            :difficulty="difficulty"
+            :dlc="dlc"
+            @update:difficulty="setDifficulty"
+            @update:dlc="setDlc"
+          />
+        </b-modal>
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 
 <script>
 import { mapGetters, mapMutations, mapState } from 'vuex';
 
+import IdentifierOptionsForm from '@/components/IdentifierOptionsForm.vue';
+
 export default {
   name: 'Identifier',
+  components: {
+    IdentifierOptionsForm,
+  },
   data() {
     return {
       loading: false,
@@ -77,7 +101,14 @@ export default {
     },
     ...mapGetters('identify', ['aircraftOptions', 'currentAircraft', 'nextAircraft', 'selectionIsCorrect', 'stage']),
     ...mapState('global', ['breakpoint']),
-    ...mapState('identify', ['currentSlideId', 'nextSlideId', 'selectedAircraftId', 'selectedFaction']),
+    ...mapState('identify', [
+      'currentSlideId',
+      'difficulty',
+      'dlc',
+      'nextSlideId',
+      'selectedAircraftId',
+      'selectedFaction',
+    ]),
   },
   created() {
     this.nextSlide().then(() => {
@@ -136,7 +167,7 @@ export default {
         });
       });
     },
-    ...mapMutations('identify', ['selectAircraft', 'selectFaction', 'setRandomSlide']),
+    ...mapMutations('identify', ['selectAircraft', 'selectFaction', 'setDifficulty', 'setDlc', 'setRandomSlide']),
   },
 };
 </script>
@@ -183,6 +214,10 @@ export default {
 
 .option-button {
   height: 100%;
+}
+
+.btn-options {
+  margin-top: 32px;
 }
 
 @media (max-width: 767px) {

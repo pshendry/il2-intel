@@ -4,7 +4,7 @@ export const AIRCRAFT = [
   { dlc: 'BoK', faction: 'allies', type: 'A-20', variant: 'A-20B', class: 'heavy', slideCount: 0 },
   { dlc: 'BoM', faction: 'allies', type: 'I-16', variant: 'I-16 type 24', class: 'light', slideCount: 18 },
   { dlc: 'BoS', faction: 'allies', type: 'La-5', variant: 'La-5 ser.8', class: 'light', slideCount: 0 },
-  { dlc: 'BoS', faction: 'allies', type: 'La-5', variant: 'La-5FN ser.2', class: 'light', slideCount: 0 },
+  { dlc: 'BoK', faction: 'allies', type: 'La-5', variant: 'La-5FN ser.2', class: 'light', slideCount: 0 },
   { dlc: 'BoS', faction: 'allies', type: 'LaGG-3', variant: 'LaGG-3 ser.29', class: 'light', slideCount: 0 },
   { dlc: 'BoM', faction: 'allies', type: 'IL-2', variant: 'IL-2 mod.1941', class: 'medium', slideCount: 0 },
   { dlc: 'BoS', faction: 'allies', type: 'IL-2', variant: 'IL-2 mod.1942', class: 'medium', slideCount: 0 },
@@ -63,9 +63,10 @@ export const state = () => ({
   nextAircraftId: null,
   nextSlideId: null,
   aircraftOptionIds: [],
-  pastSlides: AIRCRAFT.map(_ => []),
   selectedFaction: null,
   selectedAircraftId: null,
+  difficulty: null,
+  dlc: ['BoM', 'BoS', 'BoK', 'BoB'],
 });
 
 export const getters = {
@@ -107,30 +108,25 @@ export const getters = {
 
 export const mutations = {
   setRandomSlide(state) {
+    const aircraftMatchingDlc = AIRCRAFT.map((a, index) => ({ id: index, ...a })).filter(
+      a => a.slideCount > 0 && state.dlc.includes(a.dlc)
+    );
+
     // Clear selections
     state.selectedFaction = null;
     state.selectedAircraftId = null;
-
-    // Add the current slide to `pastSlides`, and reset `pastSlides` if necessary
-    if (state.nextAircraftId !== null && state.nextSlideId !== null) {
-      const totalSlideCount = AIRCRAFT.reduce((sum, a) => sum + a.slideCount, 0);
-      const pastSlideCount = state.pastSlides.reduce((sum, ps) => sum + ps.length, 0);
-      if (totalSlideCount - pastSlideCount <= 1) {
-        state.pastSlides = AIRCRAFT.map(_ => []);
-      }
-      state.pastSlides[state.nextAircraftId].push(state.nextSlideId);
-    }
 
     // Replace current slide with "next" slide
     state.currentAircraftId = state.nextAircraftId;
     state.currentSlideId = state.nextSlideId;
 
     // Select the new "next" aircraft/slide
-    let aircraftId, slideId;
-    do {
-      aircraftId = randomInt(0, AIRCRAFT.length - 1);
-      slideId = AIRCRAFT[aircraftId].slideCount > 0 ? randomInt(0, AIRCRAFT[aircraftId].slideCount - 1) : null;
-    } while (slideId === null || state.pastSlides[aircraftId].includes(slideId));
+    const aircraftId = aircraftMatchingDlc[randomInt(0, aircraftMatchingDlc.length - 1)].id;
+    const slideCount = AIRCRAFT[aircraftId].slideCount;
+    const minRange = state.difficulty === null ? 0 : Math.floor((state.difficulty * slideCount) / 3);
+    const maxRange = state.difficulty === null ? slideCount : minRange + Math.floor(slideCount / 3);
+    const slideId = randomInt(minRange, maxRange - 1);
+
     state.nextAircraftId = aircraftId;
     state.nextSlideId = slideId;
 
@@ -161,5 +157,13 @@ export const mutations = {
 
   selectAircraft(state, aircraftId) {
     state.selectedAircraftId = aircraftId;
+  },
+
+  setDifficulty(state, difficulty) {
+    state.difficulty = difficulty;
+  },
+
+  setDlc(state, dlc) {
+    state.dlc = dlc;
   },
 };

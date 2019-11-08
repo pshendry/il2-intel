@@ -12,7 +12,7 @@ describe('identity Vuex module', () => {
       });
 
       test('gets the aircraft object specified by the index', () => {
-        const state = { ...defaultState(), currentAircraftId: 29 };
+        const state = { ...defaultState(), currentAircraftId: 27 };
 
         const result = getters.currentAircraft(state);
 
@@ -28,41 +28,11 @@ describe('identity Vuex module', () => {
 
         expect(result).toStrictEqual([AIRCRAFT[0], AIRCRAFT[2]]);
       });
-
-      test('gets the aircraft object specified by the index', () => {
-        const state = { ...defaultState(), currentAircraftId: 29 };
-
-        const result = getters.currentAircraft(state);
-
-        expect(result.variant).toBe('Fw 190 A-3');
-      });
     });
   });
 
   describe('mutations', () => {
     describe('setRandomSlide', () => {
-      test('does not alter `pastSlides` on first run', () => {
-        const state = defaultState();
-
-        mutations.setRandomSlide(state);
-
-        expect(state.pastSlides.every(ps => ps.length == 0)).toBeTruthy();
-      });
-
-      test('updates `pastSlides`', () => {
-        const state = {
-          ...defaultState(),
-          currentAircraftId: null,
-          currentSlideId: null,
-          nextAircraftId: 1,
-          nextSlideId: 2,
-        };
-
-        mutations.setRandomSlide(state);
-
-        expect(state.pastSlides[1]).toEqual([2]);
-      });
-
       test('sets the next aircraft/slide state', () => {
         const state = defaultState();
 
@@ -98,19 +68,6 @@ describe('identity Vuex module', () => {
 
         expect(state.aircraftOptionIds.length).toBe(6);
         expect(state.aircraftOptionIds).toContain(state.currentAircraftId);
-      });
-
-      test('resets pastSlides if every slide has been shown', () => {
-        const state = defaultState();
-        const totalSlideCount = AIRCRAFT.reduce((sum, a) => sum + a.slideCount, 0);
-        for (let i = 0; i < totalSlideCount; i++) {
-          mutations.setRandomSlide(state);
-        }
-
-        mutations.setRandomSlide(state);
-
-        const pastSlideCount = state.pastSlides.reduce((sum, ps) => sum + ps.length, 0);
-        expect(pastSlideCount).toBe(1);
       });
     });
   });
