@@ -1,6 +1,6 @@
 export default {
   head: {
-    title: 'IL-2 Intel',
+    title: 'IL-2 Aircraft Identification',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
