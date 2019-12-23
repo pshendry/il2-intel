@@ -47,25 +47,29 @@
         </b-col>
       </template>
     </b-row>
-    <b-row align-h="center">
+    <b-row class="buttons-row" no-gutters align-h="center">
       <b-col cols="auto">
         <b-button
-          class="btn-options"
           variant="link"
           size="sm"
-          v-b-modal.modal-options
+          href="http://www.airpages.ru/eng/"
+          target="_blank"
           @click.stop
-        >Options</b-button>
-        <b-modal id="modal-options" hide-header ok-only ok-title="Save">
-          <identifier-options-form
-            :difficulty="difficulty"
-            :dlc="dlc"
-            @update:difficulty="setDifficulty"
-            @update:dlc="setDlc"
-          />
-        </b-modal>
+        >Reference Images</b-button>
+      </b-col>
+      <b-col cols="auto">|</b-col>
+      <b-col cols="auto">
+        <b-button variant="link" size="sm" v-b-modal.modal-options @click.stop>Options</b-button>
       </b-col>
     </b-row>
+    <b-modal id="modal-options" hide-header ok-only ok-title="Save">
+      <identifier-options-form
+        :difficulty="difficulty"
+        :dlc="dlc"
+        @update:difficulty="setDifficulty"
+        @update:dlc="setDlc"
+      />
+    </b-modal>
   </b-container>
 </template>
 
@@ -156,7 +160,7 @@ export default {
     },
     loadSlideImage(aircraft, slide) {
       const filename = `${aircraft.variant} ${slide.toString().padStart(2, '0')}`;
-      return import(`~/assets/images/identify/${filename}.jpg`).then(image => {
+      return import(`~/assets/images/identify/slides/${filename}.jpg`).then(image => {
         return new Promise(resolve => {
           // Load the image in a `new Image()` to force it to be fetched immediately
           const img = new Image();
@@ -203,7 +207,7 @@ export default {
 }
 
 .slide.slide-prompt {
-  filter: blur(1px);
+  filter: blur(0.5px);
   transition: none;
 }
 
@@ -216,7 +220,7 @@ export default {
   height: 100%;
 }
 
-.btn-options {
+.buttons-row {
   margin-top: 32px;
 }
 
