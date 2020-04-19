@@ -1,3 +1,5 @@
+import SPECS from './assets/data/specs';
+
 export default {
   head: {
     title: 'IL-Tools',
@@ -16,5 +18,8 @@ export default {
   modules: ['bootstrap-vue/nuxt', '@nuxtjs/pwa'],
   build: {
     extend(config, ctx) {},
+  },
+  generate: {
+    routes: SPECS.map((s) => `/specs/${s.id}`),
   },
 };
