@@ -1,0 +1,20 @@
+$primary: #b71c1c;
+
+@import '~/node_modules/bootstrap/scss/bootstrap';
+@import '~/node_modules/bootstrap-vue/src/index.scss';
+
+@font-face {
+  font-family: 'SpecialElite';
+  src: url('~static/fonts/SpecialElite-Regular.ttf');
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'SpecialElite', monospace;
+}
+
+.spec-table {
+  margin: 0;
+}

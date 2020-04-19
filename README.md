@@ -1,10 +1,10 @@
-# il2-intel
+# il2-tools
 
-> 
+>
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ npm run install
 

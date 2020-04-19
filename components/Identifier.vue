@@ -28,7 +28,8 @@
               :variant="getFactionButtonVariant(faction)"
               :disabled="stage !== 'faction'"
               @click.stop="selectFaction(faction)"
-            >{{ faction === 'axis' ? 'Axis' : 'Allies' }}</b-button>
+              >{{ faction === 'axis' ? 'Axis' : 'Allies' }}</b-button
+            >
           </div>
         </b-col>
       </template>
@@ -42,22 +43,13 @@
               :variant="getOptionButtonVariant(option)"
               :disabled="stage !== 'variant'"
               @click.stop="selectAircraft(option.id)"
-            >{{ option.variant }}</b-button>
+              >{{ option.variant }}</b-button
+            >
           </div>
         </b-col>
       </template>
     </b-row>
     <b-row class="buttons-row" no-gutters align-h="center">
-      <b-col cols="auto">
-        <b-button
-          variant="link"
-          size="sm"
-          href="http://www.airpages.ru/eng/"
-          target="_blank"
-          @click.stop
-        >Reference Images</b-button>
-      </b-col>
-      <b-col cols="auto">|</b-col>
       <b-col cols="auto">
         <b-button variant="link" size="sm" v-b-modal.modal-options @click.stop>Options</b-button>
       </b-col>
@@ -153,15 +145,15 @@ export default {
       this.loading = true;
       this.currentSlideImage = this.nextSlideImage;
       this.setRandomSlide();
-      return this.loadSlideImage(this.nextAircraft, this.nextSlideId).then(image => {
+      return this.loadSlideImage(this.nextAircraft, this.nextSlideId).then((image) => {
         this.nextSlideImage = image;
         this.loading = false;
       });
     },
     loadSlideImage(aircraft, slide) {
       const filename = `${aircraft.variant} ${slide.toString().padStart(2, '0')}`;
-      return import(`~/assets/images/identify/slides/${filename}.jpg`).then(image => {
-        return new Promise(resolve => {
+      return import(`~/assets/images/identify/slides/${filename}.jpg`).then((image) => {
+        return new Promise((resolve) => {
           // Load the image in a `new Image()` to force it to be fetched immediately
           const img = new Image();
           img.onload = () => {
@@ -176,7 +168,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .header {
   margin: 32px 0;
 }

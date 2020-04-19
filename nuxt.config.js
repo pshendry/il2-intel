@@ -1,6 +1,6 @@
 export default {
   head: {
-    title: 'IL-2 Aircraft Identification',
+    title: 'IL-Tools',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -11,7 +11,7 @@ export default {
   mode: 'spa',
   loading: { color: '#fff' },
   css: [],
-  plugins: [],
+  plugins: ['~/plugins/fontawesome.js'],
   buildModules: [],
   modules: ['bootstrap-vue/nuxt', '@nuxtjs/pwa'],
   build: {
