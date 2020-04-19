@@ -7,7 +7,7 @@
             <b-td v-if="i === 0" :rowspan="specs.engine.modes.length">Modes</b-td>
             <b-td>{{ mode.name }}</b-td>
             <b-td>{{ mode.limit ? `≤ ${mode.limit.toString()}` : 'Unlimited' }}</b-td>
-            <b-td class="text-right">{{ mode.rpm.toString() }}</b-td>
+            <b-td class="text-right">{{ pressure(mode.rpm) }}</b-td>
             <b-td class="text-right">{{ mode.manifoldPressure.toString() }}</b-td>
           </b-tr>
           <b-tr v-for="(temps, i) in specs.engine.ratedTemps" :key="'rated-' + temps.name">
@@ -34,7 +34,7 @@ export default {
   name: 'EngineCard',
   components: { SpecCard },
   computed: {
-    ...mapGetters('specs', ['specs', 'temperature', 'temperatureRange']),
+    ...mapGetters('specs', ['specs', 'pressure', 'temperature', 'temperatureRange']),
   },
 };
 </script>

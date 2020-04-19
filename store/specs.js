@@ -3,51 +3,86 @@ import SPECS from '@/assets/data/specs';
 export const state = () => ({
   // The ID of the displayed spec sheet
   id: null,
-  // The content tab being displayed
-  tab: 'specs',
-  // The displayed unit type for quantities
-  units: 'metric',
+  // The displayed unit type for quantities ('metric', 'imperial', or null for aircraft-specific
+  units: null,
 });
 
 export const getters = {
   specs(state) {
     return state.id !== null ? SPECS.find((s) => s.id === state.id) : null;
   },
-  distance(_state, getters) {
-    return (v) => v.to(getters.distanceUnit).toString();
-  },
-  distanceUnit(state) {
-    return state.units === 'metric' ? 'm' : 'ft';
+  distance(state) {
+    return (v) => {
+      if (state.units === null) {
+        return v.toString();
+      } else if (state.units === 'metric') {
+        return v.to('m').toPrec('100 m').toString();
+      } else {
+        return v.to('ft').toPrec('100 ft').toString();
+      }
+    };
   },
   fuel(_state) {
     return (v) => `${v.scalar} L`;
   },
-  speed(_state, getters) {
-    return (v) => v.to(getters.speedUnit).toString();
+  pressure(_state) {
+    return (v) => v.toString();
   },
-  speedRange(_state, getters) {
-    return (vs) => `${vs[0].to(getters.speedUnit).scalar}..${vs[1].to(getters.speedUnit).toString()}`;
+  speed(state) {
+    return (v) => {
+      if (state.units === null) {
+        return v.toString();
+      } else if (state.units === 'metric') {
+        return v.to('km/h').toPrec('1 km/h').toString();
+      } else {
+        return v.to('mi/h').toPrec('1 mi/h').toString();
+      }
+    };
   },
-  speedUnit(state) {
-    return state.units === 'metric' ? 'km/h' : 'mi/h';
+  speedRange(state, getters) {
+    return (vs) => {
+      if (vs.length == 1) {
+        return getters.speed(vs[0]);
+      } else if (state.units === null) {
+        return `${vs[0].scalar}..${vs[1].toString()}`;
+      } else if (state.units === 'metric') {
+        return `${vs[0].to('km/h').toPrec('1 km/h').scalar}..${vs[1].to('km/h').toPrec('1 km/h').toString()}`;
+      } else {
+        return `${vs[0].to('mi/h').toPrec('1 mi/h').scalar}..${vs[1].to('mi/h').toPrec('1 mi/h').toString()}`;
+      }
+    };
   },
   temperature(_state) {
     return (v) => `${v.scalar} °C`;
   },
-  temperatureRange(_state) {
-    return (vs) => `${vs[0].scalar}..${vs[1].scalar} °C`;
+  temperatureRange(_state, getters) {
+    return (vs) => {
+      if (vs.length === 1) {
+        return getters.temperature(vs[0]);
+      } else {
+        return `${vs[0].scalar}..${vs[1].scalar} °C`;
+      }
+    };
   },
-  weight(_state, getters) {
-    return (v) => v.to(getters.weightUnit).toString();
-  },
-  weightUnit(state) {
-    return state.units === 'metric' ? 'kg' : 'lb';
+  weight(state) {
+    return (v) => {
+      if (state.units === null) {
+        return v.toString();
+      } else if (state.units === 'metric') {
+        return v.to('kg').toPrec('1 kg').toString();
+      } else {
+        return v.to('lb').toPrec('1 lb').toString();
+      }
+    };
   },
 };
 
 export const mutations = {
-  setTab(state, tab) {
-    state.tab = tab;
+  reset(state) {
+    state.id = null;
+  },
+  setUnits(state, units) {
+    state.units = units;
   },
   setVariant(state, id) {
     state.id = id;

@@ -21,15 +21,26 @@ export default {
 <style lang="scss" scoped>
 .spec-card {
   height: 100%;
+  border-color: #e0e0e0;
 }
 
-.spec-card::v-deep .card-header {
-  padding: 8px 16px 4px 16px;
-  border-bottom: 0;
-}
-.spec-card::v-deep .card-body {
-  padding: 0;
-  font-size: 14px;
+.spec-card::v-deep {
+  .card-header {
+    padding: 8px 16px 4px 16px;
+  }
+  .card-body {
+    padding: 0.25rem;
+    font-size: 14px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+
+    tbody td {
+      border-color: #bdbdbd;
+    }
+    tbody tr:first-child td {
+      border-top: none;
+    }
+  }
 }
 
 .spec-card-icon {

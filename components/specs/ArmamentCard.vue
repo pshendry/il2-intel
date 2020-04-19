@@ -3,19 +3,14 @@
     <template v-slot>
       <b-table-simple class="spec-table" small>
         <b-tbody>
-          <template
-            v-for="type in [
-              { id: 'standard', name: 'Standard' },
-              { id: 'modifications', name: 'Modifications' },
-            ]"
-          >
-            <b-tr v-for="(arms, i) in specs.armament[type.id]" :key="`${type.id}-${arms.name}`">
-              <b-td v-if="i === 0" :rowspan="specs.armament[type.id].length">{{ type.name }}</b-td>
+          <template v-for="section in sections">
+            <b-tr v-for="(arms, i) in specs.armament[section.id]" :key="`${section.id}-${arms.name}`">
+              <b-td v-if="i === 0" :rowspan="specs.armament[section.id].length">{{ section.name }}</b-td>
               <b-td>{{ `x${arms.qty}` }}</b-td>
               <b-td>{{ arms.name }}</b-td>
               <b-td>{{ arms.type }}</b-td>
-              <b-td class="text-right">{{ arms.count }} ct</b-td>
-              <b-td>{{ arms.details || '' }}</b-td>
+              <b-td v-if="'count' in arms" class="text-right">{{ arms.count }} rounds</b-td>
+              <b-td :colspan="'count' in arms ? 1 : 2">{{ arms.details || '' }}</b-td>
             </b-tr>
           </template>
         </b-tbody>
@@ -32,6 +27,14 @@ export default {
   name: 'ArmaentCard',
   components: { SpecCard },
   computed: {
+    sections() {
+      return [
+        { id: 'standard', name: 'Standard' },
+        { id: 'modifications', name: 'Modifications' },
+        { id: 'bombs', name: 'Bombs' },
+        { id: 'rockets', name: 'Rockets' },
+      ].filter((s) => s.id in this.specs.armament);
+    },
     ...mapGetters('specs', ['specs', 'fuel', 'weight']),
   },
 };

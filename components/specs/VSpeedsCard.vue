@@ -5,11 +5,11 @@
         <b-tbody>
           <b-tr>
             <b-td rowspan="2">Indicated stall speed</b-td>
-            <b-td>Takeoff</b-td>
+            <b-td class="text-right">Takeoff</b-td>
             <b-td class="text-right">{{ speedRange(specs.vSpeeds.stall.takeoff) }}</b-td>
           </b-tr>
           <b-tr>
-            <b-td>Flight</b-td>
+            <b-td class="text-right">Flight</b-td>
             <b-td class="text-right">{{ speedRange(specs.vSpeeds.stall.flight) }}</b-td>
           </b-tr>
           <b-tr>
@@ -23,11 +23,11 @@
           </b-tr>
           <b-tr>
             <b-td rowspan="2">Max. performance</b-td>
-            <b-td>Climb</b-td>
+            <b-td class="text-right">Climb</b-td>
             <b-td class="text-right">{{ speed(specs.vSpeeds.maxPerformance.climb) }}</b-td>
           </b-tr>
           <b-tr>
-            <b-td>Turn</b-td>
+            <b-td class="text-right">Turn</b-td>
             <b-td class="text-right">{{ speed(specs.vSpeeds.maxPerformance.turn) }}</b-td>
           </b-tr>
           <b-tr>
