@@ -5,46 +5,46 @@
         <b-tbody>
           <b-tr>
             <b-td rowspan="2">Indicated stall speed</b-td>
-            <b-td class="text-right">Takeoff</b-td>
-            <b-td class="text-right">{{ speedRange(specs.vSpeeds.stall.takeoff) }}</b-td>
+            <b-td class="text-right">Takeoff/Landing</b-td>
+            <b-td class="text-right">{{ speedRange(specs.indicatedStallSpeedRanges.takeoffLanding) }}</b-td>
           </b-tr>
           <b-tr>
             <b-td class="text-right">Flight</b-td>
-            <b-td class="text-right">{{ speedRange(specs.vSpeeds.stall.flight) }}</b-td>
+            <b-td class="text-right">{{ speedRange(specs.indicatedStallSpeedRanges.flight) }}</b-td>
           </b-tr>
           <b-tr>
             <b-td colspan="2">Dive limit</b-td>
-            <b-td class="text-right">{{ speed(specs.vSpeeds.diveLimit) }}</b-td>
+            <b-td class="text-right">{{ speed(specs.diveSpeedLimit) }}</b-td>
           </b-tr>
-          <b-tr v-for="(maxTrue, i) in specs.vSpeeds.maxTrue" :key="i">
-            <b-td v-if="i === 0" :rowspan="specs.vSpeeds.maxTrue.length">Max. true airspeed</b-td>
-            <b-td class="text-right">{{ distance(maxTrue[0]) }}</b-td>
-            <b-td class="text-right">{{ speed(maxTrue[1]) }}</b-td>
+          <b-tr v-for="(maxTrue, i) in specs.maxTrueAirspeeds" :key="i">
+            <b-td v-if="i === 0" :rowspan="specs.maxTrueAirspeeds.length">Max. true airspeed</b-td>
+            <b-td class="text-right">{{ `${distance(maxTrue.altitude)} (${maxTrue.engineMode})` }}</b-td>
+            <b-td class="text-right">{{ speed(maxTrue.speed) }}</b-td>
           </b-tr>
           <b-tr>
             <b-td rowspan="2">Max. performance</b-td>
             <b-td class="text-right">Climb</b-td>
-            <b-td class="text-right">{{ speed(specs.vSpeeds.maxPerformance.climb) }}</b-td>
+            <b-td class="text-right">{{ speed(specs.maxPerformance.climb[0].speed) }}</b-td>
           </b-tr>
           <b-tr>
             <b-td class="text-right">Turn</b-td>
-            <b-td class="text-right">{{ speed(specs.vSpeeds.maxPerformance.turn) }}</b-td>
+            <b-td class="text-right">{{ speed(specs.maxPerformance.turn[0].speed) }}</b-td>
           </b-tr>
           <b-tr>
             <b-td colspan="2">Takeoff speed</b-td>
-            <b-td class="text-right">{{ speedRange(specs.vSpeeds.takeoff) }}</b-td>
+            <b-td class="text-right">{{ speedRange(specs.takeoffSpeedRange) }}</b-td>
           </b-tr>
           <b-tr>
             <b-td colspan="2">Glideslope speed</b-td>
-            <b-td class="text-right">{{ speedRange(specs.vSpeeds.glideslope) }}</b-td>
+            <b-td class="text-right">{{ speedRange(specs.glideslopeSpeedRange) }}</b-td>
           </b-tr>
           <b-tr>
             <b-td colspan="2">Landing speed</b-td>
-            <b-td class="text-right">{{ speedRange(specs.vSpeeds.landing) }}</b-td>
+            <b-td class="text-right">{{ speedRange(specs.landingSpeedRange) }}</b-td>
           </b-tr>
           <b-tr>
             <b-td colspan="2">Service ceiling</b-td>
-            <b-td class="text-right">{{ distance(specs.vSpeeds.serviceCeiling) }}</b-td>
+            <b-td class="text-right">{{ distance(specs.serviceCeiling) }}</b-td>
           </b-tr>
         </b-tbody>
       </b-table-simple>

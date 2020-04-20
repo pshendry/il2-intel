@@ -3,25 +3,81 @@ import Q from 'js-quantities';
 export default {
   id: 'il2-mod-1941',
   variant: 'IL-2 mod. 1941',
-  vSpeeds: {
-    stall: {
-      takeoff: [Q('128 km/h'), Q('146 km/h')],
-      flight: [Q('136 km/h'), Q('156 km/h')],
-    },
-    diveLimit: Q('570 km/h'),
-    maxTrue: [
-      [Q('0 m'), Q('421 km/h')],
-      [Q('2500 m'), Q('455 km/h')],
-    ],
-    maxPerformance: {
-      climb: Q('250 km/h'), //TODO
-      turn: Q('250 km/h'),
-    },
-    takeoff: [Q('150 km/h'), Q('190 km/h')],
-    glideslope: [Q('185 km/h'), Q('195 km/h')],
-    landing: [Q('130 km/h'), Q('140 km/h')],
-    serviceCeiling: Q('7500 m'),
+  indicatedStallSpeedRanges: {
+    takeoffLanding: [Q('128 km/h'), Q('146 km/h')],
+    flight: [Q('136 km/h'), Q('156 km/h')],
   },
+  diveSpeedLimit: Q('570 km/h'),
+  maxLoadFactor: Q('11.5 gee'),
+  stallAngles: {
+    takeoffLanding: Q('17.5 deg'),
+    flight: Q('19.4 deg'),
+  },
+  maxTrueAirspeeds: [
+    {
+      altitude: Q('0 m'),
+      engineMode: 'Nominal',
+      speed: Q('421 km/h'),
+    },
+    {
+      altitude: Q('0 m'),
+      engineMode: 'Boosted',
+      speed: Q('430 km/h'),
+    },
+    {
+      altitude: Q('2500 m'),
+      engineMode: 'Nominal',
+      speed: Q('455 km/h'),
+    },
+  ],
+  maxPerformance: {
+    climb: [
+      {
+        altitude: Q('0 m'),
+        engineMode: 'Nominal',
+        speed: Q('250 km/h'),
+        rate: Q('9.4 m/s'),
+      },
+      {
+        altitude: Q('3000 m'),
+        engineMode: 'Nominal',
+        speed: Q('250 km/h'),
+        rate: Q('8.9 m/s'),
+      },
+      {
+        altitude: Q('6000 m'),
+        engineMode: 'Nominal',
+        speed: Q('250 km/h'),
+        rate: Q('3.9 m/s'),
+      },
+    ],
+    turn: [
+      {
+        altitude: Q('0 m'),
+        engineMode: 'Boosted',
+        speed: Q('250 km/h'),
+        time: Q('23.1 s'),
+      },
+      {
+        altitude: Q('3000 m'),
+        engineMode: 'Boosted',
+        speed: Q('250 km/h'),
+        time: Q('32.6 s'),
+      },
+    ],
+  },
+  takeoffSpeedRange: [Q('150 km/h'), Q('190 km/h')],
+  glideslopeSpeedRange: [Q('185 km/h'), Q('195 km/h')],
+  landingSpeedRange: [Q('130 km/h'), Q('140 km/h')],
+  landingAngle: Q('11.7 deg'),
+  serviceCeiling: Q('7500 m'),
+  flightEndurance: [
+    {
+      altitude: Q('3000 m'),
+      speed: Q('300 km/h'),
+      time: Q('1.7h'),
+    },
+  ],
   engine: {
     modes: [
       {

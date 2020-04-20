@@ -3,26 +3,81 @@ import Q from 'js-quantities';
 export default {
   id: 'bf-109-F-4',
   variant: 'Bf 109 F-4',
-  vSpeeds: {
-    stall: {
-      takeoff: [Q('148 km/h'), Q('161 km/h')],
-      flight: [Q('154 km/h'), Q('171 km/h')],
-    },
-    diveLimit: Q('850 km/h'),
-    maxTrue: [
-      [Q('0 m'), Q('522 km/h')],
-      [Q('2000 m'), Q('570 km/h')],
-      [Q('6000 m'), Q('635 km/h')],
-    ],
-    maxPerformance: {
-      climb: Q('280 km/h'),
-      turn: Q('270 km/h'),
-    },
-    takeoff: [Q('150 km/h'), Q('180 km/h')],
-    glideslope: [Q('190 km/h'), Q('200 km/h')],
-    landing: [Q('145 km/h'), Q('155 km/h')],
-    serviceCeiling: Q('11600 m'),
+  indicatedStallSpeedRanges: {
+    takeoffLanding: [Q('148 km/h'), Q('161 km/h')],
+    flight: [Q('154 km/h'), Q('171 km/h')],
   },
+  diveSpeedLimit: Q('850 km/h'),
+  maxLoadFactor: Q('11 gee'),
+  stallAngles: {
+    takeoffLanding: Q('17 deg'),
+    flight: Q('19.9 deg'),
+  },
+  maxTrueAirspeeds: [
+    {
+      altitude: Q('0 m'),
+      engineMode: 'Combat',
+      speed: Q('522 km/h'),
+    },
+    {
+      altitude: Q('2000 m'),
+      engineMode: 'Combat',
+      speed: Q('570 km/h'),
+    },
+    {
+      altitude: Q('6000 m'),
+      engineMode: 'Combat',
+      speed: Q('635 km/h'),
+    },
+  ],
+  maxPerformance: {
+    climb: [
+      {
+        altitude: Q('0 m'),
+        engineMode: 'Combat',
+        speed: Q('280 km/h'),
+        rate: Q('19.5 m/s'),
+      },
+      {
+        altitude: Q('3000 m'),
+        engineMode: 'Combat',
+        speed: Q('280 km/h'),
+        rate: Q('18.8 m/s'),
+      },
+      {
+        altitude: Q('6000 m'),
+        engineMode: 'Combat',
+        speed: Q('280 km/h'),
+        rate: Q('14.9 m/s'),
+      },
+    ],
+    turn: [
+      {
+        altitude: Q('0 m'),
+        engineMode: 'Emergency',
+        speed: Q('270 km/h'),
+        time: Q('20.3 s'),
+      },
+      {
+        altitude: Q('3000 m'),
+        engineMode: 'Emergency',
+        speed: Q('270 km/h'),
+        time: Q('26.1 s'),
+      },
+    ],
+  },
+  takeoffSpeedRange: [Q('150 km/h'), Q('180 km/h')],
+  glideslopeSpeedRange: [Q('190 km/h'), Q('200 km/h')],
+  landingSpeedRange: [Q('145 km/h'), Q('155 km/h')],
+  landingAngle: Q('14.8 deg'),
+  serviceCeiling: Q('11600 m'),
+  flightEndurance: [
+    {
+      altitude: Q('3000 m'),
+      speed: Q('350 km/h'),
+      time: Q('2.6h'),
+    },
+  ],
   engine: {
     modes: [
       {
