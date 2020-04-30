@@ -1,5 +1,5 @@
 <template>
-  <spec-card class="spec-card-engine" icon="cogs" title="Engine">
+  <spec-card class="spec-card-engine" icon="cogs" title="Engine Systems">
     <template v-slot>
       <b-table-simple class="spec-table" small>
         <b-tbody>

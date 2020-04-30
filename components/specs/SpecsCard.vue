@@ -29,7 +29,7 @@ export default {
     padding: 8px 16px 4px 16px;
   }
   .card-body {
-    padding: 0.25rem;
+    padding: 0.5rem;
     font-size: 14px;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;

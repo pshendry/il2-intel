@@ -1,33 +1,37 @@
 <template>
-  <b-container fluid>
+  <b-container class="specs-page" fluid>
     <b-row>
       <b-col xl="8">
         <b-row>
           <b-col class="my-3" lg="6">
-            <v-speeds-card />
+            <flight-characteristics-card />
           </b-col>
-          <b-col class="my-3" lg="6">
-            <features-card />
+          <b-col lg="6">
+            <b-row class="mid-row">
+              <b-col class="my-3" cols="12">
+                <engine-card />
+              </b-col>
+              <b-col class="my-3" cols="12">
+                <load-card />
+              </b-col>
+            </b-row>
           </b-col>
           <b-col class="my-3" cols="12">
             <armament-card />
           </b-col>
         </b-row>
       </b-col>
-      <b-col xl="4">
-        <b-row class="side-row">
-          <b-col class="my-3" lg="6" xl="12">
-            <engine-card />
-          </b-col>
-          <b-col class="my-3" lg="6" xl="12">
-            <load-card />
-          </b-col>
-        </b-row>
+      <b-col class="my-3" xl="4">
+        <features-card />
       </b-col>
     </b-row>
     <b-row>
       <b-col v-for="procedure in procedures" :key="procedure.name" class="my-3" md="6" lg="4">
-        <procedure-card :name="procedure.name" :icon="procedure.icon" :steps="specs.procedures[procedure.id]" />
+        <procedure-card
+          :name="procedure.name"
+          :icon="procedure.icon"
+          :steps="specs.procedures[procedure.id]"
+        />
       </b-col>
     </b-row>
   </b-container>
@@ -40,10 +44,10 @@ import EngineCard from '@/components/specs/EngineCard';
 import FeaturesCard from '@/components/specs/FeaturesCard';
 import LoadCard from '@/components/specs/LoadCard';
 import ProcedureCard from '@/components/specs/ProcedureCard';
-import VSpeedsCard from '@/components/specs/VSpeedsCard';
+import FlightCharacteristicsCard from '@/components/specs/FlightCharacteristicsCard';
 
 export default {
-  components: { ArmamentCard, EngineCard, FeaturesCard, LoadCard, ProcedureCard, VSpeedsCard },
+  components: { ArmamentCard, EngineCard, FeaturesCard, LoadCard, ProcedureCard, FlightCharacteristicsCard },
   computed: {
     procedures() {
       return [
@@ -78,7 +82,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.side-row {
+.specs-page {
+  padding: 15px 30px;
+}
+
+.mid-row {
   min-height: 100%;
 }
 </style>

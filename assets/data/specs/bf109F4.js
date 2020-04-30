@@ -2,83 +2,115 @@ import Q from 'js-quantities';
 
 export default {
   id: 'bf-109-F-4',
+  type: 'Bf 109',
   variant: 'Bf 109 F-4',
-  indicatedStallSpeedRanges: {
-    takeoffLanding: [Q('148 km/h'), Q('161 km/h')],
-    flight: [Q('154 km/h'), Q('171 km/h')],
+  combatDebut: new Date(1941, 6),
+  airframe: {
+    indicatedStallSpeedRanges: {
+      takeoffLanding: [Q('148 km/h'), Q('161 km/h')],
+      flight: [Q('154 km/h'), Q('171 km/h')],
+    },
+    diveSpeedLimit: Q('850 km/h'),
+    maxLoadFactor: Q('11 gee'),
+    stallAngles: {
+      takeoffLanding: Q('17 deg'),
+      flight: Q('19.9 deg'),
+    },
+    takeoffSpeedRange: [Q('150 km/h'), Q('180 km/h')],
+    glideslopeSpeedRange: [Q('190 km/h'), Q('200 km/h')],
+    landingSpeedRange: [Q('145 km/h'), Q('155 km/h')],
+    landingAngle: Q('14.8 deg'),
+    length: Q('8.94 m'),
+    wingspan: Q('9.97 m'),
+    wingSurface: Q('16.1 m^2'),
   },
-  diveSpeedLimit: Q('850 km/h'),
-  maxLoadFactor: Q('11 gee'),
-  stallAngles: {
-    takeoffLanding: Q('17 deg'),
-    flight: Q('19.9 deg'),
-  },
-  maxTrueAirspeeds: [
-    {
-      altitude: Q('0 m'),
-      engineMode: 'Combat',
-      speed: Q('522 km/h'),
-    },
-    {
-      altitude: Q('2000 m'),
-      engineMode: 'Combat',
-      speed: Q('570 km/h'),
-    },
-    {
-      altitude: Q('6000 m'),
-      engineMode: 'Combat',
-      speed: Q('635 km/h'),
-    },
-  ],
-  maxPerformance: {
-    climb: [
+  characteristics: {
+    maxTrueAirspeeds: [
       {
         altitude: Q('0 m'),
         engineMode: 'Combat',
-        speed: Q('280 km/h'),
-        rate: Q('19.5 m/s'),
+        speed: Q('522 km/h'),
       },
       {
-        altitude: Q('3000 m'),
+        altitude: Q('2000 m'),
         engineMode: 'Combat',
-        speed: Q('280 km/h'),
-        rate: Q('18.8 m/s'),
+        speed: Q('570 km/h'),
       },
       {
         altitude: Q('6000 m'),
         engineMode: 'Combat',
-        speed: Q('280 km/h'),
-        rate: Q('14.9 m/s'),
+        speed: Q('635 km/h'),
       },
     ],
-    turn: [
-      {
-        altitude: Q('0 m'),
-        engineMode: 'Emergency',
-        speed: Q('270 km/h'),
-        time: Q('20.3 s'),
-      },
+    maxPerformance: {
+      climb: [
+        {
+          altitude: Q('0 m'),
+          engineMode: 'Combat',
+          speed: Q('280 km/h'),
+          rate: Q('19.5 m/s'),
+        },
+        {
+          altitude: Q('3000 m'),
+          engineMode: 'Combat',
+          speed: Q('280 km/h'),
+          rate: Q('18.8 m/s'),
+        },
+        {
+          altitude: Q('6000 m'),
+          engineMode: 'Combat',
+          speed: Q('280 km/h'),
+          rate: Q('14.9 m/s'),
+        },
+      ],
+      turn: [
+        {
+          altitude: Q('0 m'),
+          engineMode: 'Emergency',
+          speed: Q('270 km/h'),
+          time: Q('20.3 s'),
+        },
+        {
+          altitude: Q('3000 m'),
+          engineMode: 'Emergency',
+          speed: Q('270 km/h'),
+          time: Q('26.1 s'),
+        },
+      ],
+    },
+    serviceCeiling: Q('11600 m'),
+    flightEndurance: [
       {
         altitude: Q('3000 m'),
-        engineMode: 'Emergency',
-        speed: Q('270 km/h'),
-        time: Q('26.1 s'),
+        speed: Q('350 km/h'),
+        time: Q('2.6h'),
       },
     ],
   },
-  takeoffSpeedRange: [Q('150 km/h'), Q('180 km/h')],
-  glideslopeSpeedRange: [Q('190 km/h'), Q('200 km/h')],
-  landingSpeedRange: [Q('145 km/h'), Q('155 km/h')],
-  landingAngle: Q('14.8 deg'),
-  serviceCeiling: Q('11600 m'),
-  flightEndurance: [
-    {
-      altitude: Q('3000 m'),
-      speed: Q('350 km/h'),
-      time: Q('2.6h'),
-    },
-  ],
   engine: {
+    model: 'DB-601E',
+    maxPowers: [
+      {
+        altitude: Q('0 m'),
+        mode: 'Combat',
+        power: Q('1200 hp'),
+      },
+      {
+        altitude: Q('0 m'),
+        mode: 'Emergency',
+        power: Q('1350 hp'),
+      },
+      {
+        altitude: Q('4800 m'),
+        mode: 'Emergency',
+        power: Q('1320 hp'),
+      },
+      {
+        altitude: Q('4900 m'),
+        mode: 'Combat',
+        power: Q('1200 hp'),
+      },
+    ],
     modes: [
       {
         name: 'Nominal',
@@ -119,72 +151,104 @@ export default {
         value: Q('115 degC'),
       },
     ],
+    superchargerGearShiftAltitude: null,
   },
   load: {
     emptyWeight: Q('2382 kg'),
+    minimumWeight: Q('2545 kg'),
     standardWeight: Q('2890 kg'),
     maxTakeoffWeight: Q('3189 kg'),
     fuelLoad: [Q('304 kg'), Q('400 L')],
   },
   armament: {
-    standard: [
-      {
-        qty: 1,
-        name: 'MG 151/20',
-        type: '15mm cannon',
-        count: 200,
-        details: '',
-      },
-      {
-        qty: 2,
-        name: 'MG 17',
-        type: '7.92mm machine gun',
-        count: 500,
-        details: '',
-      },
-    ],
-    modifications: [
-      {
-        qty: 2,
-        name: 'MG 151/15',
-        type: '15mm cannon',
-        count: 135,
-        details: 'wing-mounted',
-      },
-      {
-        qty: 2,
-        name: 'MG 151/20',
-        type: '20mm cannon',
-        count: 135,
-        details: 'wing-mounted',
-      },
-    ],
+    forwardFiring: {
+      standard: [
+        {
+          qty: 1,
+          name: 'MG 151/20',
+          type: '15mm cannon',
+          count: 200,
+          details: null,
+        },
+        {
+          qty: 2,
+          name: 'MG 17',
+          type: '7.92mm machine gun',
+          count: 500,
+          details: null,
+        },
+      ],
+      modifications: [
+        {
+          qty: 2,
+          name: 'MG 151/15',
+          type: '15mm cannon',
+          count: 135,
+          details: 'wing-mounted',
+        },
+        {
+          qty: 2,
+          name: 'MG 151/20',
+          type: '20mm cannon',
+          count: 135,
+          details: 'wing-mounted',
+        },
+      ],
+    },
     bombs: [],
     rockets: [],
   },
   features: [
     {
-      feature: 'Automatic operation of',
-      details: ['Engine RPM', 'Engine mixture', 'Engine supercharger', 'Engine oil/water radiators'],
+      feature: 'Governor',
+      details: ['Can be disabled for manual prop pitch control'],
+    },
+    {
+      feature: 'Mixture',
+      details: ['Automatic'],
+    },
+    {
+      feature: 'Supercharger',
+      details: ['Automatic'],
+    },
+    {
+      feature: 'Oil & water radiator shutters',
+      details: ['Automatic / manual control'],
     },
     {
       feature: 'Trimmers',
       details: ['Horizontal stabilizer'],
     },
     {
-      feature: 'Wheel brakes',
-      details: ['Independent left and right brakes'],
+      feature: 'Automatic wing slats',
+      details: ['Deploy automatically at high angle of attack, which makes pre-stall softer'],
+    },
+    {
+      feature: 'Flaps',
+      details: [
+        'Slow to operate; allow time for this on landing approach',
+        'Black line markings on the flaps measure their extension',
+      ],
     },
     {
       feature: 'Tail wheel lock',
       details: [],
     },
     {
-      feature: 'Flaps',
-      details: [
-        'Retracted by a manual mechanical system which is slow to operate; allow time for this on landing approach.',
-        'There are black line markings on the flaps to measure their extension.',
-      ],
+      feature: 'Wheel brakes',
+      details: ['Independent left and right brakes'],
+    },
+    {
+      feature: 'Fuel gauge',
+      details: ['Has emergency warning light (80 L)'],
+    },
+    {
+      feature: 'Canopy',
+      details: ['Design does not allow opening during flight, but it has an emergency release for bailouts'],
+    },
+    {
+      feature: 'Gunsight',
+      details: ['Has sliding sun filter'],
     },
   ],
   procedures: {
@@ -198,7 +262,7 @@ export default {
       'Close canopy',
       'Set flaps to 20° (two notches on wing)',
       'Set horizontal stabilizer to +1°',
-      'Gradually increase throttle to maximum',
+      'Gradually open throttle to maximum',
       'At 180 km/h, rotate',
       {
         text: 'At ≥ 250 km/h',

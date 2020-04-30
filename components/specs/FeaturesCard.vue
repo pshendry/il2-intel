@@ -3,8 +3,11 @@
     <template v-slot>
       <ul>
         <li v-for="feature in specs.features" :key="feature.feature">
-          {{ feature.feature }}
-          <ul v-if="feature.details">
+          <span
+            class="feature-name"
+          >{{ feature.feature + (feature.details.length === 1 ? ':' : '') }}</span>
+          <template v-if="feature.details.length === 1">{{ feature.details[0] }}</template>
+          <ul v-else>
             <li v-for="detail in feature.details" :key="detail">{{ detail }}</li>
           </ul>
         </li>
@@ -26,10 +29,23 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.spec-card-features::v-deep .card-header {
-  background-color: #c8e6c9;
+.spec-card-features {
+  &::v-deep {
+    .card-header {
+      background-color: #c8e6c9;
+    }
+
+    .card-body {
+      background-color: #e8f5e9;
+    }
+  }
+
+  ul {
+    padding-left: 1.75rem;
+  }
 }
-.spec-card-features::v-deep .card-body {
-  background-color: #e8f5e9;
+
+.feature-name {
+  font-weight: bold;
 }
 </style>
