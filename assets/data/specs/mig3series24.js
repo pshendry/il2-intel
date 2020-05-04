@@ -13,7 +13,7 @@ export default {
     diveSpeedLimit: Q('750 km/h'),
     maxLoadFactor: Q('12.8 gee'),
     stallAngles: {
-      takeoffLanding: Q('15.1 deg'),
+      landing: Q('15.1 deg'),
       flight: Q('17.3 deg'),
     },
     takeoffSpeedRange: [Q('180 km/h'), Q('200 km/h')],
@@ -96,14 +96,14 @@ export default {
         power: Q('1120 hp'),
       },
       {
-        altitude: Q('0 m'),
-        mode: 'Boosted',
-        power: Q('1350 hp'),
-      },
-      {
         altitude: Q('6000 m'),
         mode: 'Nominal',
         power: Q('1200 hp'),
+      },
+      {
+        altitude: Q('0 m'),
+        mode: 'Boosted',
+        power: Q('1350 hp'),
       },
     ],
     modes: [
@@ -199,6 +199,7 @@ export default {
         },
       ],
     },
+    defensive: [],
     bombs: [
       {
         qty: 2,

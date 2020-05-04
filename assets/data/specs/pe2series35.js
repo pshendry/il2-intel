@@ -13,7 +13,7 @@ export default {
     diveSpeedLimit: Q('790 km/h'),
     maxLoadFactor: Q('11 gee'),
     stallAngles: {
-      takeoffLanding: Q('9.8 deg'),
+      landing: Q('9.8 deg'),
       flight: Q('13.9 deg'),
     },
     takeoffSpeedRange: [Q('160 km/h'), Q('200 km/h')],
