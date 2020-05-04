@@ -140,7 +140,7 @@ export default {
         value: Q('85 degC'),
       },
       {
-        name: 'Oil',
+        name: 'Oil output',
         value: Q('120 degC'),
       },
       {
