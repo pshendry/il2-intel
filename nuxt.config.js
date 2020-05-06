@@ -22,4 +22,5 @@ export default {
   generate: {
     routes: SPECS.map((s) => `/specs/${s.id}`),
   },
+  modern: 'client',
 };
