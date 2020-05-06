@@ -6,7 +6,9 @@
           <template v-for="section in sections">
             <b-tr v-for="(arms, i) in section.values" :key="`${section.name}-${arms.name}`">
               <b-td v-if="i === 0" :rowspan="section.values.length">{{ section.name }}</b-td>
-              <b-td>{{ arms.qty ? `x${arms.qty}` : '' }}</b-td>
+              <b-td v-if="arms.qty">x{{ arms.qty }}</b-td>
+              <b-td v-else-if="arms.position">{{ arms.position }}</b-td>
+              <b-td v-else></b-td>
               <b-td>{{ arms.name }}</b-td>
               <b-td>{{ arms.type }}</b-td>
               <b-td v-if="'count' in arms" class="text-right">{{ arms.count }} rounds</b-td>
