@@ -34,10 +34,12 @@ export default {
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
 
-    tbody td {
+    tbody td,
+    tbody th {
       border-color: #bdbdbd;
     }
-    tbody tr:first-child td {
+    tbody tr:first-child td,
+    tbody tr:first-child th {
       border-top: none;
     }
   }

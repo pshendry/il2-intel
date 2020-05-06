@@ -4,19 +4,19 @@
       <b-table-simple class="spec-table" small>
         <b-tbody>
           <b-tr v-for="(mode, i) in specs.engine.modes" :key="mode.name">
-            <b-td v-if="i === 0" :rowspan="specs.engine.modes.length">Modes</b-td>
+            <b-th v-if="i === 0" :rowspan="specs.engine.modes.length">Modes</b-th>
             <b-td>{{ mode.name }}</b-td>
             <b-td>{{ mode.limit ? `≤ ${mode.limit.toString()}` : 'Unlimited' }}</b-td>
             <b-td class="text-right">{{ pressure(mode.rpm) }}</b-td>
             <b-td class="text-right">{{ mode.manifoldPressure.toString() }}</b-td>
           </b-tr>
           <b-tr v-for="(temps, i) in specs.engine.ratedTemps" :key="'rated-' + temps.name">
-            <b-td v-if="i === 0" colspan="2" :rowspan="specs.engine.ratedTemps.length">Rated Temp.</b-td>
+            <b-th v-if="i === 0" colspan="2" :rowspan="specs.engine.ratedTemps.length">Rated Temp.</b-th>
             <b-td>{{ temps.name }}</b-td>
             <b-td class="text-right" colspan="2">{{ temperatureRange(temps.range) }}</b-td>
           </b-tr>
           <b-tr v-for="(temps, i) in specs.engine.maxTemps" :key="'max-' + temps.name">
-            <b-td v-if="i === 0" colspan="2" :rowspan="specs.engine.maxTemps.length">Max Temp.</b-td>
+            <b-th v-if="i === 0" colspan="2" :rowspan="specs.engine.maxTemps.length">Max Temp.</b-th>
             <b-td>{{ temps.name }}</b-td>
             <b-td class="text-right" colspan="2">{{ temperature(temps.value) }}</b-td>
           </b-tr>

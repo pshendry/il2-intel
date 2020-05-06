@@ -4,19 +4,19 @@
       <b-table-simple class="spec-table" small>
         <b-tbody>
           <b-tr>
-            <b-td>Empty weight</b-td>
+            <b-th>Empty weight</b-th>
             <b-td class="text-right">{{ weight(specs.load.emptyWeight) }}</b-td>
           </b-tr>
           <b-tr>
-            <b-td>Standard weight</b-td>
+            <b-th>Standard weight</b-th>
             <b-td class="text-right">{{ weight(specs.load.standardWeight) }}</b-td>
           </b-tr>
           <b-tr>
-            <b-td>Max. takeoff weight</b-td>
+            <b-th>Max. takeoff weight</b-th>
             <b-td class="text-right">{{ weight(specs.load.maxTakeoffWeight) }}</b-td>
           </b-tr>
           <b-tr>
-            <b-td>Fuel load</b-td>
+            <b-th>Fuel load</b-th>
             <b-td class="text-right">{{ `${weight(specs.load.fuelLoad[0])} / ${fuel(specs.load.fuelLoad[1])}` }}</b-td>
           </b-tr>
         </b-tbody>

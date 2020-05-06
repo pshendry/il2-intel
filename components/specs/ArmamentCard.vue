@@ -5,7 +5,7 @@
         <b-tbody>
           <template v-for="section in sections">
             <b-tr v-for="(arms, i) in section.values" :key="`${section.name}-${arms.name}`">
-              <b-td v-if="i === 0" :rowspan="section.values.length">{{ section.name }}</b-td>
+              <b-th v-if="i === 0" :rowspan="section.values.length">{{ section.name }}</b-th>
               <b-td v-if="arms.qty">x{{ arms.qty }}</b-td>
               <b-td v-else-if="arms.position">{{ arms.position }}</b-td>
               <b-td v-else></b-td>
@@ -26,7 +26,7 @@ import { mapGetters, mapMutations } from 'vuex';
 import SpecCard from '@/components/specs/SpecsCard';
 
 export default {
-  name: 'ArmaentCard',
+  name: 'ArmamentCard',
   components: { SpecCard },
   computed: {
     sections() {
