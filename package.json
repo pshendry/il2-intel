@@ -9,7 +9,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "deploy": "nuxt generate && git fetch && git worktree add deployment web && cp -R dist/* deployment/ && cd deployment && git commit -am \"Deploy\" && git push origin web && cd .. && git worktree remove deployment",
+    "deploy": "nuxt generate && git fetch && git worktree add deployment web && cp -R dist/* deployment/ && cd deployment && git add -A && git commit -m \"Deploy\" && git push origin web && cd .. && git worktree remove deployment",
     "test": "jest"
   },
   "dependencies": {
