@@ -30,7 +30,7 @@ export default {
   }
   .card-body {
     padding: 0.5rem;
-    font-size: 14px;
+    font-size: 16px;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
 
@@ -53,5 +53,22 @@ export default {
 .spec-card-title {
   display: inline;
   font-size: 20px;
+}
+
+@media print {
+  .spec-card {
+    border-color: #000;
+    break-inside: avoid;
+  }
+
+  .spec-card::v-deep {
+    .card-header {
+      border-color: #000;
+    }
+
+    .card-body {
+      background-color: transparent !important;
+    }
+  }
 }
 </style>

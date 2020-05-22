@@ -1,40 +1,39 @@
 <template>
-  <b-container class="specs-page" fluid>
-    <b-row>
-      <b-col xl="8">
-        <b-row>
-          <b-col class="my-3" lg="6">
-            <flight-characteristics-card />
-          </b-col>
-          <b-col lg="6">
-            <b-row class="mid-row">
-              <b-col class="my-3" cols="12">
-                <engine-card />
-              </b-col>
-              <b-col class="my-3" cols="12">
-                <load-card />
-              </b-col>
-            </b-row>
-          </b-col>
-          <b-col class="my-3" cols="12">
-            <armament-card />
-          </b-col>
-        </b-row>
-      </b-col>
-      <b-col class="my-3" xl="4">
-        <features-card />
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col v-for="procedure in procedures" :key="procedure.name" class="my-3" md="6" lg="4">
+  <div class="specs-page">
+    <div class="specs-page__title">
+      <h2>Specifications and Operational Details: {{ specs.variant }}</h2>
+    </div>
+    <div class="specs-page__section1">
+      <div class="specs-page__card specs-page__chars-card">
+        <flight-characteristics-card />
+      </div>
+      <div class="specs-page__card specs-page__engine-card">
+        <engine-card />
+      </div>
+      <div class="specs-page__card specs-page__load-card">
+        <load-card />
+      </div>
+      <div class="specs-page__card specs-page__armament-card">
+        <armament-card />
+      </div>
+    </div>
+    <div class="specs-page__card specs-page__features-card">
+      <features-card />
+    </div>
+    <div class="specs-page__section2">
+      <div
+        v-for="procedure in procedures"
+        :key="procedure.id"
+        :class="`specs-page__card specs-page__${procedure.id}-card`"
+      >
         <procedure-card
           :name="procedure.name"
           :icon="procedure.icon"
           :steps="specs.procedures[procedure.id]"
         />
-      </b-col>
-    </b-row>
-  </b-container>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 import { mapGetters, mapMutations } from 'vuex';
@@ -83,10 +82,141 @@ export default {
 </script>
 <style lang="scss" scoped>
 .specs-page {
-  padding: 15px 30px;
+  display: grid;
+  padding: 30px;
+  grid:
+    'title' auto
+    'section1' auto
+    'features' auto
+    'section2' auto
+    / 1fr;
+  gap: 30px;
 }
 
-.mid-row {
-  min-height: 100%;
+.specs-page__section1 {
+  grid-area: section1;
+  display: grid;
+  grid:
+    'chars' auto
+    'engine' auto
+    'load' auto
+    'armament' auto
+    / 1fr;
+  gap: 30px;
+}
+
+.specs-page__section2 {
+  grid-area: section2;
+  display: grid;
+  grid:
+    'startup' auto
+    'takeoff' auto
+    'landing' auto
+    / 1fr;
+  gap: 30px;
+  break-inside: avoid;
+}
+
+.specs-page__title {
+  grid-area: title;
+
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+.specs-page__chars-card {
+  grid-area: chars;
+}
+
+.specs-page__engine-card {
+  grid-area: engine;
+}
+
+.specs-page__load-card {
+  grid-area: load;
+}
+
+.specs-page__armament-card {
+  grid-area: armament;
+}
+
+.specs-page__features-card {
+  grid-area: features;
+}
+
+.specs-page__engineStart-card {
+  grid-area: startup;
+}
+
+.specs-page__takeoff-card {
+  grid-area: takeoff;
+}
+
+.specs-page__landing-card {
+  grid-area: landing;
+}
+
+@media (min-width: 992px) {
+  .specs-page__section2 {
+    grid-area: section2;
+    display: grid;
+    grid:
+      'startup startup' auto
+      'takeoff landing' auto
+      / 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+@media (min-width: 992px), print {
+  .specs-page__section1 {
+    grid-area: section1;
+    display: grid;
+    grid:
+      'chars engine' auto
+      'chars load' auto
+      'armament armament' auto
+      / 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+@media (min-width: 1200px), print {
+  .specs-page__section2 {
+    grid-area: section2;
+    display: grid;
+    grid:
+      'startup takeoff landing' auto
+      / 1fr 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .specs-page {
+    display: grid;
+    padding: 30px;
+    grid:
+      'title title' auto
+      'section1 features' auto
+      'section2 section2' auto
+      / calc(66.67% - 10px) calc(33.33% - 20px);
+    gap: 30px;
+  }
+}
+
+@media print {
+  .specs-page {
+    display: block;
+
+    > div {
+      margin: 30px 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
 </style>

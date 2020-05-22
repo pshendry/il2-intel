@@ -7,6 +7,7 @@ import {
   faList,
   faPlaneArrival,
   faPlaneDeparture,
+  faPrint,
   faStar,
   faTachometerAlt,
   faWeightHanging,
@@ -16,7 +17,17 @@ config.autoAddCss = false;
 
 // You can add your icons directly in this plugin. See other examples for how you
 // can add other styles or just individual icons.
-library.add([faCogs, faCrosshairs, faList, faPlaneArrival, faPlaneDeparture, faStar, faTachometerAlt, faWeightHanging]);
+library.add([
+  faCogs,
+  faCrosshairs,
+  faList,
+  faPlaneArrival,
+  faPlaneDeparture,
+  faPrint,
+  faStar,
+  faTachometerAlt,
+  faWeightHanging,
+]);
 
 // Register the component globally
 Vue.component('icon', FontAwesomeIcon);

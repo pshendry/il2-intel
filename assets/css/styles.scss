@@ -15,6 +15,15 @@ h4 {
   font-family: 'SpecialElite', monospace;
 }
 
+@media print {
+  @for $i from 1 through 12 {
+    .col-print-#{$i} {
+      flex: 0 0 #{percentage($i/12)};
+      max-width: #{percentage($i/12)};
+    }
+  }
+}
+
 .spec-card {
   .spec-table {
     margin: 0;
