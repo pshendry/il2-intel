@@ -209,11 +209,11 @@ export default {
     },
     defensive: [
       {
-        position: 'Rear',
+        qty: 1,
         name: 'MG 15',
         type: '7.92mm machine gun',
         count: 825,
-        details: null,
+        details: 'Rear',
       },
     ],
     bombs: [

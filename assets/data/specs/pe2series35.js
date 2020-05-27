@@ -187,25 +187,25 @@ export default {
     },
     defensive: [
       {
-        position: 'Top',
+        qty: 1,
         name: 'ShKAS',
         type: '7.62mm machine gun',
         count: 450,
-        details: null,
+        details: 'Top',
       },
       {
-        position: 'Belly',
+        qty: 1,
         name: 'UB',
         type: '12.7mm machine gun',
         count: 200,
-        details: null,
+        details: 'Belly',
       },
       {
-        position: 'Side',
+        qty: 1,
         name: 'ShKAS',
         type: '7.62mm machine gun',
         count: 225,
-        details: null,
+        details: 'Side',
       },
     ],
     bombs: [
