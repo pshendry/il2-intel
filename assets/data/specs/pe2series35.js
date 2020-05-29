@@ -161,36 +161,14 @@ export default {
           details: 'nose-mounted',
         },
       ],
-      modifications: [
-        {
-          qty: 2,
-          name: 'UB',
-          type: '12.7mm machine gun',
-          count: 135,
-          details: 'wing-mounted',
-        },
-        {
-          qty: 2,
-          name: 'UB',
-          type: '12.7mm machine gun',
-          count: 350,
-          details: null,
-        },
-        {
-          qty: 2,
-          name: 'SsVAK',
-          type: '20mm gun',
-          count: 150,
-          details: null,
-        },
-      ],
+      modifications: [],
     },
     defensive: [
       {
         qty: 1,
-        name: 'ShKAS',
-        type: '7.62mm machine gun',
-        count: 450,
+        name: 'UB',
+        type: '12.7mm machine gun',
+        count: 200,
         details: 'Top',
       },
       {
@@ -206,6 +184,13 @@ export default {
         type: '7.62mm machine gun',
         count: 225,
         details: 'Side',
+      },
+      {
+        qty: 1,
+        name: 'UB',
+        type: '12.7mm machine gun',
+        count: 200,
+        details: 'Top turret',
       },
     ],
     bombs: [
@@ -240,15 +225,18 @@ export default {
   features: [
     {
       feature: 'Supercharger',
-      details: ['Manual control', 'Two-stage (shift at 2700 m)'],
+      details: ['Manual control', 'Two-stage (shift at 2300 m)'],
     },
     {
       feature: 'Mixture',
-      details: ['Manual control', 'Lean if altitude is more than 3..4 km for optimal engine operation'],
+      details: ['Manual control'],
     },
     {
       feature: 'Governor',
-      details: ['Electrically actuated, takes a long time to reach required revolutions'],
+      details: [
+        'Automatically controls prop pitch to maintain required RPM',
+        'Electrically actuated, slow to operate (up to 45 s from min to max)',
+      ],
     },
     {
       feature: 'Oil & water radiator shutters',
@@ -265,8 +253,8 @@ export default {
     {
       feature: 'Flaps',
       details: [
-        'Electro-hydraulic actuator that can extend to 50°',
-        'When landing, flaps can cause the angle of attack for a stall to be lower than landing pitch angle. For this reason, do not extend flaps to more than 35° (70%) on landing.',
+        'Can extend up to 50°',
+        'When landing, flaps can cause the angle of attack for a stall to be lower than landing pitch angle. Do not extend flaps to more than 35° (70%) on landing.',
       ],
     },
     {
@@ -275,7 +263,7 @@ export default {
     },
     {
       feature: 'Wheel brakes',
-      details: ['Differential pneumatic brakes with shared control lever', 'Differential is applied via rudder pedals'],
+      details: ['Differential brakes with shared control lever', 'Differential is applied via rudder pedals'],
     },
     {
       feature: 'Fuel gauges',
@@ -283,7 +271,7 @@ export default {
     },
     {
       feature: 'Canopy',
-      details: ['Has an emergency release system for bailouts'],
+      details: ['Has an emergency release'],
     },
     {
       feature: 'Salvo controller',

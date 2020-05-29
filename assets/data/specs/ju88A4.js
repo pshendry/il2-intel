@@ -249,7 +249,7 @@ export default {
     {
       feature: 'Flaps',
       details: [
-        'Hydraulic-actuated with 3 fixed positions: retracted, takeoff (25°) and landing (50°)',
+        '3 fixed positions: retracted, takeoff (25°) and landing (50°)',
         'Indicator lights located on left panel',
       ],
     },

@@ -206,7 +206,7 @@ export default {
   features: [
     {
       feature: 'Boost',
-      details: ['Set engine to 2300 RPM when engaging'],
+      details: ['To engage, set boost lever to full forward and increase engine to 2300 RPM'],
     },
     {
       feature: 'Supercharger',
@@ -218,14 +218,18 @@ export default {
     },
     {
       feature: 'Governor',
-      details: ['Can be disabled for manual prop pitch control'],
+      details: ['Automatically controls prop pitch to maintain required RPM'],
     },
     {
       feature: 'Oil radiator & air intake shutters',
       details: ['Manual control'],
     },
     {
-      feature: 'Landing flaps & gear',
+      feature: 'Flaps',
+      details: ['Manually operated (slow to operate)', 'Can be extended up to 53°'],
+    },
+    {
+      feature: 'Landing gear',
       details: ['Manually operated (slow to operate)'],
     },
     {
@@ -238,7 +242,7 @@ export default {
     },
     {
       feature: 'Fuel gauge',
-      details: ['Displays only when manual sucker lever is pushed in (simulated every 10 s)'],
+      details: ['Displays only when manual sucker lever is pushed in (in-game every 10 s)'],
     },
     {
       feature: 'Cockpit side doors',

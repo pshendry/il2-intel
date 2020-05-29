@@ -231,7 +231,7 @@ export default {
     },
     {
       feature: 'Supercharger',
-      details: ['Single stage, does not require manual control'],
+      details: ['Automatic', 'Single stage'],
     },
     {
       feature: 'Mixture',
@@ -239,7 +239,7 @@ export default {
     },
     {
       feature: 'Governor',
-      details: ['Can be disabled for manual prop pitch control'],
+      details: ['Automatically controls prop pitch to maintain required RPM'],
     },
     {
       feature: 'Oil & water radiator shutters',
@@ -254,23 +254,27 @@ export default {
       details: ['Can only extend fully (no gradual extension)', 'At ≥ 220 km/h, airflow may press the flaps upwards'],
     },
     {
-      feature: 'Tail wheel lock',
-      details: [],
+      feature: 'Tail wheel',
+      details: ['Has a manual lock'],
     },
     {
       feature: 'Wheel brakes',
-      details: ['Differential pneumatic brakes with shared control lever', 'Differential is applied via rudder pedals'],
+      details: ['Differential brakes with shared control lever', 'Differential is applied via rudder pedals'],
     },
     {
       feature: 'Fuel gauge',
       details: [
-        'Indicates fuel in front/bottom tanks (alternates every 10 seconds)',
+        'Indicates fuel in front or bottom tanks (alternates in-game every 10 seconds)',
         'Rear tank level is not indicated',
       ],
     },
     {
       feature: 'Canopy',
-      details: ['Has no lock in open position; may close in a steep dive', 'Impossible to open/close at high speed'],
+      details: [
+        'Has no lock in open position; may close in a steep dive',
+        'Impossible to open/close at high speed',
+        'Has no emergency release',
+      ],
     },
     {
       feature: 'Salvo controller',

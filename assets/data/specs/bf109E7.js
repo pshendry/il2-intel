@@ -217,7 +217,7 @@ export default {
   features: [
     {
       feature: 'Governor',
-      details: ['Can be disabled for manual prop pitch control'],
+      details: ['Automatically controls prop pitch to maintain required RPM'],
     },
     {
       feature: 'Mixture',
@@ -247,8 +247,8 @@ export default {
       ],
     },
     {
-      feature: 'Tail wheel lock',
-      details: [],
+      feature: 'Tail wheel',
+      details: ['Has a manual lock'],
     },
     {
       feature: 'Wheel brakes',
@@ -260,7 +260,10 @@ export default {
     },
     {
       feature: 'Canopy',
-      details: ['Design does not allow opening during flight, but it has an emergency release for bailouts'],
+      details: [
+        'Close before takeoff to prevent damage',
+        'Has an emergency release, but otherwise cannot be opened during flight',
+      ],
     },
     {
       feature: 'Gunsight',

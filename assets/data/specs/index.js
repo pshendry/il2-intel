@@ -9,6 +9,7 @@ import lagg3series29 from './lagg3series29';
 import ju88A4 from './ju88A4';
 import mig3series24 from './mig3series24';
 import pe2series35 from './pe2series35';
+import pe2series87 from './pe2series87';
 import yak1series69 from './yak1series69';
 
 export default [
@@ -23,5 +24,6 @@ export default [
   ju88A4,
   mig3series24,
   pe2series35,
+  pe2series87,
   yak1series69,
 ];

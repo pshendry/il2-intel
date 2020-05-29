@@ -202,7 +202,7 @@ export default {
   features: [
     {
       feature: 'Governor',
-      details: ['Can be disabled for manual prop pitch control'],
+      details: ['Automatically controls prop pitch to maintain required RPM'],
     },
     {
       feature: 'Mixture',
@@ -232,8 +232,8 @@ export default {
       ],
     },
     {
-      feature: 'Tail wheel lock',
-      details: [],
+      feature: 'Tail wheel',
+      details: ['Has a manual lock'],
     },
     {
       feature: 'Wheel brakes',

@@ -221,12 +221,8 @@ export default {
     },
     {
       feature: 'Flaps',
-      details: ['Pneumatically-actuated', 'Can be extended up to 60°'],
-      details: [
-        'Pneumatically-actuated',
-        'Can only extend fully (no gradual extension)',
-        'At ≥ 220 km/h, airflow may press the flaps upwards',
-      ],
+      details: ['Can be extended up to 60°'],
+      details: ['Can only extend fully (no gradual extension)', 'At ≥ 220 km/h, airflow may press the flaps upwards'],
     },
     {
       feature: 'Tail wheel lock',
@@ -234,7 +230,7 @@ export default {
     },
     {
       feature: 'Wheel brakes',
-      details: ['Differential pneumatic brakes with shared control lever', 'Differential is applied via rudder pedals'],
+      details: ['Differential brakes with shared control lever', 'Differential is applied via rudder pedals'],
     },
     {
       feature: 'Fuel gauges',

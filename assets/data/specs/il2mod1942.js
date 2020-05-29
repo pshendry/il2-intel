@@ -274,7 +274,7 @@ export default {
     },
     {
       feature: 'Wheel brakes',
-      details: ['Differential pneumatic brakes with shared control lever', 'Differential is applied via rudder pedals'],
+      details: ['Differential brakes with shared control lever', 'Differential is applied via rudder pedals'],
     },
     {
       feature: 'Fuel gauge',
