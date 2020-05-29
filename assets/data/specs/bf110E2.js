@@ -284,7 +284,7 @@ export default {
     {
       feature: 'Fuel gauge',
       details: [
-        'Shows the fuel in one of four fuel tanks (alternates every 10 seconds)',
+        'Shows the fuel in one of four fuel tanks (alternates in-game every 10 seconds)',
         'Has emergency warning light (50 L) for each tank',
       ],
     },

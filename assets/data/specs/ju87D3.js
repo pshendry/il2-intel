@@ -1,89 +1,89 @@
 import Q from 'js-quantities';
 
 export default {
-  id: 'ju-88-A-4',
-  type: 'Ju 88',
-  variant: 'Ju 88 A-4',
-  combatDebut: new Date(1941, 5),
+  id: 'ju-87-D-3',
+  type: 'Ju 87',
+  variant: 'Ju 87 D-3',
+  combatDebut: new Date(1942, 2),
   airframe: {
     indicatedStallSpeedRanges: {
-      takeoffLanding: [Q('158 km/h'), Q('205 km/h')],
-      flight: [Q('188 km/h'), Q('205 km/h')],
+      takeoffLanding: [Q('123 km/h'), Q('155 km/h')],
+      flight: [Q('137 km/h'), Q('176 km/h')],
     },
-    diveSpeedLimit: Q('670 km/h'),
-    maxLoadFactor: Q('8.0 gee'),
+    diveSpeedLimit: Q('650 km/h'),
+    maxLoadFactor: Q('9.0 gee'),
     stallAngles: {
-      landing: Q('16.6 deg'),
-      flight: Q('21.0 deg'),
+      landing: Q('18 deg'),
+      flight: Q('19.9 deg'),
     },
-    takeoffSpeedRange: [Q('170 km/h'), Q('210 km/h')],
-    glideslopeSpeedRange: [Q('210 km/h'), Q('220 km/h')],
-    landingSpeedRange: [Q('150 km/h'), Q('160 km/h')],
-    landingAngle: Q('9 deg'),
-    length: Q('14.3 m'),
-    wingspan: Q('20.02 m'),
-    wingSurface: Q('52.7 m^2'),
+    takeoffSpeedRange: [Q('140 km/h'), Q('170 km/h')],
+    glideslopeSpeedRange: [Q('180 km/h'), Q('195 km/h')],
+    landingSpeedRange: [Q('125 km/h'), Q('145 km/h')],
+    landingAngle: Q('11 deg'),
+    length: Q('11 m'),
+    wingspan: Q('13.8 m'),
+    wingSurface: Q('31.9 m^2'),
   },
   characteristics: {
     maxTrueAirspeeds: [
       {
         altitude: Q('0 m'),
         engineMode: 'Climb',
-        speed: Q('424 km/h'),
+        speed: Q('367 km/h'),
       },
       {
         altitude: Q('2000 m'),
         engineMode: 'Climb',
-        speed: Q('462 km/h'),
+        speed: Q('389 km/h'),
       },
       {
-        altitude: Q('5000 m'),
+        altitude: Q('6000 m'),
         engineMode: 'Climb',
-        speed: Q('486 km/h'),
+        speed: Q('422 km/h'),
       },
     ],
     maxPerformance: {
       climb: [
         {
           altitude: Q('0 m'),
-          engineMode: 'Combat',
-          speed: Q('250 km/h'),
-          rate: Q('7.0 m/s'),
+          engineMode: 'Climb',
+          speed: Q('230 km/h'),
+          rate: Q('8 m/s'),
         },
         {
           altitude: Q('3000 m'),
-          engineMode: 'Combat',
-          speed: Q('250 km/h'),
-          rate: Q('5.1 m/s'),
+          engineMode: 'Climb',
+          speed: Q('230 km/h'),
+          rate: Q('7 m/s'),
         },
         {
           altitude: Q('6000 m'),
-          engineMode: 'Combat',
-          speed: Q('250 km/h'),
-          rate: Q('3.4 m/s'),
+          engineMode: 'Climb',
+          speed: Q('230 km/h'),
+          rate: Q('2.5 m/s'),
         },
       ],
       turn: [
         {
           altitude: Q('0 m'),
           engineMode: 'Take-off',
-          speed: Q('250 km/h'),
-          time: Q('33.0 s'),
+          speed: Q('230 km/h'),
+          time: Q('22.2 s'),
         },
         {
           altitude: Q('3000 m'),
           engineMode: 'Take-off',
-          speed: Q('250 km/h'),
-          time: Q('50.5 s'),
+          speed: Q('230 km/h'),
+          time: Q('31.3 s'),
         },
       ],
     },
-    serviceCeiling: Q('7500 m'),
+    serviceCeiling: Q('7000 m'),
     flightEndurance: [
       {
         altitude: Q('3000 m'),
         speed: Q('300 km/h'),
-        time: Q('3.8 h'),
+        time: Q('3.4 h'),
       },
     ],
   },
@@ -134,7 +134,7 @@ export default {
     ratedTemps: [
       {
         name: 'Oil',
-        range: [Q('100 degC')],
+        range: [Q('90 degC')],
       },
       {
         name: 'Water',
@@ -144,7 +144,7 @@ export default {
     maxTemps: [
       {
         name: 'Oil',
-        value: Q('130 degC'),
+        value: Q('105 degC'),
       },
       {
         name: 'Water',
@@ -154,58 +154,67 @@ export default {
     superchargerGearShiftAltitude: null,
   },
   load: {
-    emptyWeight: Q('8619 kg'),
-    minimumWeight: Q('9458 kg'),
-    standardWeight: Q('12110 kg'),
-    maxTakeoffWeight: Q('13655 kg'),
-    fuelLoad: [Q('1277 kg'), Q('1680 L')],
+    emptyWeight: Q('3930 kg'),
+    minimumWeight: Q('4250 kg'),
+    standardWeight: Q('4835 kg'),
+    maxTakeoffWeight: Q('6684 kg'),
+    fuelLoad: [Q('626 kg'), Q('840 L')],
   },
   armament: {
     forwardFiring: {
-      standard: [],
-      modifications: [],
+      standard: [
+        {
+          qty: 2,
+          name: 'MG 17',
+          type: '7.92mm machine gun',
+          count: 1000,
+          details: 'nose-mounted',
+        },
+      ],
+      modifications: [
+        {
+          qty: 12,
+          name: 'MG 81',
+          type: '7.92mm machine gun',
+          count: 250,
+          details: 'wing-mounted',
+        },
+        {
+          qty: 2,
+          name: 'BK 37',
+          type: '37mm gun',
+          count: 12,
+          details: 'wing-mounted',
+        },
+      ],
     },
     defensive: [
-      {
-        qty: 1,
-        name: 'MG 81',
-        type: '7.92mm machine gun',
-        count: 750,
-        details: 'Nose',
-      },
-      {
-        qty: 1,
-        name: 'MG 81',
-        type: '7.92mm machine gun',
-        count: 1000,
-        details: 'Top',
-      },
       {
         qty: 2,
         name: 'MG 81',
         type: '7.92mm machine gun',
-        count: 950,
-        details: 'Belly',
+        count: 500,
+        details: 'Rear',
       },
     ],
     bombs: [
       {
-        qty: 44,
-        name: 'SC 50',
-        type: '55kg general purpose bomb',
+        qty: 4,
+        name: 'SD 70',
+        type: '70kg general purpose bomb',
       },
       {
-        qty: 6,
+        qty: 3,
         name: 'SC 250',
         type: '249kg general purpose bomb',
       },
       {
-        qty: 4,
+        qty: 1,
         name: 'SC 500',
         type: '500kg general purpose bomb',
       },
       {
-        qty: 2,
+        qty: 1,
         name: 'SC 1000',
         type: '1090kg general purpose bomb',
       },
@@ -231,16 +240,12 @@ export default {
       details: ['Can be disabled for manual prop pitch control'],
     },
     {
-      feature: 'Propellers',
-      details: ['Have a feathering system which should be activated to reduce the drag of a disabled engine'],
-    },
-    {
       feature: 'Oil & water radiator shutters',
-      details: ['Manually operated', 'Joint with engine cowl outlet shutters'],
+      details: ['Manually operated'],
     },
     {
       feature: 'Trimmers',
-      details: ['Pitch, roll, yaw', 'Horizontal stabilizer automatically controlled based on flaps extension'],
+      details: ['Pitch, roll', 'Horizontal stabilizer automatically controlled based on flaps extension'],
     },
     {
       feature: 'Airbrakes',
@@ -258,12 +263,8 @@ export default {
       details: ['Lowered in sync with the flaps'],
     },
     {
-      feature: 'Landing gear',
-      details: ['Slow to operate, so extend gear well before final landing approach'],
-    },
-    {
       feature: 'Tail wheel',
-      details: ['Rotates freely and does not have a lock'],
+      details: ['Has a manual lock'],
     },
     {
       feature: 'Wheel brakes',
@@ -272,13 +273,29 @@ export default {
     {
       feature: 'Fuel gauge',
       details: [
-        'Dedicated gauges for left and right tanks, with switch between internal and external groups (alternates in-game every 10s)',
-        'Has low fuel warning light (180 L) for the internal tanks',
+        'Indicates fuel in left or right tanks (alternates in-game every 10 seconds)',
+        'Has indicator lights for full tanks and a low fuel warning light (160 L) for each tank',
       ],
     },
     {
+      feature: 'Canopy',
+      details: [
+        'Impossible to open/close at high speed',
+        'Impossible to use rear gun when open',
+        'Has an emergency relaese',
+      ],
+    },
+    {
+      feature: 'Bombsight window',
+      details: ['Located on cockpit floor'],
+    },
+    {
       feature: 'Salvo controller',
-      details: ['Bomb modes: internal, external'],
+      details: ['Bomb modes: central, left, right'],
+    },
+    {
+      feature: 'Gunsight',
+      details: ['Has sliding sun filter'],
     },
   ],
   procedures: {

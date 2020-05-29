@@ -279,7 +279,7 @@ export default {
     {
       feature: 'Fuel gauge',
       details: [
-        'Indicates fuel in front/bottom tanks (alternates every 10 seconds)',
+        'Indicates fuel in front/bottom tanks (alternates in-game every 10 seconds)',
         'Rear tank level is not indicated',
       ],
     },
