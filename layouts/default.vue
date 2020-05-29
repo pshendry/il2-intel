@@ -7,7 +7,7 @@
         <b-navbar-nav>
           <b-nav-item to="/identify" :active="$route.name === 'identify'">Identification</b-nav-item>
           <b-nav-item-dropdown
-            :class="[$route.name === 'specs-variant' ? 'active' : '']"
+            :class="['specs-dropdown', $route.name === 'specs-variant' ? 'active' : '']"
             :text="specsTitle"
           >
             <b-dropdown-item v-for="spec in allSpecs" :key="spec.id" :to="`/specs/${spec.id}`">
@@ -32,7 +32,6 @@
               class="print-button"
               variant="primary"
               @click="onPrintButtonClick"
-              v-b-tooltip.hover
               title="Print"
             >
               <icon icon="print" />
@@ -103,6 +102,11 @@ export default {
 
 .print-button svg {
   width: 20px;
+}
+
+.specs-dropdown ::v-deep ul {
+  max-height: 256px;
+  overflow-y: auto;
 }
 
 @media print {
