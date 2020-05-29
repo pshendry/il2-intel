@@ -1,24 +1,24 @@
 import Q from 'js-quantities';
 
 export default {
-  id: 'il2-mod-1941',
+  id: 'il2-mod-1942',
   type: 'IL-2',
-  variant: 'IL-2 model of 1941',
-  combatDebut: new Date(1941, 6),
+  variant: 'IL-2 model of 1942',
+  combatDebut: new Date(1942, 5),
   airframe: {
     indicatedStallSpeedRanges: {
-      takeoffLanding: [Q('128 km/h'), Q('146 km/h')],
-      flight: [Q('136 km/h'), Q('156 km/h')],
+      takeoffLanding: [Q('130 km/h'), Q('148 km/h')],
+      flight: [Q('138 km/h'), Q('158 km/h')],
     },
     diveSpeedLimit: Q('570 km/h'),
-    maxLoadFactor: Q('11.5 gee'),
+    maxLoadFactor: Q('10.5 gee'),
     stallAngles: {
       landing: Q('17.5 deg'),
       flight: Q('19.4 deg'),
     },
     takeoffSpeedRange: [Q('150 km/h'), Q('190 km/h')],
     glideslopeSpeedRange: [Q('185 km/h'), Q('195 km/h')],
-    landingSpeedRange: [Q('130 km/h'), Q('140 km/h')],
+    landingSpeedRange: [Q('135 km/h'), Q('145 km/h')],
     landingAngle: Q('11.7 deg'),
     length: Q('11.5 m'),
     wingspan: Q('14.6 m'),
@@ -29,17 +29,17 @@ export default {
       {
         altitude: Q('0 m'),
         engineMode: 'Nominal',
-        speed: Q('421 km/h'),
+        speed: Q('380 km/h'),
       },
       {
         altitude: Q('0 m'),
         engineMode: 'Boosted',
-        speed: Q('430 km/h'),
+        speed: Q('400 km/h'),
       },
       {
         altitude: Q('2500 m'),
         engineMode: 'Nominal',
-        speed: Q('455 km/h'),
+        speed: Q('414 km/h'),
       },
     ],
     maxPerformance: {
@@ -48,19 +48,19 @@ export default {
           altitude: Q('0 m'),
           engineMode: 'Nominal',
           speed: Q('250 km/h'),
-          rate: Q('9.4 m/s'),
+          rate: Q('7.1 m/s'),
         },
         {
           altitude: Q('3000 m'),
           engineMode: 'Nominal',
           speed: Q('250 km/h'),
-          rate: Q('8.9 m/s'),
+          rate: Q('5.6 m/s'),
         },
         {
           altitude: Q('6000 m'),
           engineMode: 'Nominal',
           speed: Q('250 km/h'),
-          rate: Q('3.9 m/s'),
+          rate: Q('5.6 m/s'), // MISSING
         },
       ],
       turn: [
@@ -68,17 +68,17 @@ export default {
           altitude: Q('0 m'),
           engineMode: 'Boosted',
           speed: Q('250 km/h'),
-          time: Q('23.1 s'),
+          time: Q('25.7 s'),
         },
         {
           altitude: Q('3000 m'),
           engineMode: 'Boosted',
           speed: Q('250 km/h'),
-          time: Q('32.6 s'),
+          time: Q('37.3 s'),
         },
       ],
     },
-    serviceCeiling: Q('7500 m'),
+    serviceCeiling: Q('6000 m'),
     flightEndurance: [
       {
         altitude: Q('3000 m'),
@@ -151,11 +151,11 @@ export default {
     superchargerGearShiftAltitude: null,
   },
   load: {
-    emptyWeight: Q('4242 kg'),
-    minimumWeight: Q('4464 kg'),
-    standardWeight: Q('5049 kg'),
-    maxTakeoffWeight: Q('5888 kg'),
-    fuelLoad: [Q('470 kg'), Q('641 L')],
+    emptyWeight: Q('4462 kg'),
+    minimumWeight: Q('4651 kg'),
+    standardWeight: Q('5294 kg'),
+    maxTakeoffWeight: Q('6127 kg'),
+    fuelLoad: [Q('535 kg'), Q('730 L')],
   },
   armament: {
     forwardFiring: {
@@ -164,7 +164,7 @@ export default {
           qty: 2,
           name: 'SsVAK',
           type: '20mm gun',
-          count: 210,
+          count: 250,
           details: 'wing-mounted',
         },
         {
@@ -183,9 +183,24 @@ export default {
           count: 150,
           details: 'wing-mounted',
         },
+        {
+          qty: 2,
+          name: 'Sh-37',
+          type: '37mm gun',
+          count: 40,
+          details: 'wing-mounted',
+        },
       ],
     },
-    defensive: [],
+    defensive: [
+      {
+        qty: 1,
+        name: 'ShKAS',
+        type: '7.62mm machine gun',
+        count: 500,
+        details: 'Rear',
+      },
+    ],
     bombs: [
       {
         qty: 6,
@@ -282,30 +297,8 @@ export default {
     },
   ],
   procedures: {
-    engineStart: ['Start engine'],
-    takeoff: [
-      'Set oil and water radiators to full open',
-      'Set mixture to intermediate',
-      'Set RPM to maximum',
-      'Lock tail wheel',
-      'At 170 km/h, rotate',
-      'Retract landing gear',
-      'Set engine for climb (1800..2000 RPM)',
-      'Climb at 250 km/h',
-    ],
-    landing: [
-      'Set RPM to maximum, MP to 5..6',
-      'Reduce airspeed to ≤ 250 km/h',
-      'Extend landing gear',
-      'Set oil and water radiators as required',
-      'Lock tail wheel',
-      'On base leg, extend flaps and reduce airspeed to ≤ 220 km/h',
-      'Set engine to 1500 RPM / 0.6 ata',
-      'Set horizontal stabilizer to -4..5°',
-      'At ≤ 350 km/h, extend landing gear',
-      'At ≤ 250 km/h, extend flaps to 20°',
-      'On base leg, descend at 150 m/min',
-      'On final approach, descend at 185 km/h',
-    ],
+    engineStart: [],
+    takeoff: [],
+    landing: [],
   },
 };

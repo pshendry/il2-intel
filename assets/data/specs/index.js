@@ -4,6 +4,7 @@ import bf109F4 from './bf109F4';
 import bf110E2 from './bf110E2';
 import i16type24 from './i16type24';
 import il2mod1941 from './il2mod1941';
+import il2mod1942 from './il2mod1942';
 import lagg3series29 from './lagg3series29';
 import ju88A4 from './ju88A4';
 import mig3series24 from './mig3series24';
@@ -17,6 +18,7 @@ export default [
   bf110E2,
   i16type24,
   il2mod1941,
+  il2mod1942,
   lagg3series29,
   ju88A4,
   mig3series24,
