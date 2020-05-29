@@ -243,6 +243,7 @@ export default {
       feature: 'Flaps',
       details: [
         'Slow to operate; allow time for this on landing approach',
+        'Can be extended up to 42°',
         'Black line markings on the flaps measure their extension',
       ],
     },
