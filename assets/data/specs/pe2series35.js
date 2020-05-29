@@ -83,7 +83,7 @@ export default {
       {
         altitude: Q('3000 m'),
         speed: Q('300 km/h'),
-        time: Q('3.7h'),
+        time: Q('3.7 h'),
       },
     ],
   },
