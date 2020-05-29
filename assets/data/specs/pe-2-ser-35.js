@@ -1,7 +1,7 @@
 import Q from 'js-quantities';
 
 export default {
-  id: 'pe-2-series-35',
+  id: 'pe-2-ser-35',
   type: 'Pe-2',
   variant: 'Pe-2 series 35',
   combatDebut: new Date(1941, 7),

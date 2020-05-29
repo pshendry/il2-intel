@@ -1,24 +1,24 @@
 import Q from 'js-quantities';
 
 export default {
-  id: 'bf-109-G-2',
+  id: 'bf-109-f-4',
   type: 'Bf 109',
-  variant: 'Bf 109 G-2',
-  combatDebut: new Date(1942, 4),
+  variant: 'Bf 109 F-4',
+  combatDebut: new Date(1941, 6),
   airframe: {
     indicatedStallSpeedRanges: {
-      takeoffLanding: [Q('153 km/h'), Q('164 km/h')],
-      flight: [Q('158 km/h'), Q('174 km/h')],
+      takeoffLanding: [Q('148 km/h'), Q('161 km/h')],
+      flight: [Q('154 km/h'), Q('171 km/h')],
     },
     diveSpeedLimit: Q('850 km/h'),
-    maxLoadFactor: Q('10.5 gee'),
+    maxLoadFactor: Q('11 gee'),
     stallAngles: {
       landing: Q('17 deg'),
-      flight: Q('19.8 deg'),
+      flight: Q('19.9 deg'),
     },
-    takeoffSpeedRange: [Q('155 km/h'), Q('180 km/h')],
-    glideslopeSpeedRange: [Q('195 km/h'), Q('205 km/h')],
-    landingSpeedRange: [Q('150 km/h'), Q('155 km/h')],
+    takeoffSpeedRange: [Q('150 km/h'), Q('180 km/h')],
+    glideslopeSpeedRange: [Q('190 km/h'), Q('200 km/h')],
+    landingSpeedRange: [Q('145 km/h'), Q('155 km/h')],
     landingAngle: Q('14.8 deg'),
     length: Q('8.94 m'),
     wingspan: Q('9.97 m'),
@@ -29,17 +29,17 @@ export default {
       {
         altitude: Q('0 m'),
         engineMode: 'Combat',
-        speed: Q('530 km/h'),
+        speed: Q('522 km/h'),
       },
       {
         altitude: Q('2000 m'),
         engineMode: 'Combat',
-        speed: Q('577 km/h'),
+        speed: Q('570 km/h'),
       },
       {
-        altitude: Q('7000 m'),
+        altitude: Q('6000 m'),
         engineMode: 'Combat',
-        speed: Q('656 km/h'),
+        speed: Q('635 km/h'),
       },
     ],
     maxPerformance: {
@@ -47,20 +47,20 @@ export default {
         {
           altitude: Q('0 m'),
           engineMode: 'Combat',
-          speed: Q('270 km/h'),
-          rate: Q('21.0 m/s'),
+          speed: Q('280 km/h'),
+          rate: Q('19.5 m/s'),
         },
         {
           altitude: Q('3000 m'),
           engineMode: 'Combat',
-          speed: Q('270 km/h'),
-          rate: Q('19.5 m/s'),
+          speed: Q('280 km/h'),
+          rate: Q('18.8 m/s'),
         },
         {
           altitude: Q('6000 m'),
           engineMode: 'Combat',
-          speed: Q('270 km/h'),
-          rate: Q('16.5 m/s'),
+          speed: Q('280 km/h'),
+          rate: Q('14.9 m/s'),
         },
       ],
       turn: [
@@ -68,37 +68,47 @@ export default {
           altitude: Q('0 m'),
           engineMode: 'Emergency',
           speed: Q('270 km/h'),
-          time: Q('22.2 s'),
+          time: Q('20.3 s'),
         },
         {
           altitude: Q('3000 m'),
           engineMode: 'Emergency',
           speed: Q('270 km/h'),
-          time: Q('28.3 s'),
+          time: Q('26.1 s'),
         },
       ],
     },
-    serviceCeiling: Q('12100 m'),
+    serviceCeiling: Q('11600 m'),
     flightEndurance: [
       {
         altitude: Q('3000 m'),
         speed: Q('350 km/h'),
-        time: Q('2.4 h'),
+        time: Q('2.6 h'),
       },
     ],
   },
   engine: {
-    model: 'DB-605A',
+    model: 'DB-601E',
     maxPowers: [
       {
         altitude: Q('0 m'),
         mode: 'Combat',
-        power: Q('1310 hp'),
+        power: Q('1200 hp'),
       },
       {
-        altitude: Q('5800 m'),
+        altitude: Q('4900 m'),
         mode: 'Combat',
-        power: Q('1250 hp'),
+        power: Q('1200 hp'),
+      },
+      {
+        altitude: Q('0 m'),
+        mode: 'Emergency',
+        power: Q('1350 hp'),
+      },
+      {
+        altitude: Q('4800 m'),
+        mode: 'Emergency',
+        power: Q('1320 hp'),
       },
     ],
     modes: [
@@ -111,8 +121,14 @@ export default {
       {
         name: 'Combat',
         limit: Q('30 min'),
-        rpm: Q('2600 rpm'),
+        rpm: Q('2500 rpm'),
         manifoldPressure: Q('1.3 atm'),
+      },
+      {
+        name: 'Emergency',
+        limit: Q('1 min'),
+        rpm: Q('2700 rpm'),
+        manifoldPressure: Q('1.42 atm'),
       },
     ],
     ratedTemps: [
@@ -152,17 +168,24 @@ export default {
           name: 'MG 151/20',
           type: '20mm cannon',
           count: 200,
-          details: 'nose-mounted',
+          details: null,
         },
         {
           qty: 2,
           name: 'MG 17',
           type: '7.92mm machine gun',
           count: 500,
-          details: 'synchronized',
+          details: null,
         },
       ],
       modifications: [
+        {
+          qty: 2,
+          name: 'MG 151/15',
+          type: '15mm cannon',
+          count: 135,
+          details: 'wing-mounted',
+        },
         {
           qty: 2,
           name: 'MG 151/20',
@@ -173,18 +196,7 @@ export default {
       ],
     },
     defensive: [],
-    bombs: [
-      {
-        qty: 4,
-        name: 'SC 50',
-        type: '55kg general purpose bomb',
-      },
-      {
-        qty: 1,
-        name: 'SC 250',
-        type: '249kg general purpose bomb',
-      },
-    ],
+    bombs: [],
     rockets: [],
   },
   features: [
@@ -242,8 +254,32 @@ export default {
     },
   ],
   procedures: {
-    engineStart: [],
-    takeoff: [],
-    landing: [],
+    engineStart: [
+      'Set throttle to idle (or 15..20% for cold engine start)',
+      'Set prop pitch and radiators to auto',
+      'Start engine',
+    ],
+    takeoff: [
+      'Lock tail wheel',
+      'Close canopy',
+      'Set flaps to 20° (two notches on wing)',
+      'Set horizontal stabilizer to +1°',
+      'Gradually open throttle to maximum',
+      'At 180 km/h, rotate',
+      {
+        text: 'At ≥ 250 km/h',
+        steps: ['Retract landing gear', 'Retract flaps', 'Set engine for climb (2500 RPM / 1.3 ata)'],
+      },
+    ],
+    landing: [
+      'Set engine to 1500 RPM / 0.6 ata',
+      'Lock tail wheel',
+      'Set horizontal stabilizer to -4..5°',
+      'At ≤ 350 km/h, extend landing gear',
+      'At ≤ 250 km/h, extend flaps to 20°',
+      'On base leg, descend at 150 m/min',
+      'On final approach, descend at 200..220 km/h',
+      'Touch down at 160 km/h',
+    ],
   },
 };

@@ -1,16 +1,13 @@
 import SPECS from '@/assets/data/specs';
 
 export const state = () => ({
-  // The ID of the displayed spec sheet
-  id: null,
+  // The content of the displayed spec sheet
+  specs: null,
   // The displayed unit type for quantities ('metric', 'imperial', or null for aircraft-specific
   units: null,
 });
 
 export const getters = {
-  specs(state) {
-    return state.id !== null ? SPECS.find((s) => s.id === state.id) : null;
-  },
   distance(state) {
     return (v) => {
       if (state.units === null) {
@@ -79,12 +76,20 @@ export const getters = {
 
 export const mutations = {
   reset(state) {
-    state.id = null;
+    state.specs = null;
   },
   setUnits(state, units) {
     state.units = units;
   },
-  setVariant(state, id) {
-    state.id = id;
+  setSpecs(state, specs) {
+    state.specs = specs;
+  },
+};
+
+export const actions = {
+  setVariant({ commit }, id) {
+    return import(`~/assets/data/specs/${id}.js`).then((specs) => {
+      commit('setSpecs', specs.default);
+    });
   },
 };

@@ -1,7 +1,7 @@
 import Q from 'js-quantities';
 
 export default {
-  id: 'il2-mod-1942',
+  id: 'il-2-mod-1942',
   type: 'IL-2',
   variant: 'IL-2 model of 1942',
   combatDebut: new Date(1942, 5),

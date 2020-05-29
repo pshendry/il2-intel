@@ -1,7 +1,7 @@
 import Q from 'js-quantities';
 
 export default {
-  id: 'ju-88-A-4',
+  id: 'ju-88-a-4',
   type: 'Ju 88',
   variant: 'Ju 88 A-4',
   combatDebut: new Date(1941, 5),

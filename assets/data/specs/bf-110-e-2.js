@@ -1,7 +1,7 @@
 import Q from 'js-quantities';
 
 export default {
-  id: 'bf-110-E-2',
+  id: 'bf-110-e-2',
   type: 'Bf 110',
   variant: 'Bf 110 E-2',
   combatDebut: new Date(1940, 9),

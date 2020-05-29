@@ -26,7 +26,7 @@
   </spec-card>
 </template>
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import { mapGetters, mapMutations, mapState } from 'vuex';
 
 import SpecCard from '@/components/specs/SpecsCard';
 
@@ -34,7 +34,8 @@ export default {
   name: 'EngineCard',
   components: { SpecCard },
   computed: {
-    ...mapGetters('specs', ['specs', 'pressure', 'temperature', 'temperatureRange']),
+    ...mapGetters('specs', ['pressure', 'temperature', 'temperatureRange']),
+    ...mapState('specs', ['specs']),
   },
 };
 </script>

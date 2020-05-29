@@ -1,35 +1,18 @@
-import bf109E7 from './bf109E7';
-import bf109F2 from './bf109F2';
-import bf109F4 from './bf109F4';
-import bf109G2 from './bf109G2';
-import bf110E2 from './bf110E2';
-import he111h6 from './he111h6';
-import i16type24 from './i16type24';
-import il2mod1941 from './il2mod1941';
-import il2mod1942 from './il2mod1942';
-import lagg3series29 from './lagg3series29';
-import ju87D3 from './ju87D3';
-import ju88A4 from './ju88A4';
-import mig3series24 from './mig3series24';
-import pe2series35 from './pe2series35';
-import pe2series87 from './pe2series87';
-import yak1series69 from './yak1series69';
-
 export default [
-  bf109E7,
-  bf109F2,
-  bf109F4,
-  bf109G2,
-  bf110E2,
-  he111h6,
-  i16type24,
-  il2mod1941,
-  il2mod1942,
-  lagg3series29,
-  ju87D3,
-  ju88A4,
-  mig3series24,
-  pe2series35,
-  pe2series87,
-  yak1series69,
+  { id: 'bf-109-e-7', variant: 'Bf 109 E-7' },
+  { id: 'bf-109-f-2', variant: 'Bf 109 F-2' },
+  { id: 'bf-109-f-4', variant: 'Bf 109 F-4' },
+  { id: 'bf-109-g-2', variant: 'Bf 109 G-2' },
+  { id: 'bf-110-e-2', variant: 'Bf 110 E-2' },
+  { id: 'he-111-h-6', variant: 'He 111 H-6' },
+  { id: 'i-16-type-24', variant: 'I-16 type 24' },
+  { id: 'il-2-mod-1941', variant: 'IL-2 mod. 1941' },
+  { id: 'il-2-mod-1942', variant: 'IL-2 mod. 1942' },
+  { id: 'ju-87-d-3', variant: 'Ju 87 D-3' },
+  { id: 'ju-88-a-4', variant: 'Ju 88 A-4' },
+  { id: 'lagg-3-ser-29', variant: 'LaGG-3 ser. 29' },
+  { id: 'mig-3-ser-24', variant: 'MiG-3 ser. 24' },
+  { id: 'pe-2-ser-35', variant: 'Pe-2 ser. 35' },
+  { id: 'pe-2-ser-87', variant: 'Pe-2 ser. 87' },
+  { id: 'yak-1-ser-69', variant: 'Yak-1 ser. 69' },
 ];

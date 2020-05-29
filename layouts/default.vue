@@ -54,7 +54,7 @@ import SPECS from '@/assets/data/specs';
 export default {
   computed: {
     allSpecs() {
-      return SPECS.filter((s) => s !== this.specs);
+      return this.specs ? SPECS.filter((s) => s !== this.specs.id) : SPECS;
     },
     specsTitle() {
       return this.specs ? `Spec Sheet: ${this.specs.variant}` : 'Spec Sheets';
@@ -66,8 +66,7 @@ export default {
         { id: 'imperial', name: 'Imperial' },
       ];
     },
-    ...mapState('specs', ['units']),
-    ...mapGetters('specs', ['specs']),
+    ...mapState('specs', ['specs', 'units']),
   },
   methods: {
     onPrintButtonClick() {

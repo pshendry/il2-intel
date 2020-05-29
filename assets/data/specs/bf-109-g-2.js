@@ -1,24 +1,24 @@
 import Q from 'js-quantities';
 
 export default {
-  id: 'bf-109-F-2',
+  id: 'bf-109-g-2',
   type: 'Bf 109',
-  variant: 'Bf 109 F-2',
-  combatDebut: new Date(1941, 2),
+  variant: 'Bf 109 G-2',
+  combatDebut: new Date(1942, 4),
   airframe: {
     indicatedStallSpeedRanges: {
-      takeoffLanding: [Q('144 km/h'), Q('159 km/h')],
-      flight: [Q('151 km/h'), Q('168 km/h')],
+      takeoffLanding: [Q('153 km/h'), Q('164 km/h')],
+      flight: [Q('158 km/h'), Q('174 km/h')],
     },
     diveSpeedLimit: Q('850 km/h'),
-    maxLoadFactor: Q('11 gee'),
+    maxLoadFactor: Q('10.5 gee'),
     stallAngles: {
       landing: Q('17 deg'),
-      flight: Q('19.7 deg'),
+      flight: Q('19.8 deg'),
     },
-    takeoffSpeedRange: [Q('145 km/h'), Q('175 km/h')],
-    glideslopeSpeedRange: [Q('185 km/h'), Q('195 km/h')],
-    landingSpeedRange: [Q('135 km/h'), Q('145 km/h')],
+    takeoffSpeedRange: [Q('155 km/h'), Q('180 km/h')],
+    glideslopeSpeedRange: [Q('195 km/h'), Q('205 km/h')],
+    landingSpeedRange: [Q('150 km/h'), Q('155 km/h')],
     landingAngle: Q('14.8 deg'),
     length: Q('8.94 m'),
     wingspan: Q('9.97 m'),
@@ -28,18 +28,18 @@ export default {
     maxTrueAirspeeds: [
       {
         altitude: Q('0 m'),
-        engineMode: 'Emergency',
-        speed: Q('528 km/h'),
+        engineMode: 'Combat',
+        speed: Q('530 km/h'),
       },
       {
         altitude: Q('2000 m'),
-        engineMode: 'Emergency',
-        speed: Q('563 km/h'),
+        engineMode: 'Combat',
+        speed: Q('577 km/h'),
       },
       {
-        altitude: Q('5000 m'),
-        engineMode: 'Emergency',
-        speed: Q('606 km/h'),
+        altitude: Q('7000 m'),
+        engineMode: 'Combat',
+        speed: Q('656 km/h'),
       },
     ],
     maxPerformance: {
@@ -48,37 +48,37 @@ export default {
           altitude: Q('0 m'),
           engineMode: 'Combat',
           speed: Q('270 km/h'),
-          rate: Q('16.4 m/s'),
+          rate: Q('21.0 m/s'),
         },
         {
           altitude: Q('3000 m'),
           engineMode: 'Combat',
           speed: Q('270 km/h'),
-          rate: Q('14.1 m/s'),
+          rate: Q('19.5 m/s'),
         },
         {
           altitude: Q('6000 m'),
           engineMode: 'Combat',
           speed: Q('270 km/h'),
-          rate: Q('10 m/s'),
+          rate: Q('16.5 m/s'),
         },
       ],
       turn: [
         {
           altitude: Q('0 m'),
-          engineMode: 'Boosted',
+          engineMode: 'Emergency',
           speed: Q('270 km/h'),
-          time: Q('23.6 s'),
+          time: Q('22.2 s'),
         },
         {
           altitude: Q('3000 m'),
-          engineMode: 'Boosted',
+          engineMode: 'Emergency',
           speed: Q('270 km/h'),
-          time: Q('29 s'),
+          time: Q('28.3 s'),
         },
       ],
     },
-    serviceCeiling: Q('11500 m'),
+    serviceCeiling: Q('12100 m'),
     flightEndurance: [
       {
         altitude: Q('3000 m'),
@@ -88,32 +88,17 @@ export default {
     ],
   },
   engine: {
-    model: 'DB-601N',
+    model: 'DB-605A',
     maxPowers: [
       {
         altitude: Q('0 m'),
         mode: 'Combat',
-        power: Q('1015 hp'),
+        power: Q('1310 hp'),
       },
       {
-        altitude: Q('4900 m'),
+        altitude: Q('5800 m'),
         mode: 'Combat',
-        power: Q('1045 hp'),
-      },
-      {
-        altitude: Q('0 m'),
-        mode: 'Emergency',
-        power: Q('1175 hp'),
-      },
-      {
-        altitude: Q('4900 m'),
-        mode: 'Emergency',
-        power: Q('1175 hp'),
-      },
-      {
-        altitude: Q('5500 m'),
-        mode: 'Boosted',
-        power: Q('1220 hp'),
+        power: Q('1250 hp'),
       },
     ],
     modes: [
@@ -126,20 +111,8 @@ export default {
       {
         name: 'Combat',
         limit: Q('30 min'),
-        rpm: Q('2400 rpm'),
-        manifoldPressure: Q('1.25 atm'),
-      },
-      {
-        name: 'Emergency',
-        limit: Q('3 min'),
         rpm: Q('2600 rpm'),
-        manifoldPressure: Q('1.35 atm'),
-      },
-      {
-        name: 'Boosted',
-        limit: Q('1 min'),
-        rpm: Q('2800 rpm'),
-        manifoldPressure: Q('1.42 atm'),
+        manifoldPressure: Q('1.3 atm'),
       },
     ],
     ratedTemps: [
@@ -159,16 +132,16 @@ export default {
       },
       {
         name: 'Water',
-        value: Q('110 degC'),
+        value: Q('115 degC'),
       },
     ],
     superchargerGearShiftAltitude: null,
   },
   load: {
-    emptyWeight: Q('2171 kg'),
-    minimumWeight: Q('2445 kg'),
-    standardWeight: Q('2789 kg'),
-    maxTakeoffWeight: Q('3092 kg'),
+    emptyWeight: Q('2382 kg'),
+    minimumWeight: Q('2545 kg'),
+    standardWeight: Q('2890 kg'),
+    maxTakeoffWeight: Q('3189 kg'),
     fuelLoad: [Q('304 kg'), Q('400 L')],
   },
   armament: {
@@ -176,8 +149,8 @@ export default {
       standard: [
         {
           qty: 1,
-          name: 'MG 151/15',
-          type: '15mm gun',
+          name: 'MG 151/20',
+          type: '20mm cannon',
           count: 200,
           details: 'nose-mounted',
         },
@@ -191,11 +164,11 @@ export default {
       ],
       modifications: [
         {
-          qty: 1,
+          qty: 2,
           name: 'MG 151/20',
-          type: '20mm gun',
-          count: 200,
-          details: 'nose-mounted',
+          type: '20mm cannon',
+          count: 135,
+          details: 'wing-mounted',
         },
       ],
     },
@@ -261,10 +234,7 @@ export default {
     },
     {
       feature: 'Canopy',
-      details: [
-        'Close before takeoff to prevent damage',
-        'Has an emergency release, but otherwise cannot be opened during flight',
-      ],
+      details: ['Design does not allow opening during flight, but it has an emergency release for bailouts'],
     },
     {
       feature: 'Gunsight',

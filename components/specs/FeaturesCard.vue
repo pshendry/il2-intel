@@ -16,7 +16,7 @@
   </spec-card>
 </template>
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import { mapGetters, mapMutations, mapState } from 'vuex';
 
 import SpecCard from '@/components/specs/SpecsCard';
 
@@ -24,7 +24,8 @@ export default {
   name: 'FeaturesCard',
   components: { SpecCard },
   computed: {
-    ...mapGetters('specs', ['specs', 'fuel', 'weight']),
+    ...mapGetters('specs', ['fuel', 'weight']),
+    ...mapState('specs', ['specs']),
   },
 };
 </script>

@@ -1,45 +1,45 @@
 import Q from 'js-quantities';
 
 export default {
-  id: 'pe-2-series-87',
-  type: 'Pe-2',
-  variant: 'Pe-2 series 87',
+  id: 'lagg-3-ser-29',
+  type: 'LaGG-3',
+  variant: 'LaGG-3 series 29',
   combatDebut: new Date(1942, 4),
   airframe: {
     indicatedStallSpeedRanges: {
-      takeoffLanding: [Q('148 km/h'), Q('169 km/h')],
-      flight: [Q('175 km/h'), Q('200 km/h')],
+      takeoffLanding: [Q('138 km/h'), Q('168 km/h')],
+      flight: [Q('163 km/h'), Q('189 km/h')],
     },
-    diveSpeedLimit: Q('790 km/h'),
+    diveSpeedLimit: Q('750 km/h'),
     maxLoadFactor: Q('11 gee'),
     stallAngles: {
-      landing: Q('9.8 deg'),
-      flight: Q('13.9 deg'),
+      landing: Q('15 deg'),
+      flight: Q('18 deg'),
     },
-    takeoffSpeedRange: [Q('160 km/h'), Q('200 km/h')],
-    glideslopeSpeedRange: [Q('220 km/h'), Q('240 km/h')],
-    landingSpeedRange: [Q('155 km/h'), Q('165 km/h')],
-    landingAngle: Q('12.5 deg'),
-    length: Q('12.69 m'),
-    wingspan: Q('17.12 m'),
-    wingSurface: Q('40.8 m^2'),
+    takeoffSpeedRange: [Q('165 km/h'), Q('200 km/h')],
+    glideslopeSpeedRange: [Q('200 km/h'), Q('210 km/h')],
+    landingSpeedRange: [Q('140 km/h'), Q('160 km/h')],
+    landingAngle: Q('12.8 deg'),
+    length: Q('8.84 m'),
+    wingspan: Q('9.8 m'),
+    wingSurface: Q('17.51 m^2'),
   },
   characteristics: {
     maxTrueAirspeeds: [
       {
         altitude: Q('0 m'),
         engineMode: 'Nominal',
-        speed: Q('446 km/h'),
+        speed: Q('505 km/h'),
       },
       {
         altitude: Q('2000 m'),
         engineMode: 'Nominal',
-        speed: Q('476 km/h'),
+        speed: Q('548 km/h'),
       },
       {
-        altitude: Q('5000 m'),
+        altitude: Q('4000 m'),
         engineMode: 'Nominal',
-        speed: Q('498 km/h'),
+        speed: Q('573 km/h'),
       },
     ],
     maxPerformance: {
@@ -47,48 +47,48 @@ export default {
         {
           altitude: Q('0 m'),
           engineMode: 'Nominal',
-          speed: Q('270 km/h'),
-          rate: Q('10.4 m/s'),
+          speed: Q('280 km/h'),
+          rate: Q('14.9 m/s'),
         },
         {
           altitude: Q('3000 m'),
           engineMode: 'Nominal',
           speed: Q('270 km/h'),
-          rate: Q('7.8 m/s'),
+          rate: Q('13.3 m/s'),
         },
         {
           altitude: Q('6000 m'),
           engineMode: 'Nominal',
           speed: Q('270 km/h'),
-          rate: Q('3.0 m/s'),
+          rate: Q('8 m/s'),
         },
       ],
       turn: [
         {
           altitude: Q('0 m'),
           engineMode: 'Nominal',
-          speed: Q('270 km/h'),
-          time: Q('29.9 s'),
+          speed: Q('280 km/h'),
+          time: Q('22.2 s'),
         },
         {
           altitude: Q('3000 m'),
           engineMode: 'Nominal',
           speed: Q('270 km/h'),
-          time: Q('40.3 s'),
+          time: Q('28.9 s'),
         },
       ],
     },
-    serviceCeiling: Q('8000 m'),
+    serviceCeiling: Q('10500 m'),
     flightEndurance: [
       {
         altitude: Q('3000 m'),
-        speed: Q('300 km/h'),
-        time: Q('2.8 h'),
+        speed: Q('350 km/h'),
+        time: Q('2.2 h'),
       },
     ],
   },
   engine: {
-    model: 'M-105RF',
+    model: 'M-105PF',
     maxPowers: [
       {
         altitude: Q('0 m'),
@@ -134,99 +134,86 @@ export default {
         value: Q('100 degC'),
       },
     ],
-    superchargerGearShiftAltitude: Q('2300 m'),
+    superchargerGearShiftAltitude: Q('2500 m'),
   },
   load: {
-    emptyWeight: Q('6089 kg'),
-    minimumWeight: Q('6643 kg'),
-    standardWeight: Q('7685 kg'),
-    maxTakeoffWeight: Q('8701 kg'),
-    fuelLoad: [Q('1113 kg'), Q('1484 L')],
+    emptyWeight: Q('2620 kg'),
+    minimumWeight: Q('2773 kg'),
+    standardWeight: Q('3157 kg'),
+    maxTakeoffWeight: Q('3701 kg'),
+    fuelLoad: [Q('348 kg'), Q('467 L')],
   },
   armament: {
     forwardFiring: {
       standard: [
         {
           qty: 1,
-          name: 'UB',
-          type: '12.7mm machine gun',
-          count: 150,
+          name: 'SsVAK',
+          type: '20mm gun',
+          count: 160,
           details: 'nose-mounted',
         },
         {
           qty: 1,
-          name: 'ShKAS',
-          type: '7.62mm machine gun',
-          count: 450,
+          name: 'UB',
+          type: '12.7mm machine gun',
+          count: 200,
+          details: 'synchronized',
+        },
+      ],
+      modifications: [
+        {
+          qty: 1,
+          name: 'VYa-23',
+          type: '23mm gun',
+          count: 90,
+          details: 'nose-mounted',
+        },
+        {
+          qty: 1,
+          name: 'Sh-37',
+          type: '37mm gun',
+          count: 20,
           details: 'nose-mounted',
         },
       ],
-      modifications: [],
     },
-    defensive: [
-      {
-        qty: 1,
-        name: 'ShKAS',
-        type: '7.62mm machine gun',
-        count: 450,
-        details: 'Top',
-      },
-      {
-        qty: 1,
-        name: 'UB',
-        type: '12.7mm machine gun',
-        count: 200,
-        details: 'Belly',
-      },
-      {
-        qty: 1,
-        name: 'ShKAS',
-        type: '7.62mm machine gun',
-        count: 225,
-        details: 'Side',
-      },
-    ],
+    defensive: [],
     bombs: [
       {
-        qty: 10,
-        name: 'FAB-100M',
-        type: '104kg general purpose bomb',
-        details: null,
-      },
-      {
-        qty: 4,
-        name: 'FAB-250sv',
-        type: '254kg general purpose bomb',
+        qty: 2,
+        name: 'FAB-50sv',
+        type: '50kg general purpose bomb',
         details: null,
       },
       {
         qty: 2,
-        name: 'FAB-500M',
-        type: '512kg general purpose bomb',
+        name: 'FAB-100M',
+        type: '104kg general purpose bomb',
         details: null,
       },
     ],
     rockets: [
       {
-        qty: 10,
-        name: 'ROS-132',
-        type: '23kg rocket',
-        details: 'HE payload mass 9.1 kg',
+        qty: 6,
+        name: 'ROS-82',
+        type: '7kg rocket',
+        details: 'HE payload mass 2.52 kg',
       },
     ],
   },
   features: [
     {
       feature: 'Supercharger',
-      details: ['Manual control', 'Two-stage (shift at 2700 m)'],
+      details: ['Manual control', 'Two-stage (shift at 2500 m)'],
     },
     {
       feature: 'Mixture',
-      details: ['Manual control', 'Lean if altitude is more than 3..4 km for optimal engine operation'],
+      details: ['Manual control'],
     },
     {
       feature: 'Governor',
-      details: ['Electrically actuated, takes a long time to reach required revolutions'],
+      details: ['Automatic'],
     },
     {
       feature: 'Oil & water radiator shutters',
@@ -234,18 +221,11 @@ export default {
     },
     {
       feature: 'Trimmers',
-      details: ['Pitch, roll, yaw', 'Horizontal stabilizer automatically controlled based on flaps extension'],
-    },
-    {
-      feature: 'Airbrakes',
-      details: ['Fence-type airbrakes located under the wing'],
+      details: ['Pitch, roll, yaw'],
     },
     {
       feature: 'Flaps',
-      details: [
-        'Can extend up to 50°',
-        'When landing, flaps can cause the angle of attack for a stall to be lower than landing pitch angle. For this reason, do not extend flaps to more than 35° (70%) on landing.',
-      ],
+      details: ['Can be extended up to 60°'],
     },
     {
       feature: 'Tail wheel',
@@ -256,16 +236,16 @@ export default {
       details: ['Differential brakes with shared control lever', 'Differential is applied via rudder pedals'],
     },
     {
-      feature: 'Fuel gauges',
-      details: ['Three gauges (for fuselage, left wing tanks and right wing tanks)'],
-    },
-    {
       feature: 'Canopy',
-      details: ['Has an emergency release system for bailouts'],
+      details: [
+        'Has weak lock in open position; may close in a steep dive',
+        'Impossible to open/close at high speed',
+        'No emergency release',
+      ],
     },
     {
       feature: 'Salvo controller',
-      details: ['Bomb modes: 1, 2, 4, All', 'Rocket modes: 1, 2, 4'],
+      details: ['Bomb modes: 1', 'Rocket modes: 1, 2, 4'],
     },
   ],
   procedures: {

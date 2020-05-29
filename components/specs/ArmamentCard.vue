@@ -4,7 +4,10 @@
       <b-table-simple class="spec-table" small>
         <b-tbody>
           <template v-for="section in sections">
-            <b-tr v-for="(arms, i) in section.values" :key="`${section.name}-${arms.name}`">
+            <b-tr
+              v-for="(arms, i) in section.values"
+              :key="`${section.name}-${arms.name}-${arms.details}`"
+            >
               <b-th v-if="i === 0" :rowspan="section.values.length">{{ section.name }}</b-th>
               <b-td v-if="arms.qty">x{{ arms.qty }}</b-td>
               <b-td v-else></b-td>
@@ -20,7 +23,7 @@
   </spec-card>
 </template>
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import { mapGetters, mapMutations, mapState } from 'vuex';
 
 import SpecCard from '@/components/specs/SpecsCard';
 
@@ -37,7 +40,8 @@ export default {
         { name: 'Rockets', values: this.specs.armament.rockets },
       ].filter((s) => s.values);
     },
-    ...mapGetters('specs', ['specs', 'fuel', 'weight']),
+    ...mapGetters('specs', ['fuel', 'weight']),
+    ...mapState('specs', ['specs']),
   },
 };
 </script>

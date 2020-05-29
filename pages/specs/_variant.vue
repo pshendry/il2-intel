@@ -1,42 +1,46 @@
 <template>
-  <div class="specs-page">
-    <div class="specs-page__title">
-      <h2>Specifications and Operational Details: {{ specs.variant }}</h2>
+  <b-overlay :show="loading">
+    <div v-if="specs" class="specs-page">
+      <div class="specs-page__title">
+        <h2>Specifications and Operational Details: {{ specs.variant }}</h2>
+      </div>
+      <div class="specs-page__section1">
+        <div class="specs-page__card specs-page__chars-card">
+          <flight-characteristics-card />
+        </div>
+        <div class="specs-page__card specs-page__engine-card">
+          <engine-card />
+        </div>
+        <div class="specs-page__card specs-page__load-card">
+          <load-card />
+        </div>
+        <div class="specs-page__card specs-page__armament-card">
+          <armament-card />
+        </div>
+      </div>
+      <div class="specs-page__card specs-page__features-card">
+        <features-card />
+      </div>
+      <div class="specs-page__section2">
+        <div
+          v-for="procedure in procedures"
+          :key="procedure.id"
+          :class="`specs-page__card specs-page__${procedure.id}-card`"
+        >
+          <procedure-card
+            :name="procedure.name"
+            :icon="procedure.icon"
+            :steps="specs.procedures[procedure.id]"
+          />
+        </div>
+      </div>
     </div>
-    <div class="specs-page__section1">
-      <div class="specs-page__card specs-page__chars-card">
-        <flight-characteristics-card />
-      </div>
-      <div class="specs-page__card specs-page__engine-card">
-        <engine-card />
-      </div>
-      <div class="specs-page__card specs-page__load-card">
-        <load-card />
-      </div>
-      <div class="specs-page__card specs-page__armament-card">
-        <armament-card />
-      </div>
-    </div>
-    <div class="specs-page__card specs-page__features-card">
-      <features-card />
-    </div>
-    <div class="specs-page__section2">
-      <div
-        v-for="procedure in procedures"
-        :key="procedure.id"
-        :class="`specs-page__card specs-page__${procedure.id}-card`"
-      >
-        <procedure-card
-          :name="procedure.name"
-          :icon="procedure.icon"
-          :steps="specs.procedures[procedure.id]"
-        />
-      </div>
-    </div>
-  </div>
+    <div v-else class="specs-loading-content"></div>
+  </b-overlay>
 </template>
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import Vue from 'vue';
+import { mapActions, mapMutations, mapState } from 'vuex';
 
 import ArmamentCard from '@/components/specs/ArmamentCard';
 import EngineCard from '@/components/specs/EngineCard';
@@ -47,6 +51,11 @@ import FlightCharacteristicsCard from '@/components/specs/FlightCharacteristicsC
 
 export default {
   components: { ArmamentCard, EngineCard, FeaturesCard, LoadCard, ProcedureCard, FlightCharacteristicsCard },
+  data() {
+    return {
+      loading: true,
+    };
+  },
   computed: {
     procedures() {
       return [
@@ -67,10 +76,16 @@ export default {
         },
       ];
     },
-    ...mapGetters('specs', ['specs']),
+    ...mapState('specs', ['specs']),
+  },
+  watch: {
+    specs(value) {
+      Vue.nextTick(() => this.loading = !value);
+    },
   },
   methods: {
-    ...mapMutations('specs', ['reset', 'setVariant']),
+    ...mapActions('specs', ['setVariant']),
+    ...mapMutations('specs', ['reset']),
   },
   created() {
     this.setVariant(this.$route.params.variant);
@@ -81,6 +96,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.specs-loading-content {
+  width: 100%;
+  height: calc(100vh - 56px);
+}
+
 .specs-page {
   display: grid;
   padding: 30px;

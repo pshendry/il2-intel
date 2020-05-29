@@ -17,7 +17,9 @@
           </b-tr>
           <b-tr>
             <b-th>Fuel load</b-th>
-            <b-td class="text-right">{{ `${weight(specs.load.fuelLoad[0])} / ${fuel(specs.load.fuelLoad[1])}` }}</b-td>
+            <b-td
+              class="text-right"
+            >{{ `${weight(specs.load.fuelLoad[0])} / ${fuel(specs.load.fuelLoad[1])}` }}</b-td>
           </b-tr>
         </b-tbody>
       </b-table-simple>
@@ -25,7 +27,7 @@
   </spec-card>
 </template>
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import { mapGetters, mapMutations, mapState } from 'vuex';
 
 import SpecCard from '@/components/specs/SpecsCard';
 
@@ -33,7 +35,8 @@ export default {
   name: 'LoadCard',
   components: { SpecCard },
   computed: {
-    ...mapGetters('specs', ['specs', 'fuel', 'weight']),
+    ...mapGetters('specs', ['fuel', 'weight']),
+    ...mapState('specs', ['specs']),
   },
 };
 </script>
