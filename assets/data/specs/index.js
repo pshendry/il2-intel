@@ -8,6 +8,7 @@ export default [
   { id: 'i-16-type-24', variant: 'I-16 type 24' },
   { id: 'il-2-mod-1941', variant: 'IL-2 mod. 1941' },
   { id: 'il-2-mod-1942', variant: 'IL-2 mod. 1942' },
+  { id: 'il-2-mod-1943', variant: 'IL-2 mod. 1943' },
   { id: 'ju-87-d-3', variant: 'Ju 87 D-3' },
   { id: 'ju-88-a-4', variant: 'Ju 88 A-4' },
   { id: 'lagg-3-ser-29', variant: 'LaGG-3 ser. 29' },

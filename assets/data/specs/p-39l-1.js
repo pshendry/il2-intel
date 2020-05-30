@@ -4,7 +4,7 @@ export default {
   id: 'p-39l-1',
   type: 'P-39',
   variant: 'P-39L-1',
-  combatDebut: new Date(1942),
+  combatDebut: new Date(1942), // "Late 1942"
   airframe: {
     indicatedStallSpeedRanges: {
       takeoffLanding: [Q('140 km/h'), Q('151 km/h')],

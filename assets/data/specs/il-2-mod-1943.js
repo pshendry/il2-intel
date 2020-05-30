@@ -1,14 +1,14 @@
 import Q from 'js-quantities';
 
 export default {
-  id: 'il-2-mod-1942',
+  id: 'il-2-mod-1943',
   type: 'IL-2',
-  variant: 'IL-2 model of 1942',
-  combatDebut: new Date(1942, 5),
+  variant: 'IL-2 model of 1943',
+  combatDebut: new Date(1943), // "Early 1943"
   airframe: {
     indicatedStallSpeedRanges: {
-      takeoffLanding: [Q('130 km/h'), Q('148 km/h')],
-      flight: [Q('138 km/h'), Q('158 km/h')],
+      takeoffLanding: [Q('135 km/h'), Q('152 km/h')],
+      flight: [Q('144 km/h'), Q('159 km/h')],
     },
     diveSpeedLimit: Q('570 km/h'),
     maxLoadFactor: Q('10.5 gee'),
@@ -16,9 +16,9 @@ export default {
       landing: Q('17.5 deg'),
       flight: Q('19.4 deg'),
     },
-    takeoffSpeedRange: [Q('150 km/h'), Q('190 km/h')],
-    glideslopeSpeedRange: [Q('185 km/h'), Q('195 km/h')],
-    landingSpeedRange: [Q('135 km/h'), Q('145 km/h')],
+    takeoffSpeedRange: [Q('160 km/h'), Q('200 km/h')],
+    glideslopeSpeedRange: [Q('195 km/h'), Q('205 km/h')],
+    landingSpeedRange: [Q('145 km/h'), Q('155 km/h')],
     landingAngle: Q('11.7 deg'),
     length: Q('11.5 m'),
     wingspan: Q('14.6 m'),
@@ -29,17 +29,17 @@ export default {
       {
         altitude: Q('0 m'),
         engineMode: 'Nominal',
-        speed: Q('380 km/h'),
+        speed: Q('389 km/h'),
+      },
+      {
+        altitude: Q('1200 m'),
+        engineMode: 'Nominal',
+        speed: Q('400 km/h'),
       },
       {
         altitude: Q('0 m'),
         engineMode: 'Boosted',
-        speed: Q('400 km/h'),
-      },
-      {
-        altitude: Q('2500 m'),
-        engineMode: 'Nominal',
-        speed: Q('414 km/h'),
+        speed: Q('407 km/h'),
       },
     ],
     maxPerformance: {
@@ -48,19 +48,13 @@ export default {
           altitude: Q('0 m'),
           engineMode: 'Nominal',
           speed: Q('250 km/h'),
-          rate: Q('7.1 m/s'),
+          rate: Q('7.5 m/s'),
         },
         {
           altitude: Q('3000 m'),
           engineMode: 'Nominal',
           speed: Q('250 km/h'),
-          rate: Q('5.6 m/s'),
-        },
-        {
-          altitude: Q('6000 m'),
-          engineMode: 'Nominal',
-          speed: Q('250 km/h'),
-          rate: Q('5.6 m/s'), // MISSING
+          rate: Q('4.2 m/s'),
         },
       ],
       turn: [
@@ -68,27 +62,27 @@ export default {
           altitude: Q('0 m'),
           engineMode: 'Boosted',
           speed: Q('250 km/h'),
-          time: Q('25.7 s'),
+          time: Q('26.6 s'),
         },
         {
           altitude: Q('3000 m'),
           engineMode: 'Boosted',
           speed: Q('250 km/h'),
-          time: Q('37.3 s'),
+          time: Q('39.3 s'),
         },
       ],
     },
-    serviceCeiling: Q('6000 m'),
+    serviceCeiling: Q('5600 m'),
     flightEndurance: [
       {
         altitude: Q('3000 m'),
         speed: Q('300 km/h'),
-        time: Q('1.7 h'),
+        time: Q('1.4 h'),
       },
     ],
   },
   engine: {
-    model: 'AM-38',
+    model: 'AM-38F',
     maxPowers: [
       {
         altitude: Q('0 m'),
@@ -96,14 +90,14 @@ export default {
         power: Q('1500 hp'),
       },
       {
-        altitude: Q('1650 m'),
+        altitude: Q('750 m'),
         mode: 'Nominal',
         power: Q('1500 hp'),
       },
       {
         altitude: Q('0 m'),
         mode: 'Boosted',
-        power: Q('1600 hp'),
+        power: Q('1720 hp'),
       },
     ],
     modes: [
@@ -111,13 +105,13 @@ export default {
         name: 'Nominal',
         limit: null,
         rpm: Q('2050 rpm'),
-        manifoldPressure: Q('1180 mmHg'),
+        manifoldPressure: Q('1200 mmHg'),
       },
       {
         name: 'Boosted',
-        limit: Q('10 min'),
-        rpm: Q('2150 rpm'),
-        manifoldPressure: Q('1280 mmHg'),
+        limit: Q('5 min'),
+        rpm: Q('2350 rpm'),
+        manifoldPressure: Q('1360 mmHg'),
       },
     ],
     ratedTemps: [
@@ -151,10 +145,10 @@ export default {
     superchargerGearShiftAltitude: null,
   },
   load: {
-    emptyWeight: Q('4462 kg'),
-    minimumWeight: Q('4651 kg'),
-    standardWeight: Q('5294 kg'),
-    maxTakeoffWeight: Q('6127 kg'),
+    emptyWeight: Q('4715 kg'),
+    minimumWeight: Q('5014 kg'),
+    standardWeight: Q('5681 kg'),
+    maxTakeoffWeight: Q('6375 kg'),
     fuelLoad: [Q('535 kg'), Q('730 L')],
   },
   armament: {
@@ -185,9 +179,9 @@ export default {
         },
         {
           qty: 2,
-          name: 'Sh-37',
+          name: 'NS-37',
           type: '37mm gun',
-          count: 40,
+          count: 50,
           details: 'wing-mounted',
         },
       ],
@@ -195,13 +189,18 @@ export default {
     defensive: [
       {
         qty: 1,
-        name: 'ShKAS',
-        type: '7.62mm machine gun',
-        count: 500,
+        name: 'UBT',
+        type: '12.7mm machine gun',
+        count: 150,
         details: 'Rear',
       },
     ],
     bombs: [
+      {
+        qty: 240,
+        name: 'PTAB-2,5-1,5',
+        type: '1.5kg HEAT bomblets',
+      },
       {
         qty: 6,
         name: 'FAB-50sv',
@@ -220,19 +219,19 @@ export default {
     ],
     rockets: [
       {
-        qty: 8,
+        qty: 4,
         name: 'ROS-82',
         type: '7kg rocket',
         details: 'HE payload mass 2.5 kg',
       },
       {
-        qty: 8,
+        qty: 4,
         name: 'RBS-82',
         type: '15kg rocket',
         details: 'HEAT payload mass 7.2 kg',
       },
       {
-        qty: 8,
+        qty: 4,
         name: 'ROFS-132',
         type: '42kg rocket',
         details: 'HE payload mass 21.3 kg',
@@ -266,7 +265,10 @@ export default {
     },
     {
       feature: 'Flaps',
-      details: ['Can only extend fully (no gradual extension)', 'At ≥ 220 km/h, airflow may press the flaps upwards'],
+      details: [
+        'Can only extend fully to 17° (no gradual extension)',
+        'At ≥ 220 km/h, airflow may press the flaps upwards',
+      ],
     },
     {
       feature: 'Tail wheel',
@@ -292,8 +294,10 @@ export default {
       details: ['Bomb/rocket modes: 1, 2, 4'],
     },
     {
-      feature: 'Gunsight',
-      details: ['Installed on sliding bar which can be extended to increase FoV'],
+      feature: '"Visier Vladimirova" Gunsight',
+      details: [
+        'Allows aiming rockets and guns at ground and air targets, and horizontal bombing at certain speeds and altitudes',
+      ],
     },
   ],
   procedures: {
