@@ -276,6 +276,10 @@ export default {
       details: ['Pitch, roll, yaw'],
     },
     {
+      feature: 'Flaps',
+      details: ['Can extend at any angle up to 60°'],
+    },
+    {
       feature: 'Tail wheel',
       details: ['Rotates freely and does not have a lock'],
     },

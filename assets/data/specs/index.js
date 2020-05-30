@@ -1,4 +1,5 @@
 export default [
+  { id: 'a-20b', variant: 'A-20B' },
   { id: 'bf-109-e-7', variant: 'Bf 109 E-7' },
   { id: 'bf-109-f-2', variant: 'Bf 109 F-2' },
   { id: 'bf-109-f-4', variant: 'Bf 109 F-4' },

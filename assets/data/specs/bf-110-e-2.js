@@ -271,7 +271,7 @@ export default {
     },
     {
       feature: 'Flaps',
-      details: ['Can be extended at any angle up to 50°'],
+      details: ['Can extend at any angle up to 50°'],
     },
     {
       feature: 'Tail wheel',

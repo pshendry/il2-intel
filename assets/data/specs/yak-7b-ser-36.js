@@ -17,7 +17,7 @@ export default {
       flight: Q('20 deg'),
     },
     takeoffSpeedRange: [Q('170 km/h'), Q('175 km/h')],
-    glideslopeSpeedRange: [Q('200 km/h'), Q('200 km/h')],
+    glideslopeSpeedRange: [Q('200 km/h')],
     landingSpeedRange: [Q('145 km/h'), Q('165 km/h')],
     landingAngle: Q('11.5 deg'),
     length: Q('8.5 m'),
