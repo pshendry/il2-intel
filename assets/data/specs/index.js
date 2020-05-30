@@ -12,6 +12,7 @@ export default [
   { id: 'ju-88-a-4', variant: 'Ju 88 A-4' },
   { id: 'lagg-3-ser-29', variant: 'LaGG-3 ser. 29' },
   { id: 'mig-3-ser-24', variant: 'MiG-3 ser. 24' },
+  { id: 'p-39l-1', variant: 'P-39L-1' },
   { id: 'pe-2-ser-35', variant: 'Pe-2 ser. 35' },
   { id: 'pe-2-ser-87', variant: 'Pe-2 ser. 87' },
   { id: 'yak-1-ser-69', variant: 'Yak-1 ser. 69' },
