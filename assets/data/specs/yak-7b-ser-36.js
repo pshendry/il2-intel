@@ -1,25 +1,25 @@
 import Q from 'js-quantities';
 
 export default {
-  id: 'yak-1-ser-69',
-  type: 'Yak-1',
-  variant: 'Yak-1 series 69',
+  id: 'yak-7b-ser-36',
+  type: 'Yak-7B',
+  variant: 'Yak-7B series 36',
   combatDebut: new Date(1942, 4),
   airframe: {
     indicatedStallSpeedRanges: {
-      takeoffLanding: [Q('133 km/h'), Q('146 km/h')],
-      flight: [Q('155 km/h'), Q('171 km/h')],
+      takeoffLanding: [Q('139 km/h'), Q('154 km/h')],
+      flight: [Q('155 km/h'), Q('172 km/h')],
     },
-    diveSpeedLimit: Q('720 km/h'),
-    maxLoadFactor: Q('10.3 gee'),
+    diveSpeedLimit: Q('740 km/h'),
+    maxLoadFactor: Q('11.5 gee'),
     stallAngles: {
-      landing: Q('15.6 deg'),
-      flight: Q('18 deg'),
+      landing: Q('19 deg'),
+      flight: Q('20 deg'),
     },
-    takeoffSpeedRange: [Q('160 km/h'), Q('190 km/h')],
-    glideslopeSpeedRange: [Q('195 km/h'), Q('205 km/h')],
-    landingSpeedRange: [Q('135 km/h'), Q('145 km/h')],
-    landingAngle: Q('12 deg'),
+    takeoffSpeedRange: [Q('170 km/h'), Q('175 km/h')],
+    glideslopeSpeedRange: [Q('200 km/h'), Q('200 km/h')],
+    landingSpeedRange: [Q('145 km/h'), Q('165 km/h')],
+    landingAngle: Q('11.5 deg'),
     length: Q('8.5 m'),
     wingspan: Q('10 m'),
     wingSurface: Q('17.15 m^2'),
@@ -28,57 +28,57 @@ export default {
     maxTrueAirspeeds: [
       {
         altitude: Q('0 m'),
-        engineMode: 'Nominal, 2550 RPM',
-        speed: Q('514 km/h'),
+        engineMode: 'Nominal',
+        speed: Q('526 km/h'),
       },
       {
         altitude: Q('2000 m'),
-        engineMode: 'Nominal, 2700 RPM',
-        speed: Q('549 km/h'),
+        engineMode: 'Nominal',
+        speed: Q('565 km/h'),
       },
       {
         altitude: Q('4000 m'),
-        engineMode: 'Nominal, 2700 RPM',
-        speed: Q('582 km/h'),
+        engineMode: 'Nominal',
+        speed: Q('586 km/h'),
       },
     ],
     maxPerformance: {
       climb: [
         {
           altitude: Q('0 m'),
-          engineMode: 'Nominal, 2700 RPM',
-          speed: Q('270 km/h'),
+          engineMode: 'Nominal',
+          speed: Q('310 km/h'),
           rate: Q('16.9 m/s'),
         },
         {
           altitude: Q('3000 m'),
-          engineMode: 'Nominal, 2700 RPM',
-          speed: Q('270 km/h'),
-          rate: Q('15.0 m/s'),
+          engineMode: 'Nominal',
+          speed: Q('310 km/h'),
+          rate: Q('14.3 m/s'),
         },
         {
           altitude: Q('6000 m'),
-          engineMode: 'Nominal, 2700 RPM',
-          speed: Q('270 km/h'),
-          rate: Q('9.4 m/s'),
+          engineMode: 'Nominal',
+          speed: Q('310 km/h'),
+          rate: Q('8.6 m/s'),
         },
       ],
       turn: [
         {
           altitude: Q('0 m'),
-          engineMode: 'Nominal, 2700 RPM',
-          speed: Q('270 km/h'),
-          time: Q('19.2 s'),
+          engineMode: 'Nominal',
+          speed: Q('310 km/h'),
+          time: Q('19.5 s'),
         },
         {
           altitude: Q('3000 m'),
-          engineMode: 'Nominal, 2700 RPM',
-          speed: Q('270 km/h'),
-          time: Q('24.6 s'),
+          engineMode: 'Nominal',
+          speed: Q('310 km/h'),
+          time: Q('24.5 s'),
         },
       ],
     },
-    serviceCeiling: Q('10200 m'),
+    serviceCeiling: Q('10660 m'),
     flightEndurance: [
       {
         altitude: Q('3000 m'),
@@ -92,32 +92,21 @@ export default {
     maxPowers: [
       {
         altitude: Q('0 m'),
-        mode: 'Nominal, 2550 RPM',
-        power: Q('1240 hp'),
-      },
-      {
-        altitude: Q('0 m'),
-        mode: 'Nominal, 2700 RPM',
+        mode: 'Nominal',
         power: Q('1210 hp'),
       },
       {
-        altitude: Q('800 m'),
-        mode: 'Nominal, 2700 RPM',
+        altitude: Q('700 m'),
+        mode: 'Nominal',
         power: Q('1260 hp'),
       },
       {
         altitude: Q('2700 m'),
-        mode: 'Nominal, 2700 RPM',
-        power: Q('1200 hp'),
+        mode: 'Nominal',
+        power: Q('1180 hp'),
       },
     ],
     modes: [
-      {
-        name: 'Nominal',
-        limit: null,
-        rpm: Q('2550 rpm'),
-        manifoldPressure: Q('1050 mmHg'),
-      },
       {
         name: 'Nominal',
         limit: null,
@@ -145,14 +134,14 @@ export default {
         value: Q('100 degC'),
       },
     ],
-    superchargerGearShiftAltitude: Q('2300 m'),
+    superchargerGearShiftAltitude: Q('2000 m'),
   },
   load: {
-    emptyWeight: Q('2365 kg'),
-    minimumWeight: Q('2583 kg'),
-    standardWeight: Q('2932 kg'),
-    maxTakeoffWeight: Q('3170 kg'),
-    fuelLoad: [Q('304 kg'), Q('408 L')],
+    emptyWeight: Q('2302 kg'),
+    minimumWeight: Q('2630 kg'),
+    standardWeight: Q('3002 kg'),
+    maxTakeoffWeight: Q('3229 kg'),
+    fuelLoad: [Q('305 kg'), Q('420 L')],
   },
   armament: {
     forwardFiring: {
@@ -166,9 +155,9 @@ export default {
         },
         {
           qty: 2,
-          name: 'ShKAS',
-          type: '7.62mm machine gun',
-          count: 750,
+          name: 'UBS',
+          type: '12.7mm machine gun',
+          count: 400,
           details: 'synchronized',
         },
       ],
@@ -189,19 +178,12 @@ export default {
         details: null,
       },
     ],
-    rockets: [
-      {
-        qty: 6,
-        name: 'ROS-82',
-        type: '7kg rocket',
-        details: 'HE payload mass 2.52 kg',
-      },
-    ],
+    rockets: [],
   },
   features: [
     {
       feature: 'Supercharger',
-      details: ['Manual control', 'Two-stage (shift at 2300 m)'],
+      details: ['Manual control', 'Two-stage (shift at 2000 m)'],
     },
     {
       feature: 'Mixture',

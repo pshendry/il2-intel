@@ -15,4 +15,5 @@ export default [
   { id: 'pe-2-ser-35', variant: 'Pe-2 ser. 35' },
   { id: 'pe-2-ser-87', variant: 'Pe-2 ser. 87' },
   { id: 'yak-1-ser-69', variant: 'Yak-1 ser. 69' },
+  { id: 'yak-7b-ser-36', variant: 'Yak-7B ser. 36' },
 ];
