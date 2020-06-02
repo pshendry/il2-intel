@@ -1,14 +1,14 @@
 import Q from 'js-quantities';
 
 export default {
-  id: 'he-111-h-6',
+  id: 'he-111-h-16',
   type: 'He 111',
-  variant: 'He 111 H-6',
-  combatDebut: new Date(1941, 5),
+  variant: 'He 111 H-16',
+  combatDebut: new Date(1943), // "Winter of 1943"
   airframe: {
     indicatedStallSpeedRanges: {
-      takeoffLanding: [Q('123 km/h'), Q('151 km/h')],
-      flight: [Q('150 km/h'), Q('184 km/h')],
+      takeoffLanding: [Q('123 km/h'), Q('156 km/h')],
+      flight: [Q('150 km/h'), Q('194 km/h')],
     },
     diveSpeedLimit: Q('560 km/h'),
     maxLoadFactor: Q('4.5 gee'),
@@ -29,17 +29,17 @@ export default {
       {
         altitude: Q('0 m'),
         engineMode: 'Climb',
-        speed: Q('369 km/h'),
+        speed: Q('370 km/h'),
       },
       {
         altitude: Q('2000 m'),
         engineMode: 'Climb',
-        speed: Q('398 km/h'),
+        speed: Q('399 km/h'),
       },
       {
         altitude: Q('5000 m'),
         engineMode: 'Climb',
-        speed: Q('405 km/h'),
+        speed: Q('410 km/h'),
       },
     ],
     maxPerformance: {
@@ -48,19 +48,19 @@ export default {
           altitude: Q('0 m'),
           engineMode: 'Climb',
           speed: Q('250 km/h'),
-          rate: Q('4.5 m/s'),
+          rate: Q('5.3 m/s'),
         },
         {
           altitude: Q('3000 m'),
           engineMode: 'Combat',
           speed: Q('250 km/h'),
-          rate: Q('3.5 m/s'),
+          rate: Q('4.1 m/s'),
         },
         {
           altitude: Q('6000 m'),
           engineMode: 'Combat',
           speed: Q('250 km/h'),
-          rate: Q('1.8 m/s'),
+          rate: Q('2.3 m/s'),
         },
       ],
       turn: [
@@ -78,12 +78,12 @@ export default {
         },
       ],
     },
-    serviceCeiling: Q('6300 m'),
+    serviceCeiling: Q('6850 m'),
     flightEndurance: [
       {
         altitude: Q('3000 m'),
         speed: Q('300 km/h'),
-        time: Q('8.5 h'),
+        time: Q('6.7 h'),
       },
     ],
   },
@@ -93,22 +93,22 @@ export default {
       {
         altitude: Q('0 m'),
         mode: 'Climb',
-        power: Q('1190 hp'),
+        power: Q('1120 hp'),
       },
       {
         altitude: Q('1500 m'),
         mode: 'Climb',
-        power: Q('1260 hp'),
+        power: Q('1210 hp'),
       },
       {
         altitude: Q('4900 m'),
         mode: 'Climb',
-        power: Q('1180 hp'),
+        power: Q('1060 hp'),
       },
       {
         altitude: Q('0 m'),
         mode: 'Take-off',
-        power: Q('1420 hp'),
+        power: Q('1340 hp'),
       },
     ],
     modes: [
@@ -128,7 +128,7 @@ export default {
         name: 'Take-off',
         limit: Q('1 min'),
         rpm: Q('2600 rpm'),
-        manifoldPressure: Q('1.42 atm'),
+        manifoldPressure: Q('1.40 atm'),
       },
     ],
     ratedTemps: [
@@ -154,11 +154,11 @@ export default {
     superchargerGearShiftAltitude: null,
   },
   load: {
-    emptyWeight: Q('8963 kg'),
-    minimumWeight: Q('9946 kg'),
-    standardWeight: Q('13727 kg'),
-    maxTakeoffWeight: Q('15239 kg'),
-    fuelLoad: [Q('3214 kg'), Q('4285 L')],
+    emptyWeight: Q('8698 kg'),
+    minimumWeight: Q('9831 kg'),
+    standardWeight: Q('13017 kg'),
+    maxTakeoffWeight: Q('15689 kg'),
+    fuelLoad: [Q('2553 kg'), Q('3450 L')],
   },
   armament: {
     forwardFiring: {
@@ -168,52 +168,31 @@ export default {
     defensive: [
       {
         qty: 1,
-        name: 'MG 15',
-        type: '7.92mm machine gun',
-        count: 600,
+        name: 'MG FF',
+        type: '20mm gun',
+        count: 240,
         details: 'Nose',
       },
       {
         qty: 1,
-        name: 'MG 15',
-        type: '7.92mm machine gun',
-        count: 1125,
+        name: 'MG 131',
+        type: '13mm machine gun',
+        count: 1000,
         details: 'Top',
       },
       {
-        qty: 1,
-        name: 'MG 15',
+        qty: 2,
+        name: 'MG 81',
         type: '7.92mm machine gun',
-        count: 1200,
+        count: 850,
         details: 'Belly-backward',
       },
       {
-        qty: 1,
-        name: 'MG 15',
-        type: '7.92mm machine gun',
-        count: 675,
-        details: 'Belly-forward',
-      },
-      {
         qty: 2,
-        name: 'MG 15',
+        name: 'MG 81',
         type: '7.92mm machine gun',
-        count: 450,
+        count: 500,
         details: 'Left/right',
-      },
-      {
-        qty: 1,
-        name: 'MG FF',
-        type: '20mm gun',
-        count: 240,
-        details: 'Nose (modification)',
-      },
-      {
-        qty: 1,
-        name: 'MG FF',
-        type: '20mm gun',
-        count: 330,
-        details: 'Belly-forward (modification)',
       },
     ],
     bombs: [
@@ -228,7 +207,7 @@ export default {
         type: '249kg general purpose bomb',
       },
       {
-        qty: 1,
+        qty: 2,
         name: 'SC 500',
         type: '500kg general purpose bomb',
       },
