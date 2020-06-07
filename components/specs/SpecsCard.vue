@@ -3,6 +3,9 @@
     <template v-slot:header>
       <icon class="spec-card-icon" :icon="icon" />
       <h4 class="spec-card-title">{{ title }}</h4>
+      <b-dropdown v-if="options.length > 0" class="spec-card-options" variant="secondary">
+        <b-dropdown-item v-for="option in options" :key="option.value">{{ option.text }}</b-dropdown-item>
+      </b-dropdown>
     </template>
     <slot />
   </b-card>
@@ -13,6 +16,7 @@ export default {
   props: {
     icon: { type: String, required: true },
     title: { type: String, required: true },
+    options: { type: Array, default: () => [] },
   },
 };
 </script>
@@ -51,6 +55,11 @@ export default {
 .spec-card-title {
   display: inline;
   font-size: 20px;
+}
+
+.spec-card-options {
+  float: right;
+  margin: -8px -16px -4px 0;
 }
 
 @media print {

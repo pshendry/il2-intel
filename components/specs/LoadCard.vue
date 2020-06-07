@@ -11,7 +11,7 @@
             <b-th>Standard weight</b-th>
             <b-td class="text-right">{{ weight(specs.load.standardWeight) }}</b-td>
           </b-tr>
-          <b-tr>
+          <b-tr v-if="specs.load.maxTakeoffWeight">
             <b-th>Max. takeoff weight</b-th>
             <b-td class="text-right">{{ weight(specs.load.maxTakeoffWeight) }}</b-td>
           </b-tr>
