@@ -22,6 +22,7 @@ export default [
   { id: 'pe-2-ser-35', variant: 'Pe-2 ser. 35' },
   { id: 'pe-2-ser-87', variant: 'Pe-2 ser. 87' },
   { id: 'spitfire-mk-ixe', variant: 'Spitfire Mk.IXe' },
+  { id: 'tempest-mk-v-ser-2', variant: 'Tempest Mk.V ser.2' },
   { id: 'yak-1-ser-69', variant: 'Yak-1 ser. 69' },
   { id: 'yak-7b-ser-36', variant: 'Yak-7B ser. 36' },
 ];
