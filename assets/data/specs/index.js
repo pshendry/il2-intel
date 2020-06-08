@@ -20,6 +20,7 @@ export default [
   { id: 'mig-3-ser-24', variant: 'MiG-3 ser. 24' },
   { id: 'p-39l-1', variant: 'P-39L-1' },
   { id: 'p-47d-28', variant: 'P-47D-28' },
+  { id: 'p-51d-15', variant: 'P-51D-15' },
   { id: 'pe-2-ser-35', variant: 'Pe-2 ser. 35' },
   { id: 'pe-2-ser-87', variant: 'Pe-2 ser. 87' },
   { id: 'spitfire-mk-ixe', variant: 'Spitfire Mk.IXe' },
