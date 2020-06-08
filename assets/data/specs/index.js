@@ -6,6 +6,7 @@ export default [
   { id: 'bf-109-g-2', variant: 'Bf 109 G-2' },
   { id: 'bf-109-g-4', variant: 'Bf 109 G-4' },
   { id: 'bf-109-g-6', variant: 'Bf 109 G-6' },
+  { id: 'bf-109-g-14', variant: 'Bf 109 G-14' },
   { id: 'bf-110-e-2', variant: 'Bf 110 E-2' },
   { id: 'bf-110-g-2', variant: 'Bf 110 G-2' },
   { id: 'fw-190-a-5', variant: 'Fw 190 A-5' },
