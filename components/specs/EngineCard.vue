@@ -9,8 +9,11 @@
             <b-td>{{ mode.limit ? `≤ ${mode.limit.toString()}` : 'Unlimited' }}</b-td>
             <b-td class="text-right">{{ pressure(mode.rpm) }}</b-td>
             <b-td
+              v-if="mode.manifoldPressure"
               class="text-right"
-            >{{ mode.manifoldPressure ? mode.manifoldPressure.toString() : mode.boost}}</b-td>
+            >{{ mode.manifoldPressure.toString() }}</b-td>
+            <b-td v-else-if="mode.boost" class="text-right">{{ mode.boost }}</b-td>
+            <b-td v-else></b-td>
           </b-tr>
           <b-tr v-for="(temps, i) in specs.engine.ratedTemps" :key="'rated-' + temps.name">
             <b-th v-if="i === 0" colspan="2" :rowspan="specs.engine.ratedTemps.length">Rated Temp.</b-th>
