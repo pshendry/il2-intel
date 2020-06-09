@@ -20,6 +20,7 @@ export default [
   { id: 'il-2-mod-1943', variant: 'IL-2 mod. 1943' },
   { id: 'ju-87-d-3', variant: 'Ju 87 D-3' },
   { id: 'ju-88-a-4', variant: 'Ju 88 A-4' },
+  { id: 'la-5-ser-8', variant: 'La-5 ser. 8' },
   { id: 'lagg-3-ser-29', variant: 'LaGG-3 ser. 29' },
   { id: 'me-262-a', variant: 'Me 262 A' },
   { id: 'mig-3-ser-24', variant: 'MiG-3 ser. 24' },
