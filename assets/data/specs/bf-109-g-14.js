@@ -210,7 +210,7 @@ export default {
       {
         qty: 4,
         name: 'SD 70',
-        type: '66kg general purpose bomb',
+        type: '66kg fragmentation bomb',
       },
       {
         qty: 1,
