@@ -1,22 +1,22 @@
 import Q from 'js-quantities';
 
 export default {
-  id: 'la-5-ser-8',
+  id: 'la-5fn-ser-2',
   type: 'La-5',
-  variant: 'La-5 series 8',
-  combatDebut: new Date(1942, 8),
+  variant: 'La-5FN series 2',
+  combatDebut: new Date(1943, 5),
   airframe: {
     indicatedStallSpeedRanges: {
-      takeoffLanding: [Q('147 km/h'), Q('162 km/h')],
-      flight: [Q('165 km/h'), Q('183 km/h')],
+      takeoffLanding: [Q('147 km/h'), Q('159 km/h')],
+      flight: [Q('168 km/h'), Q('185 km/h')],
     },
     diveSpeedLimit: Q('720 km/h'),
     maxLoadFactor: Q('10 gee'),
     stallAngles: {
-      landing: Q('15.1 deg'),
-      flight: Q('22.7 deg'),
+      landing: Q('15 deg'),
+      flight: Q('22.2 deg'),
     },
-    takeoffSpeedRange: [Q('170 km/h'), Q('200 km/h')],
+    takeoffSpeedRange: [Q('175 km/h'), Q('195 km/h')],
     glideslopeSpeedRange: [Q('200 km/h'), Q('210 km/h')],
     landingSpeedRange: [Q('150 km/h'), Q('160 km/h')],
     landingAngle: Q('13 deg'),
@@ -27,19 +27,24 @@ export default {
   characteristics: {
     maxTrueAirspeeds: [
       {
-        altitude: Q('3000 m'),
+        altitude: Q('0 m'),
         engineMode: 'Nominal',
-        speed: Q('571 km/h'),
+        speed: Q('583 km/h'),
       },
       {
-        altitude: Q('6500 m'),
+        altitude: Q('2500 m'),
         engineMode: 'Nominal',
-        speed: Q('603 km/h'),
+        speed: Q('605 km/h'),
+      },
+      {
+        altitude: Q('6000 m'),
+        engineMode: 'Nominal',
+        speed: Q('646 km/h'),
       },
       {
         altitude: Q('0 m'),
         engineMode: 'Boosted',
-        speed: Q('544 km/h'),
+        speed: Q('552 km/h'),
       },
     ],
     maxPerformance: {
@@ -47,68 +52,68 @@ export default {
         {
           altitude: Q('0 m'),
           engineMode: 'Boosted',
-          speed: Q('270 km/h'),
-          rate: Q('18 m/s'),
+          speed: Q('320 km/h'),
+          rate: Q('20 m/s'),
         },
         {
           altitude: Q('3000 m'),
           engineMode: 'Boosted',
-          speed: Q('270 km/h'),
-          rate: Q('13.3 m/s'),
+          speed: Q('340 km/h'),
+          rate: Q('16.7 m/s'),
         },
         {
           altitude: Q('6000 m'),
           engineMode: 'Boosted',
-          speed: Q('270 km/h'),
-          rate: Q('8.2 m/s'),
+          speed: Q('340 km/h'),
+          rate: Q('12.5 m/s'),
         },
       ],
       turn: [
         {
           altitude: Q('0 m'),
           engineMode: 'Boosted',
-          speed: Q('270 km/h'),
-          time: Q('23.4 s'),
+          speed: Q('320 km/h'),
+          time: Q('21.0 s'),
         },
         {
           altitude: Q('3000 m'),
           engineMode: 'Boosted',
-          speed: Q('270 km/h'),
-          time: Q('35.3 s'),
+          speed: Q('340 km/h'),
+          time: Q('28.0 s'),
         },
       ],
     },
-    serviceCeiling: Q('9500 m'),
+    serviceCeiling: Q('10500 m'),
     flightEndurance: [
       {
         altitude: Q('3000 m'),
         speed: Q('350 km/h'),
-        time: Q('1.9 h'),
+        time: Q('2.0 h'),
       },
     ],
   },
   engine: {
-    model: 'M-82',
+    model: 'M-82FN',
     maxPowers: [
       {
         altitude: Q('0 m'),
         mode: 'Nominal',
-        power: Q('1400 hp'),
+        power: Q('1560 hp'),
       },
       {
-        altitude: Q('2100 m'),
+        altitude: Q('1550 m'),
         mode: 'Nominal',
-        power: Q('1550 hp'),
+        power: Q('1630 hp'),
       },
       {
-        altitude: Q('5300 m'),
+        altitude: Q('4800 m'),
         mode: 'Nominal',
-        power: Q('1335 hp'),
+        power: Q('1460 hp'),
       },
       {
         altitude: Q('0 m'),
         mode: 'Boosted',
-        power: Q('1700 hp'),
+        power: Q('1850 hp'),
       },
     ],
     modes: [
@@ -116,43 +121,43 @@ export default {
         name: 'Nominal',
         limit: null,
         rpm: Q('2400 rpm'),
-        manifoldPressure: Q('950 mmHg'),
+        manifoldPressure: Q('1000 mmHg'),
       },
       {
         name: 'Boosted',
-        limit: Q('5 min'),
-        rpm: Q('2400 rpm'),
-        manifoldPressure: Q('1140 mmHg'),
+        limit: Q('10 min'),
+        rpm: Q('5400 rpm'),
+        manifoldPressure: Q('1180 mmHg'),
       },
     ],
     ratedTemps: [
       {
         name: 'Oil',
-        range: [Q('55 degC'), Q('90 degC')],
+        range: [Q('65 degC'), Q('75 degC')],
       },
       {
         name: 'Cylinder head',
-        range: [Q('140 degC'), Q('210 degC')],
+        range: [Q('180 degC'), Q('215 degC')],
       },
     ],
     maxTemps: [
       {
         name: 'Oil',
-        value: Q('125 degC'),
+        value: Q('85 degC'),
       },
       {
         name: 'Cylinder head',
-        value: Q('215 degC'),
+        value: Q('250 degC'),
       },
     ],
     superchargerGearShiftAltitude: Q('3500 m'),
   },
   load: {
-    emptyWeight: Q('2648 kg'),
-    minimumWeight: Q('2928 kg'),
-    standardWeight: Q('3353 kg'),
-    maxTakeoffWeight: Q('3593 kg'),
-    fuelLoad: [Q('370 kg'), Q('521 L')],
+    emptyWeight: Q('2655 kg'),
+    minimumWeight: Q('2929 kg'),
+    standardWeight: Q('3305 kg'),
+    maxTakeoffWeight: Q('3544 kg'),
+    fuelLoad: [Q('334 kg'), Q('464 L')],
   },
   armament: {
     forwardFiring: {
@@ -187,7 +192,10 @@ export default {
   features: [
     {
       feature: 'Engine',
-      details: ['Has a boost mode enabled by pushing boost knob and increase MP to 1140 mmHg'],
+      details: [
+        'Has a boost mode enabled by pushing boost knob and increase MP to 1180 mmHg',
+        'Boost mode only works in 1st supercharger gear',
+      ],
     },
     {
       feature: 'Supercharger',
@@ -210,7 +218,7 @@ export default {
     },
     {
       feature: 'Trimmers',
-      details: ['Pitch, roll, yaw'],
+      details: ['Pitch, yaw'],
     },
     {
       feature: 'Automatic wing slats',
@@ -231,7 +239,6 @@ export default {
     {
       feature: 'Canopy',
       details: [
-        'Has a weak lock when open; may close in a steep dive',
         'Impossible to open/close at high speed',
         'Has no emergency release; bailout requires speed drop to open manually',
       ],
