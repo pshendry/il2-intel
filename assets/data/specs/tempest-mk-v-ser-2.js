@@ -186,7 +186,7 @@ export default {
       details: ['Manual control (switch at 9500 ft)'],
     },
     {
-      feature: 'Mixture',
+      feature: 'Mixture control',
       details: ['Automatic when set to NORMAL (50%)'],
     },
     {
@@ -210,7 +210,7 @@ export default {
       details: ['Rotates freely and does not have a lock'],
     },
     {
-      feature: 'Mixture',
+      feature: 'Mixture control',
       details: ['Automatic when set to full rich'],
     },
     {

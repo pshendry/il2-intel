@@ -223,7 +223,7 @@ export default {
       details: ['Automatic', 'Two-stage', 'Can be manually switched to 1st gear'],
     },
     {
-      feature: 'Mixture',
+      feature: 'Mixture control',
       details: ['Automatic'],
     },
     {

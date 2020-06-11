@@ -193,7 +193,7 @@ export default {
       details: ['Automatically controls prop pitch to maintain required RPM'],
     },
     {
-      feature: 'Mixture',
+      feature: 'Mixture control',
       details: ['Automatic'],
     },
     {

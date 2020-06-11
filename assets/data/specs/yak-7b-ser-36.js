@@ -186,7 +186,7 @@ export default {
       details: ['Manual control', 'Two-stage (shift at 2000 m)'],
     },
     {
-      feature: 'Mixture',
+      feature: 'Mixture control',
       details: ['Manual control'],
     },
     {

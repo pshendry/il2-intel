@@ -221,7 +221,7 @@ export default {
       details: ['Manual control', 'Two-stage (shift at 2700 m)'],
     },
     {
-      feature: 'Mixture',
+      feature: 'Mixture control',
       details: ['Manual control', 'Lean if altitude is more than 3..4 km for optimal engine operation'],
     },
     {

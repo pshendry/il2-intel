@@ -220,7 +220,7 @@ export default {
       details: ['Automatic', 'Single stage'],
     },
     {
-      feature: 'Mixture',
+      feature: 'Mixture control',
       details: ['Has Auto Rich (66%) and Auto Lean (33%) settings'],
     },
     {

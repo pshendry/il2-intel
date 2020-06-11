@@ -194,7 +194,7 @@ export default {
       details: ['Manual control', 'Two-stage (shift at 3500 m)'],
     },
     {
-      feature: 'Mixture',
+      feature: 'Mixture control',
       details: ['Automatic when set to maximum'],
     },
     {

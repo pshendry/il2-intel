@@ -233,7 +233,7 @@ export default {
       details: ['Automatic', 'Single stage'],
     },
     {
-      feature: 'Mixture',
+      feature: 'Mixture control',
       details: ['Automatic when set to intermediate (50%)'],
     },
     {

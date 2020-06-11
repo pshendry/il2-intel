@@ -252,7 +252,7 @@ export default {
       details: ['Automatic', 'Two-stage', 'Can be manually switched to low gear'],
     },
     {
-      feature: 'Mixture',
+      feature: 'Mixture control',
       details: ['Automatic when set to RUN (70%)'],
     },
     {

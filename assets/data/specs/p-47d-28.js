@@ -228,7 +228,7 @@ export default {
       details: ['Boosts power in emergency mode', 'Water supply is good for 15 minutes'],
     },
     {
-      feature: 'Mixture',
+      feature: 'Mixture control',
       details: ['Automatic when set to Auto Rich (85%) or Auto Lean (60%)'],
     },
     {

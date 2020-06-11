@@ -3,19 +3,28 @@
     <template v-slot>
       <b-table-simple class="spec-table" small>
         <b-tbody>
-          <b-tr>
-            <b-th rowspan="2">Indicated stall speed</b-th>
-            <b-td class="text-right">Takeoff/Landing</b-td>
-            <b-td
-              class="text-right"
-            >{{ speedRange(specs.airframe.indicatedStallSpeedRanges.takeoffLanding) }}</b-td>
-          </b-tr>
-          <b-tr>
+          <b-tr v-if="!specs.airframe.indicatedStallSpeedRanges.takeoffLanding">
+            <b-th>Indicated stall speed</b-th>
             <b-td class="text-right">Flight</b-td>
             <b-td
               class="text-right"
             >{{ speedRange(specs.airframe.indicatedStallSpeedRanges.flight) }}</b-td>
           </b-tr>
+          <template v-else>
+            <b-tr>
+              <b-th rowspan="2">Indicated stall speed</b-th>
+              <b-td class="text-right">Takeoff/Landing</b-td>
+              <b-td
+                class="text-right"
+              >{{ speedRange(specs.airframe.indicatedStallSpeedRanges.takeoffLanding) }}</b-td>
+            </b-tr>
+            <b-tr>
+              <b-td class="text-right">Flight</b-td>
+              <b-td
+                class="text-right"
+              >{{ speedRange(specs.airframe.indicatedStallSpeedRanges.flight) }}</b-td>
+            </b-tr>
+          </template>
           <b-tr>
             <b-th colspan="2">Dive limit</b-th>
             <b-td class="text-right">{{ speed(specs.airframe.diveSpeedLimit) }}</b-td>
