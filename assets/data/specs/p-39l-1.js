@@ -231,7 +231,7 @@ export default {
       ],
     },
     {
-      feature: 'Oil & water outlet radiator shutters',
+      feature: 'Oil & water radiator shutters',
       details: ['Manual control'],
     },
     {

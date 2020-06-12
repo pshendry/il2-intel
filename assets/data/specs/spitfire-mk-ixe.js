@@ -107,12 +107,12 @@ export default {
       },
       {
         altitude: Q('5750 ft'),
-        mode: 'Emergency Max All Out',
+        mode: 'Emergency',
         power: Q('1705 hp'),
       },
       {
         altitude: Q('16000 ft'),
-        mode: 'Emergency Max All Out',
+        mode: 'Emergency',
         power: Q('1580 hp'),
       },
     ],
@@ -136,12 +136,12 @@ export default {
     //   },
     //   {
     //     altitude: Q('10000 ft'),
-    //     mode: 'Emergency Max All Out',
+    //     mode: 'Emergency',
     //     power: Q('1655 hp'),
     //   },
     //   {
     //     altitude: Q('22250 ft'),
-    //     mode: 'Emergency Max All Out',
+    //     mode: 'Emergency',
     //     power: Q('1475 hp'),
     //   },
     // ],
@@ -159,7 +159,7 @@ export default {
         boost: '+12',
       },
       {
-        name: 'Emergency Max All Out',
+        name: 'Emergency',
         limit: Q('5 min'),
         rpm: Q('3000 rpm'),
         boost: '+18',
@@ -261,7 +261,7 @@ export default {
       details: ['Automatic when set to full rich'],
     },
     {
-      feature: 'Oil & water outlet radiator shutters',
+      feature: 'Oil & water radiator shutters',
       details: ['Automatic, with manual mode that opens them completely'],
     },
     {

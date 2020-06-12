@@ -32,6 +32,7 @@ export default [
   { id: 'p-51d-15', variant: 'P-51D-15' },
   { id: 'pe-2-ser-35', variant: 'Pe-2 ser. 35' },
   { id: 'pe-2-ser-87', variant: 'Pe-2 ser. 87' },
+  { id: 'spitfire-mk-vb', variant: 'Spitfire Mk.VB' },
   { id: 'spitfire-mk-ixe', variant: 'Spitfire Mk.IXe' },
   { id: 'tempest-mk-v-ser-2', variant: 'Tempest Mk.V ser.2' },
   { id: 'u-2vs', variant: 'U-2VS' },

@@ -256,7 +256,7 @@ export default {
       details: ['Automatic when set to RUN (70%)'],
     },
     {
-      feature: 'Oil & water outlet radiator shutters',
+      feature: 'Oil & water radiator shutters',
       details: ['Automatic / manual control'],
     },
     {
