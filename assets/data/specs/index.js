@@ -25,6 +25,7 @@ export default [
   { id: 'la-5-ser-8', variant: 'La-5 ser. 8' },
   { id: 'la-5fn-ser-2', variant: 'La-5FN ser. 2' },
   { id: 'lagg-3-ser-29', variant: 'LaGG-3 ser. 29' },
+  { id: 'mc-202-ser-viii', variant: 'MC.202 ser. VIII' },
   { id: 'me-262-a', variant: 'Me 262 A' },
   { id: 'mig-3-ser-24', variant: 'MiG-3 ser. 24' },
   { id: 'p-38j-25', variant: 'P38J-25' },
