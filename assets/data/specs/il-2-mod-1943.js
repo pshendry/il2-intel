@@ -245,7 +245,7 @@ export default {
     },
     {
       feature: 'Supercharger',
-      details: ['Single stage, does not require manual control'],
+      details: ['Automatic', 'Single-stage'],
     },
     {
       feature: 'Mixture control',
