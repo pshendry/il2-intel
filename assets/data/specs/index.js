@@ -13,6 +13,7 @@ export default [
   { id: 'fw-190-a-3', variant: 'Fw 190 A-3' },
   { id: 'fw-190-a-5', variant: 'Fw 190 A-5' },
   { id: 'fw-190-a-8', variant: 'Fw 190 A-8' },
+  { id: 'fw-190-d-9', variant: 'Fw 190 D-9' },
   { id: 'he-111-h-6', variant: 'He 111 H-6' },
   { id: 'he-111-h-16', variant: 'He 111 H-16' },
   { id: 'i-16-type-24', variant: 'I-16 type 24' },
