@@ -237,7 +237,10 @@ export default {
     },
     {
       feature: 'Governor',
-      details: ['Can be disabled for manual prop pitch control'],
+      details: [
+        'Automatically controls prop pitch to maintain required RPM',
+        'Can be disabled for manual prop pitch control',
+      ],
     },
     {
       feature: 'Oil & water radiator shutters',
