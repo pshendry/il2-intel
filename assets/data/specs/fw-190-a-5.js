@@ -301,4 +301,10 @@ export default {
     takeoff: [],
     landing: [],
   },
+  trainingVideos: {
+    cockpit: 'https://www.youtube.com/watch?v=wXIUi0oB4XQ&t=10s',
+    engineStart: null,
+    takeoff: 'https://www.youtube.com/watch?v=wXIUi0oB4XQ&t=3m39s',
+    landing: 'https://www.youtube.com/watch?v=wXIUi0oB4XQ&t=5m49s',
+  },
 };

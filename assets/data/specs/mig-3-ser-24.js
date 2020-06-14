@@ -309,4 +309,10 @@ export default {
       'On final approach, descend at 185 km/h',
     ],
   },
+  trainingVideos: {
+    cockpit: 'https://www.youtube.com/watch?v=Zh-6oQF4l9I',
+    engineStart: 'https://www.youtube.com/watch?v=Zh-6oQF4l9I&t=3m',
+    takeoff: 'https://www.youtube.com/watch?v=Zh-6oQF4l9I&t=5m8s',
+    landing: 'https://www.youtube.com/watch?v=Zh-6oQF4l9I&t=6m58s',
+  },
 };

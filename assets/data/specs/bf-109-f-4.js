@@ -282,4 +282,10 @@ export default {
       'Touch down at 160 km/h',
     ],
   },
+  trainingVideos: {
+    cockpit: 'https://www.youtube.com/watch?v=vGX9Gh0JnUo&t=28s',
+    engineStart: 'https://www.youtube.com/watch?v=vGX9Gh0JnUo&t=2m42s',
+    takeoff: 'https://www.youtube.com/watch?v=vGX9Gh0JnUo&t=3m40s',
+    landing: 'https://www.youtube.com/watch?v=vGX9Gh0JnUo&t=5m01s',
+  },
 };
