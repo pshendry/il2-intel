@@ -20,6 +20,6 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  opacity: 50%;
+  opacity: 0.5;
 }
 </style>
