@@ -37,10 +37,45 @@
               <icon icon="print" />
             </b-button>
           </template>
+          <b-button v-b-modal.modal-about class="about-button" variant="primary" title="About">
+            <icon icon="question" />
+          </b-button>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
     <nuxt />
+    <b-modal id="modal-about" ok-only title="About IL-Tools" size="lg">
+      <p>
+        Tools for flying in
+        <a
+          href="https://il2sturmovik.com/about"
+          target="_blank"
+          rel="noreferrer noopener"
+        >IL-2 Sturmovik</a>!
+      </p>
+      <p>
+        Send bug reports, suggestions or other comments to
+        <a href="mailto:admin@ijj.li">admin@ijj.li</a>.
+      </p>
+      <p>
+        <strong>Author:</strong> Polendri
+      </p>
+      <p>
+        <strong>Data sources:</strong>
+      </p>
+      <ul>
+        <li>
+          <a
+            href="https://forum.il2sturmovik.com/topic/25993-aircraft-flight-and-technical-specifications-and-operational-details/"
+          >1C Game Studios Aircraft Technical Specifications</a>
+        </li>
+        <li>
+          <a
+            href="https://www.youtube.com/channel/UCwV5RLX7mkaDy5gTIiuwGmg"
+          >The Air Combat Tutorial Library</a> (procedure text/videos)
+        </li>
+      </ul>
+    </b-modal>
   </div>
 </template>
 <script>
@@ -101,6 +136,10 @@ export default {
 
 .print-button svg {
   width: 20px;
+}
+
+.about-button svg {
+  width: 16px;
 }
 
 .specs-dropdown ::v-deep ul {
