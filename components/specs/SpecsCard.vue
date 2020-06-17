@@ -1,13 +1,21 @@
 <template>
   <b-card class="spec-card">
     <template v-slot:header>
-      <icon class="spec-card-icon" :icon="icon" />
-      <h4 class="spec-card-title">{{ title }}</h4>
-      <b-dropdown v-if="options.length > 0" class="spec-card-options" variant="secondary">
-        <b-dropdown-item v-for="option in options" :key="option.value">{{ option.text }}</b-dropdown-item>
-      </b-dropdown>
+      <div class="spec-card-header">
+        <icon class="spec-card-icon" :icon="icon" />
+        <h4 class="spec-card-title">{{ title }}</h4>
+        <b-dropdown v-if="hasOptions" class="spec-card-options" variant="secondary">
+          <b-dropdown-item v-for="option in options" :key="option.value">{{ option.text }}</b-dropdown-item>
+        </b-dropdown>
+        <div v-if="$slots.header">
+          <slot name="header" />
+        </div>
+      </div>
     </template>
     <slot />
+    <template v-if="$slots.footer" v-slot:footer>
+      <slot name="footer" />
+    </template>
   </b-card>
 </template>
 <script>
@@ -17,6 +25,10 @@ export default {
     icon: { type: String, required: true },
     title: { type: String, required: true },
     options: { type: Array, default: () => [] },
+  },
+  computed: {
+    hasOptions: function() { return this.options.length > 0; },
+    hasHeaderSlot: function() { return Boolean(this.$slots.header); },
   },
 };
 </script>
@@ -47,18 +59,23 @@ export default {
   }
 }
 
+.spec-card-header {
+  display: flex;
+  align-items: center;
+}
+
 .spec-card-icon {
   width: 20px;
   margin: 0 8px 6px 0;
 }
 
 .spec-card-title {
-  display: inline;
+  flex: 1;
+  margin-bottom: 0;
   font-size: 20px;
 }
 
 .spec-card-options {
-  float: right;
   margin: -8px -16px -4px 0;
 }
 

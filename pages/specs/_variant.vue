@@ -31,6 +31,7 @@
             :name="procedure.name"
             :icon="procedure.icon"
             :steps="specs.procedures[procedure.id]"
+            :training-video="specs.trainingVideos[procedure.id]"
           />
         </div>
       </div>

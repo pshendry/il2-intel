@@ -1,5 +1,13 @@
 <template>
   <spec-card class="spec-card-procedure" :icon="icon" :title="name">
+    <template v-if="trainingVideo" v-slot:header>
+      <a
+        class="procedure-video-link"
+        :href="trainingVideo"
+        target="_blank"
+        rel="noreferrer noopener"
+      >Watch video</a>
+    </template>
     <template v-slot>
       <ol>
         <li v-for="step in steps" :key="step.text || step">
@@ -9,6 +17,12 @@
           </ol>
         </li>
       </ol>
+    </template>
+    <template v-slot:footer>
+      Procedures {{ trainingVideo ? 'and videos' : '' }} by
+      <a
+        href="https://www.youtube.com/channel/UCwV5RLX7mkaDy5gTIiuwGmg"
+      >The Air Combat Tutorial Library</a>
     </template>
   </spec-card>
 </template>
@@ -22,6 +36,7 @@ export default {
     name: { type: String, required: true },
     icon: { type: String, required: true },
     steps: { type: Array, required: true },
+    trainingVideo: { type: String, required: true },
   },
 };
 </script>
@@ -31,5 +46,22 @@ export default {
 }
 .spec-card-procedure::v-deep .card-body {
   background-color: #fafafa;
+}
+.spec-card-procedure::v-deep .card-footer {
+  padding: 0.25rem 1rem;
+  text-align: right;
+  font-size: 12px;
+}
+
+.procedure-video-link {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+@media print {
+  .procedure-video-link {
+    display: none;
+  }
 }
 </style>
