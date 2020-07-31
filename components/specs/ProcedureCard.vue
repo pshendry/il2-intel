@@ -11,9 +11,13 @@
     <template v-slot>
       <ol>
         <li v-for="step in steps" :key="step.text || step">
+          <input v-if="!step.steps" type="checkbox" class="procedure-checkbox" />
           {{ step.text || step }}
           <ol v-if="step.steps">
-            <li v-for="subStep in step.steps" :key="subStep">{{ subStep }}</li>
+            <li v-for="subStep in step.steps" :key="subStep">
+              <input type="checkbox" class="procedure-checkbox" />
+              {{ subStep }}
+            </li>
           </ol>
         </li>
       </ol>
@@ -60,6 +64,7 @@ export default {
 }
 
 @media print {
+  .procedure-checkbox,
   .procedure-video-link {
     display: none;
   }
