@@ -313,13 +313,49 @@ export default {
     },
   ],
   procedures: {
-    engineStart: [],
-    takeoff: [],
-    landing: [],
+    startup: [
+      'Mixture: Auto (full forward)',
+      'Throttle: 1”',
+      'RPM: Full forward',
+      'Oil Radiator: As required',
+      'Inlet Cowl: As required',
+      'Press E to start',
+    ],
+    takeoff: [
+      'Cockpit door: Closed',
+      'Mixture: Auto (full forward)',
+      'RPM: Full forward',
+      'Oil Radiator: Fully open',
+      'Inlet Cowl: Fully open',
+      '170 km/hr: Rotate',
+      'Climb: 250 km/hr',
+    ],
+    landing: [
+      {
+        text: 'Downwind',
+        steps: [
+          'Airspeed: Below 300 km/hr',
+          'Gear: Extend',
+          'Mixture: Auto (full forward)',
+          'Airspeed: Below 220 km/hr',
+          'Oil Radiator: As required',
+          'Inlet Cowl: As required',
+          'Flaps: 15°',
+        ],
+      },
+      {
+        text: 'End Downwind',
+        steps: ['Flaps: Extend fully'],
+      },
+      {
+        text: 'Base to Final',
+        steps: ['Airspeed: 180..200 km/hr'],
+      },
+    ],
   },
   trainingVideos: {
     cockpit: 'https://www.youtube.com/watch?v=d-WxvRRgj3o&t=5s',
-    engineStart: 'https://www.youtube.com/watch?v=d-WxvRRgj3o&t=3m40s',
+    startup: 'https://www.youtube.com/watch?v=d-WxvRRgj3o&t=3m40s',
     takeoff: 'https://www.youtube.com/watch?v=d-WxvRRgj3o&t=5m45s',
     landing: 'https://www.youtube.com/watch?v=d-WxvRRgj3o&t=7m50s',
   },

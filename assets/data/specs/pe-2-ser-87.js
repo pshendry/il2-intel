@@ -269,13 +269,43 @@ export default {
     },
   ],
   procedures: {
-    engineStart: [],
-    takeoff: [],
-    landing: [],
+    startup: ['Mixture: Full Rich', 'RPM: Maximum', 'Water Radiators: As required', 'Throttle: 1”', 'Press E to start'],
+    takeoff: [
+      'Mixture: Full Rich',
+      'RPM: Full forward',
+      'RPM: Maximum',
+      'Flaps: 15°',
+      'Water Radiators: Fully open',
+      '150 km/hr: Rotate',
+      'Climb to 200 m AGL',
+      '200 km/hr: Retract Flaps',
+      'Climb: 270 km/hr',
+    ],
+    landing: [
+      {
+        text: 'Downwind',
+        steps: [
+          'Mixture: Full Rich',
+          'MP: 500 mmHG',
+          'RPM: Maximum',
+          'Airspeed: Below 300 km/hr',
+          'Gear: Extend',
+          'Water Radiators: As required',
+        ],
+      },
+      {
+        text: 'End Downwind',
+        steps: ['Airspeed: Below 250 km/hr', 'Flaps: 15°'],
+      },
+      {
+        text: 'Base to Final',
+        steps: ['Flaps: 30°', 'Airspeed: 220 km/hr'],
+      },
+    ],
   },
   trainingVideos: {
     cockpit: 'https://www.youtube.com/watch?v=2DKdLqGXfUs&t=1m35s',
-    engineStart: 'https://www.youtube.com/watch?v=2DKdLqGXfUs&t=4m35s',
+    startup: 'https://www.youtube.com/watch?v=2DKdLqGXfUs&t=4m35s',
     takeoff: 'https://www.youtube.com/watch?v=2DKdLqGXfUs&t=5m06s',
     landing: 'https://www.youtube.com/watch?v=2DKdLqGXfUs&t=6m06s',
   },

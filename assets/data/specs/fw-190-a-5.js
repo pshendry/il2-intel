@@ -297,13 +297,44 @@ export default {
     },
   ],
   procedures: {
-    engineStart: [],
-    takeoff: [],
-    landing: [],
+    startup: ['Throttle: 1”', 'Prop Pitch: Auto', 'Press E to start'],
+    takeoff: [
+      'Canopy: Closed',
+      'Flaps: “Start” position',
+      'H-stab trim: +1.5°',
+      'Cowl Shutters: Open',
+      'Prop Pitch: Auto',
+      'Tailwheel: Locked (pull stick back)',
+      '100 km/hr: Stick neutral',
+      '180 km/hr: Rotate',
+      'Before 250 km/hr: Flaps Up ',
+      'Climb: 280 km/hr',
+    ],
+    landing: [
+      {
+        text: 'Downwind:',
+        steps: [
+          'Airspeed: Below 300km/hr',
+          'Gear: Extend',
+          'Flaps: “Start” Position',
+          'H-Stab Trim: +1.5°',
+          'Cowl Shutters: As required',
+          'Prop Pitch: Auto or Manual 1130',
+        ],
+      },
+      {
+        text: 'End Downwind:',
+        steps: ['Airspeed: 250 km/hr', 'Flaps: “Landing” position'],
+      },
+      {
+        text: 'Base to final:',
+        steps: ['Airspeed: 200-220 km/hr'],
+      },
+    ],
   },
   trainingVideos: {
     cockpit: 'https://www.youtube.com/watch?v=wXIUi0oB4XQ&t=10s',
-    engineStart: null,
+    startup: null,
     takeoff: 'https://www.youtube.com/watch?v=wXIUi0oB4XQ&t=3m39s',
     landing: 'https://www.youtube.com/watch?v=wXIUi0oB4XQ&t=5m49s',
   },

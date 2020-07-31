@@ -61,8 +61,8 @@ export default {
     procedures() {
       return [
         {
-          id: 'engineStart',
-          name: 'Engine start procedure',
+          id: 'startup',
+          name: 'Startup procedure',
           icon: 'cogs',
         },
         {
@@ -81,7 +81,7 @@ export default {
   },
   watch: {
     specs(value) {
-      Vue.nextTick(() => this.loading = !value);
+      Vue.nextTick(() => (this.loading = !value));
     },
   },
   methods: {
@@ -166,7 +166,7 @@ export default {
   grid-area: features;
 }
 
-.specs-page__engineStart-card {
+.specs-page__startup-card {
   grid-area: startup;
 }
 

@@ -227,13 +227,45 @@ export default {
     },
   ],
   procedures: {
-    engineStart: [],
-    takeoff: [],
-    landing: [],
+    startup: [
+      'Mixture: Full Rich',
+      'RPM: Full forward',
+      'Throttle: 1”',
+      'Water/Oil Radiators: As required',
+      'Press E to start',
+    ],
+    takeoff: [
+      'Canopy: Closed',
+      'Tailwheel: Locked',
+      'RPM: Full forward',
+      'Water/Oil Radiators: Fully open',
+      '170 km/hr: Rotate',
+      'Climb: 270 km/hr',
+    ],
+    landing: [
+      {
+        text: 'Downwind:',
+        steps: [
+          'MP: 4-500 mmHG',
+          'RPM: Full forward',
+          'Airspeed: Below 300 km/hr',
+          'Gear: Extend',
+          'Water/Oil Radiators: As required',
+        ],
+      },
+      {
+        text: 'End Downwind:',
+        steps: ['Airspeed: Below 250 km/hr', 'Flaps: Extend'],
+      },
+      {
+        text: 'Base to Final:',
+        steps: ['Airspeed: 200 km/hr'],
+      },
+    ],
   },
   trainingVideos: {
     cockpit: 'https://www.youtube.com/watch?v=jjojjr9zBNQ&t=8s',
-    engineStart: null,
+    startup: null,
     takeoff: 'https://www.youtube.com/watch?v=jjojjr9zBNQ&t=3m16s',
     landing: 'https://www.youtube.com/watch?v=jjojjr9zBNQ&t=5m05s',
   },

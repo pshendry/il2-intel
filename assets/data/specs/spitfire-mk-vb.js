@@ -319,13 +319,47 @@ export default {
     },
   ],
   procedures: {
-    engineStart: [],
-    takeoff: [],
-    landing: [],
+    startup: [
+      'Mixture: Halfway (Auto)',
+      'Prop Pitch/RPM: Maximum',
+      'Water/Oil Radiators: As required',
+      'Throttle: 1”',
+      'Press E to start',
+    ],
+    takeoff: [
+      'Mixture: Halfway (Auto)',
+      'RPM: Full forward',
+      'Water/Oil Radiators: Fully open',
+      'Rudder Trim: ¼ turn back',
+      'Elevator Trim: Neutral',
+      '190 km/hr: Rotate',
+      'Climb: 290 km/hr',
+    ],
+    landing: [
+      {
+        text: 'Downwind',
+        steps: [
+          'Mixture: Halfway (Auto)',
+          'MP: 4-500 mmHG',
+          'RPM: Full forward',
+          'Airspeed: Below 300 km/hr',
+          'Gear: Extend',
+          'Water/Oil Radiators: As required',
+        ],
+      },
+      {
+        text: 'End Downwind',
+        steps: ['Airspeed: Below 230 km/hr', 'Flaps: Extend to full'],
+      },
+      {
+        text: 'Base to Final',
+        steps: ['Airspeed: 200 km/hr'],
+      },
+    ],
   },
   trainingVideos: {
     cockpit: 'https://www.youtube.com/watch?v=Povrm28nExA&t=6s',
-    engineStart: 'https://www.youtube.com/watch?v=Povrm28nExA&t=4m16s',
+    startup: 'https://www.youtube.com/watch?v=Povrm28nExA&t=4m16s',
     takeoff: 'https://www.youtube.com/watch?v=Povrm28nExA&t=4m49s',
     landing: 'https://www.youtube.com/watch?v=Povrm28nExA&t=6m48s',
   },
