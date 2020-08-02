@@ -215,41 +215,20 @@ export default {
     },
   ],
   procedures: {
-    startup: [
-      'Mixture: Halfway (Auto)',
-      'Prop Pitch/RPM: Maximum',
-      'Water/Oil Radiators: As required',
-      'Throttle: 1”',
-      'Press E to start',
-    ],
-    takeoff: [
-      'Mixture: Halfway (Auto)',
-      'RPM: Full forward',
-      'Water/Oil Radiators: Fully open',
-      'Rudder Trim: ¼ turn back',
-      'Elevator Trim: Neutral',
-      '190 km/hr: Rotate',
-      'Climb: 290 km/hr',
-    ],
+    startup: ['Mixture: Rich', 'Throttle: 1”', 'Press E to start'],
+    takeoff: ['Mixture: Rich', '80 km/h: Rotate', 'Climb: 95 km/h'],
     landing: [
       {
         text: 'Downwind',
-        steps: [
-          'Mixture: Halfway (Auto)',
-          'MP: 4-500 mmHG',
-          'RPM: Full forward',
-          'Airspeed: Below 300 km/hr',
-          'Gear: Extend',
-          'Water/Oil Radiators: As required',
-        ],
+        steps: ['Mixture: Rich', 'Throttle: 1400..1500RPM', 'Airspeed: 100 km/h'],
       },
       {
         text: 'End Downwind',
-        steps: ['Airspeed: Below 230 km/hr', 'Flaps: Extend to full'],
+        steps: ['Throttle: Idle'],
       },
       {
         text: 'Base to Final',
-        steps: ['Airspeed: 200 km/hr'],
+        steps: ['Airspeed: 100 km/h'],
       },
     ],
   },

@@ -261,8 +261,8 @@ export default {
       'Flaps: 20°',
       'RPM: Full forward',
       'Water/Oil Radiators: Fully Open',
-      '190 km/hr: Rotate',
-      'Before 250 km/hr: Flaps up',
+      '190 km/h: Rotate',
+      'Before 250 km/h: Flaps up',
     ],
     landing: [
       {
@@ -270,18 +270,18 @@ export default {
         steps: [
           'MP: 500 mmHG',
           'RPM: 2600',
-          'Airspeed: Below 300 km/hr',
+          'Airspeed: Below 300 km/h',
           'Gear: Extend',
           'Water/Oil Radiators: As required',
         ],
       },
       {
         text: 'End Downwind',
-        steps: ['Airspeed: Below 250 km/hr', 'Flaps: Extend fully'],
+        steps: ['Airspeed: Below 250 km/h', 'Flaps: Extend fully'],
       },
       {
         text: 'Base to Final',
-        steps: ['Airspeed: 200 km/hr'],
+        steps: ['Airspeed: 200 km/h'],
       },
     ],
   },

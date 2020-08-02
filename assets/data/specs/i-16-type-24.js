@@ -272,17 +272,17 @@ export default {
       'RPM: Full forward',
       'Oil Radiator: Fully open',
       'Inlet Cowl: Fully Open',
-      '170 km/hr: Rotate',
-      'Climb: 250 km/hr',
+      '170 km/h: Rotate',
+      'Climb: 250 km/h',
     ],
     landing: [
       {
         text: 'Downwind',
         steps: [
-          'Airspeed: Below 300 km/hr',
+          'Airspeed: Below 300 km/h',
           'Gear: Extend',
           'Mixture: Auto (full forward)',
-          'Airspeed: Below 220 km/hr',
+          'Airspeed: Below 220 km/h',
           'Oil Radiator: As required',
           'Inlet Cowl: As required',
           'Flaps: 15°',
@@ -294,7 +294,7 @@ export default {
       },
       {
         text: 'Base to Final',
-        steps: ['Airspeed: 180..200 km/hr'],
+        steps: ['Airspeed: 180..200 km/h'],
       },
     ],
   },

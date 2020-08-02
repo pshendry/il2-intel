@@ -285,15 +285,15 @@ export default {
       'H-Stab Trim: +1',
       'Tailwheel: Locked',
       'Prop Pitch: Auto',
-      '180 km/hr: Rotate',
-      '200 km/hr: Flaps Up',
-      'Climb: 270 km/hr to 3000m',
+      '180 km/h: Rotate',
+      '200 km/h: Flaps Up',
+      'Climb: 270 km/h to 3000m',
     ],
     landing: [
       {
         text: 'Downwind',
         steps: [
-          'Airspeed: Below 300 km/hr',
+          'Airspeed: Below 300 km/h',
           'Gear: Extend',
           'Tailwheel: Locked',
           'H-Stab Trim: -4 to -5',
@@ -302,11 +302,11 @@ export default {
       },
       {
         text: 'End Downwind',
-        steps: ['Airspeed: 220 km/hr', 'Flaps: Extend to full'],
+        steps: ['Airspeed: 220 km/h', 'Flaps: Extend to full'],
       },
       {
         text: 'Base to final',
-        steps: ['Airspeed: 180..200 km/hr'],
+        steps: ['Airspeed: 180..200 km/h'],
       },
     ],
   },

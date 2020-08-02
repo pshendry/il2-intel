@@ -250,8 +250,8 @@ export default {
       'Tailwheel: Locked',
       'RPM: Full forward',
       'Water/Oil Radiators: Fully open',
-      '180 km/hr: Rotate',
-      'Climb: 270 km/hr',
+      '180 km/h: Rotate',
+      'Climb: 270 km/h',
     ],
     landing: [
       {
@@ -259,18 +259,18 @@ export default {
         steps: [
           'MP: 4-500 mmHG',
           'RPM: Full forward',
-          'Airspeed: Below 300 km/hr',
+          'Airspeed: Below 300 km/h',
           'Gear: Extend',
           'Water/Oil Radiators: As required',
         ],
       },
       {
         text: 'End Downwind:',
-        steps: ['Airspeed: Below 250 km/hr', 'Flaps: Extend'],
+        steps: ['Airspeed: Below 250 km/h', 'Flaps: Extend'],
       },
       {
         text: 'Base to Final:',
-        steps: ['Airspeed: 200 km/hr'],
+        steps: ['Airspeed: 200 km/h'],
       },
     ],
   },

@@ -308,7 +308,7 @@ export default {
       'Flaps: “Takeoff” position',
       'RPM: Full forward',
       'Water/Oil Radiators: Fully Open',
-      '170 km/hr: Rotate',
+      '170 km/h: Rotate',
       'Climb to 200 m AGL',
       'MP: 1.25 ATA (Climb power)',
       'RPM: 2400 (Climb power)',
@@ -321,11 +321,11 @@ export default {
       },
       {
         text: 'End Downwind',
-        steps: ['Airspeed: Below 250km/hr', 'Flaps: “Landing” position'],
+        steps: ['Airspeed: Below 250km/h', 'Flaps: “Landing” position'],
       },
       {
         text: 'Base to final',
-        steps: ['Airspeed: 190 km/hr'],
+        steps: ['Airspeed: 190 km/h'],
       },
     ],
   },

@@ -285,18 +285,18 @@ export default {
       'Flaps: 15-20°',
       'RPM: Full forward',
       'Water/Oil Radiators: Fully open',
-      '160km/hr: Rotate',
+      '160km/h: Rotate',
       'Climb to 200 m AGL',
       'RPM: 2400 (Climb power)',
       'MP: 1.25 ATA (Climb power)',
-      '200 km/hr: Retract Flaps',
-      'Climb: 200 km/hr',
+      '200 km/h: Retract Flaps',
+      'Climb: 200 km/h',
     ],
     landing: [
       {
         text: 'Downwind:',
         steps: [
-          'Airspeed: Below 200 km/hr',
+          'Airspeed: Below 200 km/h',
           'Gear: Extend',
           'Water/Oil Radiators: As required',
           'Flaps: 20°',
@@ -305,11 +305,11 @@ export default {
       },
       {
         text: 'End Downwind:',
-        steps: ['Airspeed: 180 km/hr', 'Flaps: Extend to full'],
+        steps: ['Airspeed: 180 km/h', 'Flaps: Extend to full'],
       },
       {
         text: '1 mile final',
-        steps: ['Flaps: Extend fully', 'Airspeed: 160 km/hr'],
+        steps: ['Flaps: Extend fully', 'Airspeed: 160 km/h'],
       },
     ],
   },

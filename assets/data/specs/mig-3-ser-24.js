@@ -291,8 +291,8 @@ export default {
       'Water/Oil Radiators: Fully open',
       'Rudder Trim: ¼ turn back',
       'Elevator Trim: Neutral',
-      '190 km/hr: Rotate',
-      'Climb: 290 km/hr',
+      '190 km/h: Rotate',
+      'Climb: 290 km/h',
     ],
     landing: [
       {
@@ -301,18 +301,18 @@ export default {
           'Mixture: Halfway (Auto)',
           'MP: 4-500 mmHG',
           'RPM: Full forward',
-          'Airspeed: Below 300 km/hr',
+          'Airspeed: Below 300 km/h',
           'Gear: Extend',
           'Water/Oil Radiators: As required',
         ],
       },
       {
         text: 'End Downwind',
-        steps: ['Airspeed: Below 230 km/hr', 'Flaps: Extend to full'],
+        steps: ['Airspeed: Below 230 km/h', 'Flaps: Extend to full'],
       },
       {
         text: 'Base to Final',
-        steps: ['Airspeed: 200 km/hr'],
+        steps: ['Airspeed: 200 km/h'],
       },
     ],
   },
