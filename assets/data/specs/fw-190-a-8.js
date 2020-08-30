@@ -274,6 +274,7 @@ export default {
       details: [
         'Increases pressure to 1.58 ATA (1st supercharger gear) or 1.65 ATA (2nd supercharger gear)',
         'Engaged by the boost command when throttle is full forward, auto prop pitch is engaged, and altitude is lower than the critical altitude for the supercharger gear',
+        '10 min time limit',
       ],
     },
     {
