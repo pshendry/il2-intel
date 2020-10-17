@@ -229,7 +229,7 @@ export default {
     },
     {
       feature: 'Oil & water radiator shutters',
-      details: ['Automatic / manual control'],
+      details: ['Manual control'],
     },
     {
       feature: 'Trimmers',
