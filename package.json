@@ -20,7 +20,7 @@
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.11.0",
     "js-quantities": "^1.7.5",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "nuxt": "^2.12.2"
   },
   "devDependencies": {
