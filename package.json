@@ -21,7 +21,7 @@
     "bootstrap-vue": "^2.11.0",
     "js-quantities": "^1.7.5",
     "lodash": "^4.17.19",
-    "nuxt": "^2.12.2"
+    "nuxt": "^2.15.8"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.33",
